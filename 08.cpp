@@ -7,7 +7,7 @@ using namespace std;
 int main(void)
 {
 	size_t i = 0;
-	int count = 0;;
+	int count = 0;
 	char string[30 + 1];
 	
 	cin >> string;
