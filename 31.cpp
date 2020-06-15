@@ -8,7 +8,7 @@ char carbon_and_hydrogen[1000];
 int main(void)
 {
 	// freopen("input.txt", "rt", stdin);
-    size_t i;
+    	size_t i;
 	size_t count_hydro = 0;
 	size_t count_carbon = 0;
 	size_t result = 0;
