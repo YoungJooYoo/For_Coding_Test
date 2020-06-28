@@ -11,7 +11,7 @@ int task[2000 + 1];
 
 int main(void)
 {
-    freopen("input.txt", "rt", stdin);
+    // freopen("input.txt", "rt", stdin);
     size_t n;
     size_t k;
     size_t i;
