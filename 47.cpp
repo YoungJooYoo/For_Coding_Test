@@ -48,3 +48,4 @@ int main(void)
     cout << count_peaks << endl;
     return 0;
 }
+
