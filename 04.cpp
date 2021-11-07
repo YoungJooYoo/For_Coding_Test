@@ -16,8 +16,6 @@ int main(void)
 	}
 
 	sort(age, age + n);
-	
 	cout << age[n - 1] - age[0] << endl;
-
 	return 0;
 }
