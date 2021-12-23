@@ -1,65 +1,39 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int left; 
-        int right;
-        int mid;
-        vector<int> ans(2, -1); // 길이가2인 벡터를 -1로 초기화
+        int start = 0;
+        int end = nums.size() - 1;
+        vector<int> ans(2, -1); // 길이 2의, -1로 초기화된 동적배열 생성
         
-        // ans[0] 구하기
-        left = 0;
-        right = nums.size() - 1;
-        while (left <= right) { // 2진 탐색 종료 조건
-            mid = left + (right - left) / 2;
-            if (nums[mid] < target) {
-                left = mid + 1;
-                cout << "left : " << left << endl;  
+        while (start <= end) {
+            if (nums[start] == target && nums[end] == target) {  // target을 찾은 경우
+                ans[0] = start; // 찾은 두가지 숫자가 모두 해답이므로 ans에 넣는다.
+                ans[1] = end;  
+                return ans;
             }
-            else if (nums[mid] > target) {
-                right = mid - 1;
-                cout << "right : " << right << endl;
+            else if (nums[start] != target) { //
+                start++;
             }
-            else { // nums[mid] == target, target을 찾은 경우
-                if (mid == left || nums[mid] != nums[mid - 1]){
-                    ans[0] = mid;
-                    cout << "mid : " << mid << endl;
-                    break;
-                }
-                else {
-                    right = mid - 1; // ans[0] 구하기
-                    ans[0] = mid - 1;
-                    cout << "ans[0] : " << ans[0] << endl;
-                }
-            }
-        }
-
-        // ans[1] 구하기
-        left = 0; 
-        right = nums.size() - 1;
-        while (left <= right) { // 2진 탐색 종료 조건
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < target) {
-                left = mid + 1;
-            }
-            else if (nums[mid] > target) {
-                right = mid - 1;
-            }
-            else { // nums[mid] == target, target을 찾은 경우
-                if (mid == right || nums[mid] != nums[mid + 1]){
-                    ans[1] = mid;
-                    break;
-                }
-                else {
-                    left = mid + 1; // ans[1] 구하기
-                    ans[1] = mid + 1;
-                }
-            }
+            else { // nums[end] != target
+                end--;
+            } 
         }
         
-        return ans; 
+        return ans;
+        
     }
 };
 
-// 정렬된 배열 + 찾는다 + O(log n) = 2진 탐색
-        
 
+/*
+풀이법 :
+
+정렬된 배열,
+O(log n).
+이 조건은 즉, 이진탐색을 이야기 하는 것.
+
+2진 탐색으로 풀다, 문제에서 요구하는 시간안에 끝내려면 이진 탐색이 맞으나
+트릭으로 다음과 같이 2포인트로 가능
+O(n)으로 풀어지는데, 대략 테스트 케이스가 그렇게 길지 않아서 그런 듯
+
+*/
