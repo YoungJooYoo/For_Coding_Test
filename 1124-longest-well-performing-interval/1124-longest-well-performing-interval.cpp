@@ -11,7 +11,7 @@ public:
             hours[i] = hours[i] > 8 ? 1 : -1;
             score = score + hours[i];
             if (score > 0) {
-                res = i + 1;
+                res = i + 1; // day = index + 1;
             } 
             else {
                 if (mp.find(score) == mp.end()) {
