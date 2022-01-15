@@ -13,7 +13,7 @@ public:
             if (score > 0) {
                 res = i + 1; // day = index + 1;
             } 
-            else {
+            else { // score  <= 0;
                 if (mp.find(score) == mp.end()) {
                    mp[score] = i;
                 }
