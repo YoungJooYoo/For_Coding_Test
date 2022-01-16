@@ -14,10 +14,10 @@ public:
                 res = i + 1; // day = index + 1;
             } 
             else { // score  <= 0;
-                if (mp.find(score) == mp.end()) {
-                   mp[score] = i;
+                if (mp.find(score) == mp.end()) { // 최종결과(새 최소값) score를 key로 삼아 인덱스와 매칭
+                   mp[score] = i; // match score to index after caculated.
                 }
-                if (mp.find(score - 1) != mp.end()) {
+                if (mp.find(score - 1) != mp.end()) { // 양수의 score 최초발생 지점
                     res = max(res, i - mp[score - 1]);
                 } 
             }
