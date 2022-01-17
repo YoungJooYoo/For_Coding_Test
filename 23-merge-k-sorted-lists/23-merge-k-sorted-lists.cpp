@@ -18,7 +18,7 @@ public:
 
 		sort(nums.begin(), nums.end());
 		
-		ListNode* result = new ListNode(0); // init val = 0;
+		ListNode* result = new ListNode; // init val = 0;
 		ListNode* head = result;
 		for (size_t i = 0; i < nums.size(); ++i) {  
 			result->next = new ListNode(nums[i]); 
