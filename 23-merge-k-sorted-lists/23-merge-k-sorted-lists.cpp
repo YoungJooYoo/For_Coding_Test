@@ -18,10 +18,11 @@ public:
 
 		sort(nums.begin(), nums.end());
 		
-		ListNode* result = new ListNode; // init val = 0;
+		ListNode* result = new ListNode; 
 		ListNode* head = result;
 		for (size_t i = 0; i < nums.size(); ++i) {  
-			result->next = new ListNode(nums[i]); 
+			result->next = new ListNode;
+            result->next->val = nums[i];
 			result = result->next;
 		}
         // 값이 0인 head만들고 head->next부터, 1개씩 노드 만들어가면서 val을 넣어줌
