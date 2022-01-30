@@ -5,12 +5,12 @@ public:
         int mid;
         int end = nums.size() - 1; // nums last index
         
-        while(start <= end) {
+        while (start <= end) {
             mid = start + (end - start) / 2; // or //mid = (start + end) / 2;
-            if(nums[mid] == target) {
+            if (nums[mid] == target) {
                 return mid;
             }
-            if(nums[mid] >= nums[start]) {
+            if (nums[mid] >= nums[start]) {
                 //left half is sorted
                 if (target >= nums[start] && target < nums[mid]) {
                     end = mid - 1;
