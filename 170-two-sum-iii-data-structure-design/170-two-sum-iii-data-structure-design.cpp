@@ -1,21 +1,23 @@
 class TwoSum {
 public:
-    /** Initialize your data structure here. */
-    TwoSum() {
-        
-    }
-    multiset<long> s;
-    /** Add the number to an internal data structure.. */
-    void add(int number) {
-        s.insert(number);
+    TwoSum() {}
+    
+    void add(int number) 
+    {
+        nums.insert(number);
     }
     
     /** Find if there exists any pair of numbers which sum is equal to the value. */
-    bool find(int value) {
-        for(auto it = s.begin(); it != s.end();it++) {
-            auto ptr = s.find(value - *it);
-            if(ptr != s.end() && ptr != it )return true;
+    bool find(int value)
+    {
+        for (auto it = nums.begin(); it != nums.end(); it++) {
+            auto ptr = nums.find(value - *it);
+            if(ptr != nums.end() && ptr != it )return true;
         }
+        
         return false;
     }
+    
+    private:
+    multiset<long> nums; // 중복이 허용되는 자료구조 set
 };
