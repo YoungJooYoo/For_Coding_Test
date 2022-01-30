@@ -11,10 +11,10 @@ public:
             if (num[start] < num[end]) {
                 return num[start];
             }
-            if (num[mid]>=num[start]) {
-                start = mid+1;
+            if (num[mid] >= num[start]) {
+                start = mid + 1;
             } 
-            else {
+            else { // num[mid] < num[start]
                 end = mid;
             }
         }
