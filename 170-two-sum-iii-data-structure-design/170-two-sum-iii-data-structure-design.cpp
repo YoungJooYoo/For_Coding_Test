@@ -10,9 +10,11 @@ public:
     /** Find if there exists any pair of numbers which sum is equal to the value. */
     bool find(int value)
     {
-        for (auto it = nums.begin(); it != nums.end(); it++) {
-            auto ptr = nums.find(value - *it);
-            if(ptr != nums.end() && ptr != it )return true;
+        for (auto itr = nums.begin(); itr != nums.end(); itr++) {
+            auto ptr = nums.find(value - *itr);
+            if (ptr != nums.end() && ptr != itr) {
+                return true;
+            }
         }
         
         return false;
