@@ -10,7 +10,7 @@ public:
         ans_head->next = head;
         ListNode* curr = ans_head;
         
-        while (curr->next != nullptr && curr->next->next) {
+        while (curr->next != nullptr && curr->next->next != nullptr) {
             if (curr->next->val == curr->next->next->val) {
                 int value = curr->next->val;
                 while (curr->next != nullptr && curr->next->val == value) {
