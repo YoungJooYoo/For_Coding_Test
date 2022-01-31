@@ -4,27 +4,27 @@ public:
         if(head == NULL or head->next == NULL){
             return head;
         }
-        ListNode * temp = head;
-        ListNode * prev = new ListNode;
-        ListNode * head1 = prev;
+        ListNode* curr = head;
+        ListNode* prev = new ListNode;
+        ListNode* ans_head = prev;
         prev->next = head;
         int find = head->val;
         
-        while (temp != NULL) {
-            if (temp != NULL and temp->next != NULL and temp->val == temp->next->val) {
-                while (temp != NULL and temp->next != NULL and temp->val == temp->next->val) {
-                    temp = temp->next;
+        while (curr != NULL) {
+            if (curr != NULL and curr->next != NULL and curr->val == curr->next->val) {
+                while (curr != NULL and curr->next != NULL and curr->val == curr->next->val) {
+                    curr = curr->next;
                 }
-                prev->next = temp->next;
-                temp = prev->next;
+                prev->next = curr->next;
+                curr = prev->next;
             }
             else {
                 prev = prev->next;
-                temp = temp->next;
+                curr = curr->next;
                 
             }
         }
         
-        return head1->next;
+        return ans_head->next;
     }
 };
