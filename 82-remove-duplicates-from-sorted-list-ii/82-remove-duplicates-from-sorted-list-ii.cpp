@@ -11,12 +11,12 @@ public:
         ListNode* curr = ans_head;
         
         while (curr->next != nullptr && curr->next->next != nullptr) {
-            if (curr->next->val == curr->next->next->val) {
+            if (curr->next->val == curr->next->next->val) { // 문제에서 원하는 조건, 이전노드와 다음노드의 value 가 같은경우
                 int value = curr->next->val;
                 while (curr->next != nullptr && curr->next->val == value) {
-                    ListNode* temp = curr->next;
-                    curr->next = curr->next->next;
-                    delete(temp);
+                    ListNode* temp = curr->next; // 필요없는 노드를 삭제하기 위한 변수
+                    curr->next = curr->next->next; // 계속 노드의 다음다음으로 이동한다.
+                    delete(temp); // 중복되는 값을 가진 노드는 삭제한다.
                 }
             }   
             else { // val값이 서로 같지 않다면 그냥 다음 노르도 이동
