@@ -6,9 +6,9 @@ public:
             return head;
         }
             
-        ListNode* dummy = new ListNode;
-        dummy->next = head;
-        ListNode* cur = dummy;
+        ListNode* ans_head = new ListNode;
+        ans_head->next = head;
+        ListNode* cur = ans_head;
         
         while (cur->next != nullptr && cur->next->next) {
             if (cur->next->val == cur->next->next->val) {
@@ -24,7 +24,7 @@ public:
             }
         }
 
-        return dummy->next;
+        return ans_head->next;
     }
 };
 
