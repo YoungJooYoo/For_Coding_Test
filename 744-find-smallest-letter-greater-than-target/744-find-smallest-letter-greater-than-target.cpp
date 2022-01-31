@@ -6,17 +6,17 @@ public:
         int end = letters.size() - 1;
         int mid;
         
-        while (start < end) {
-            mid = start + (end -start) / 2;
+        while (start <= end) {
+            mid = start + (end -start) / 2; // or mid = (start + end) / 2;
             if (letters[mid] <= target) {
                 start = mid + 1;
             }
             else { // letters[mid] > target
-                end = mid;
+                end = mid -1;
             }
         }
         
-        if(letters[start] > target){
+        if (letters[start] > target){
 			return letters[start];
 		}
         
