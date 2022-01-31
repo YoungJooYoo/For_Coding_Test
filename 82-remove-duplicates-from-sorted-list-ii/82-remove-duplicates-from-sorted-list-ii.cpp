@@ -6,7 +6,7 @@ public:
         ListNode* cur = dummy;
         int duplicate;
         
-        while (cur->next != nullptr && cur->next->next) {
+        while (cur->next != nullptr && cur->next->next != nullptr) {
             if (cur->next->val == cur->next->next->val) {
                 duplicate = cur->next->val;
                 while (cur->next != nullptr && cur->next->val == duplicate) {
