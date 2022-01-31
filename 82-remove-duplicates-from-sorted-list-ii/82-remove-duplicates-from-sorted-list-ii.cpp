@@ -8,19 +8,19 @@ public:
             
         ListNode* ans_head = new ListNode;
         ans_head->next = head;
-        ListNode* cur = ans_head;
+        ListNode* curr = ans_head;
         
-        while (cur->next != nullptr && cur->next->next) {
-            if (cur->next->val == cur->next->next->val) {
-                int d = cur->next->val;
-                while (cur->next != nullptr && cur->next->val==d) {
-                    ListNode* temp = cur->next;
-                    cur->next = cur->next->next;
+        while (curr->next != nullptr && curr->next->next) {
+            if (curr->next->val == curr->next->next->val) {
+                int value = curr->next->val;
+                while (curr->next != nullptr && curr->next->val == value) {
+                    ListNode* temp = curr->next;
+                    curr->next = curr->next->next;
                     delete(temp);
                 }
             }   
-            else {
-                cur = cur->next; 
+            else { // val값이 서로 같지 않다면 그냥 다음 노르도 이동
+                curr = curr->next; 
             }
         }
 
