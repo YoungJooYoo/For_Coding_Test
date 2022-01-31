@@ -1,12 +1,31 @@
-/**
- * // This is the ArrayReader's API interface.
- * // You should not implement it, or speculate about its implementation
- * class ArrayReader {
- *   public:
- *     int get(int index);
- * };
- */
+class Solution {
+public:
+    int search(const ArrayReader& reader, int target) 
+    {
+        int start = 0;
+        int end = 9999; // 문제 조건 길이가 최대 10000이므로 0 ~ 9999 범위가 배열의 최대 길이다.
+        int mid;
+        
+        while (start <= end) {
+            int mid = start + (end - start);
+            // int mid = (start + end) / 2;
+            if (reader.get(mid) == target) {
+                return mid;
+            }
+            else if (reader.get(mid) < target) {
+                start = mid + 1;
+            }
+            else { // reader.get(mid) > target
+                end = mid - 1;
+            }
+        }
+        
+        return -1;
+    }
+};
 
+/* easy solution */
+/*
 class Solution {
 public:
     int search(const ArrayReader& reader, int target) 
@@ -24,3 +43,4 @@ public:
         return -1;
     }
 };
+*/
