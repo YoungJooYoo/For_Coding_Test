@@ -5,10 +5,11 @@ public:
         dummy->next = head;
         ListNode* cur = dummy;
         int duplicate;
-        while (cur->next && cur->next->next) {
+        
+        while (cur->next != nullptr && cur->next->next) {
             if (cur->next->val == cur->next->next->val) {
                 duplicate = cur->next->val;
-                while (cur->next && cur->next->val == duplicate) {
+                while (cur->next != nullptr && cur->next->val == duplicate) {
                     cur->next = cur->next->next;
                 }
             }
@@ -16,6 +17,7 @@ public:
                 cur = cur->next;
             }
         }
+        
         return dummy->next;
     }
 };
