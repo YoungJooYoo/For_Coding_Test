@@ -12,8 +12,8 @@ public:
         
         while (curr->next != nullptr && curr->next->next != nullptr) {
             if (curr->next->val == curr->next->next->val) { // 문제에서 원하는 조건, 이전노드와 다음노드의 value 가 같은경우
-                int value = curr->next->val;
-                while (curr->next != nullptr && curr->next->val == value) {
+                int duplicate_value = curr->next->val; // 중복된 값이 나오는 최초 지점을 미리 저장한다.
+                while (curr->next != nullptr && curr->next->val == duplicate_value) {
                     ListNode* temp = curr->next; // 필요없는 노드를 삭제하기 위한 변수
                     curr->next = curr->next->next; // 계속 노드의 다음다음으로 이동한다.
                     delete(temp); // 중복되는 값을 가진 노드는 삭제한다.
