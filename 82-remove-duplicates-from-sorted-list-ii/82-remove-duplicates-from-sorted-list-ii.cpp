@@ -10,15 +10,15 @@ public:
         prev->next = head;
         int find = head->val;
         
-        while(temp != NULL){
-            if(temp != NULL and temp->next != NULL and temp->val == temp->next->val){
-                while(temp != NULL and temp->next != NULL and temp->val == temp->next->val){
+        while (temp != NULL) {
+            if (temp != NULL and temp->next != NULL and temp->val == temp->next->val) {
+                while (temp != NULL and temp->next != NULL and temp->val == temp->next->val) {
                     temp = temp->next;
                 }
                 prev->next = temp->next;
                 temp = prev->next;
             }
-            else{
+            else {
                 prev = prev->next;
                 temp = temp->next;
                 
