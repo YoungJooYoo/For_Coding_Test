@@ -1,12 +1,15 @@
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        if(head == NULL or head->next == NULL){
+    ListNode* deleteDuplicates(ListNode* head) 
+    {
+        if (head == NULL or head->next == NULL) {
             return head;
         }
+        
         ListNode* curr = head;
         ListNode* prev = new ListNode;
         ListNode* ans_head = prev;
+        
         prev->next = head;
         int find = head->val;
         
