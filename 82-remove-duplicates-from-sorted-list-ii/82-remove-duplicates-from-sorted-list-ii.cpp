@@ -10,10 +10,10 @@ public:
         dummy->next = head;
         ListNode* cur = dummy;
         
-        while (cur->next && cur->next->next) {
-            if(cur->next->val==cur->next->next->val) {
+        while (cur->next != nullptr && cur->next->next) {
+            if (cur->next->val == cur->next->next->val) {
                 int d = cur->next->val;
-                while (cur->next && cur->next->val==d) {
+                while (cur->next != nullptr && cur->next->val==d) {
                     ListNode* temp = cur->next;
                     cur->next = cur->next->next;
                     delete(temp);
