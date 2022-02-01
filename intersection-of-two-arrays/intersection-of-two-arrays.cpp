@@ -8,7 +8,7 @@ public:
             
         for (size_t i = 0; i < nums1_length; i++) {
             for (size_t j = 0; j < nums2_length; j++) {
-                if (nums1[i]== nums2[j] && check[nums1[i]] == 0) {
+                if (nums1[i] == nums2[j] && check[nums1[i]] == 0) {
                     check[nums1[i]] = 1;
                     result.push_back(nums1[i]);
                 }
