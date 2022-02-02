@@ -21,7 +21,7 @@ public:
                     temp = temp->left; // 당장 right노드가 없다면 왼쪽노드 끝까지 탐색, 마지막 노드의 오른쪽 값이 value 
                 }
                 root->val = temp->val; // key를 가진 node에, 찾아낸 key node->val보다 크지만 최소값을 넣는다.
-                root->right = deleteNode(root->right,root->val);
+                root->right = deleteNode(root->right, root->val);
             }
         }
         else { // key를 찾지 못한경우 계속 탐색
