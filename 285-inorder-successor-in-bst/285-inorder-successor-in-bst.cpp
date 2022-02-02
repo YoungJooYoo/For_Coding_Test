@@ -14,9 +14,11 @@ public:
         TreeNode* candidate = nullptr;
         TreeNode* curr = root;
         
+        /* BST는 크기에 따라 이미 좌우로 정렬 되있으므로, 
+        p->val 값이 root의 기준보다 크고 작은지에 따라 오른쪽 왼쪽으로 경로를 나누어준다 */
         while (curr != nullptr) {
             if (p->val < curr->val) {
-              candidate = curr;
+              candidate = curr; // 타겟은 중위후속자를 찾는 것이므로 왼쪽을 탐색하다가 나오면 답이된다.
               curr = curr->left;
             } 
             else { // p->val >= curr->val
