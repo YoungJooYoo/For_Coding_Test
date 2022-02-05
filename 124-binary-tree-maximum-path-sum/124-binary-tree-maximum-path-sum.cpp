@@ -1,4 +1,3 @@
-int aaa[4000];
 class Solution {
 public:
     int dfs(TreeNode* root)
