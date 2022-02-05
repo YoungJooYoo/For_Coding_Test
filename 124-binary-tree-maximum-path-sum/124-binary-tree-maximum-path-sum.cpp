@@ -1,3 +1,4 @@
+vector<int> sss(10000000);
 class Solution {
 public:
     int dfs(TreeNode* root)
