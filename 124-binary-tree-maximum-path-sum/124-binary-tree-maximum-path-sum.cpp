@@ -6,7 +6,6 @@ public:
             return 0;
         }
         
-        //int aaa[40000];
         int left_sum = max(dfs(root->left), 0);
         int right_sum = max(dfs(root->right), 0);
             
