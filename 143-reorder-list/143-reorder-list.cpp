@@ -25,6 +25,7 @@ public:
             i++;
             j--;
         }
+        nums.clear();
         
         return;
     }
