@@ -15,7 +15,7 @@ public:
                 i++;
             }
             peak = prices[i];
-            profit += peak - valley;
+            profit = profit + peak - valley;
         }
         
         return profit;
