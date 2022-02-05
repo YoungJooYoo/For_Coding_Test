@@ -11,7 +11,7 @@ public:
                 i++;
             }
             valley = prices[i];
-            while (i<prices.size() - 1 && prices[i] <= prices[i + 1]) {
+            while (i < prices.size() - 1 && prices[i] <= prices[i + 1]) {
                 i++;
             }
             peak = prices[i];
