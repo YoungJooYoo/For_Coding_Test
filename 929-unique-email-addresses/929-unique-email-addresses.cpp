@@ -11,7 +11,7 @@ public:
                     break;
                 }
                 if (ch == '.') {
-                    continue;
+                    continue; // /. 은패스
                 }
                 temp_email = temp_email + ch;
             }
