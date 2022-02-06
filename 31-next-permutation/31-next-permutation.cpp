@@ -1,8 +1,7 @@
 class Solution {
 public:
-    void nextPermutation(vector<int>& nums) {
-	    // Optimal Solution Time O(N) & Auxiliary Space O(1)
-	    // Inbuilt Function
+    void nextPermutation(vector<int>& nums) 
+    {
         next_permutation(nums.begin(),nums.end());
     }
 };
