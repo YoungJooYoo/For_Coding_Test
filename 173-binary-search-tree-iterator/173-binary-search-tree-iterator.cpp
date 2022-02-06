@@ -13,9 +13,7 @@ public:
     
     bool hasNext() 
     {
-        // 노드가 한칸씩 이동하게 만들어야한다.
-    
-        if (i < nums.size()) {
+        if (i < nums.size()) { // 배열의 마지막이 넘어가면 flase다. 노드 끝으로 간주
             return true;
         }
         else {
