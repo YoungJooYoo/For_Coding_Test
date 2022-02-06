@@ -6,16 +6,16 @@ public:
 
         for (const string& email : emails) {
             string temp_email;
-            for (const char& c : email) {
-                if (c == '+' or c == '@') {
+            for (const char& ch : email) {
+                if (ch == '+' or ch == '@') {
                     break;
                 }
-                if (c == '.') {
+                if (ch == '.') {
                     continue;
                 }
-                temp_email = temp_email + c;
+                temp_email = temp_email + ch;
             }
-            temp_email = temp_email + email.substr(email.find('@'));
+            temp_email = temp_email + email.substr(email.find('@')); // @찾은시점부터 뒤까지 문자열 반환
             map.insert(temp_email);
         }
         
