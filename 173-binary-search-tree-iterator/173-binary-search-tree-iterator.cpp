@@ -2,7 +2,6 @@ class BSTIterator {
 public:
     BSTIterator(TreeNode* root) 
     {
-        curr = root;
         dfs(root);
     }
     
@@ -15,9 +14,6 @@ public:
     {
         if (i < nums.size()) { // 배열의 마지막이 넘어가면 flase다. 노드 끝으로 간주
             return true;
-        }
-        else {
-            return false;
         }
         
         return false;
@@ -34,7 +30,6 @@ public:
     }
      
 private:
-    TreeNode* curr;
     vector<int> nums;
     size_t i = 0;
 };
