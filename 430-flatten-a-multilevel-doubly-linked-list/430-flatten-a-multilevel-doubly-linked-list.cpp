@@ -3,8 +3,8 @@ public:
     Node* flatten(Node* head) 
     {
         Node* next;
-        Node* p
-            ;
+        Node* p;
+        
         for (Node* curr = head; curr != nullptr; curr = curr->next) {
             if (curr->child) { // child node에 다음 노드가 있는지 먼저 찾는다.
                 next = curr->next; // 
