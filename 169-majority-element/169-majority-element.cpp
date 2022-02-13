@@ -12,7 +12,7 @@ public:
         }
         
         // 숫자-카운팅갯수  묶여있어서, 카운팅 갯수가 n/2인 것을 찾으면 숫자를 반환
-        for (auto num : mp) {
+        for (const auto& num : mp) {
             if (num.second > n / 2) {
                 count = num.first;
             }
