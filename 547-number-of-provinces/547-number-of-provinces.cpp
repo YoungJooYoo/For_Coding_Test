@@ -1,7 +1,8 @@
 class UnionFind {
 public:
-    UnionFind(int sz) : root(sz), rank(sz), count(sz) {
-        for (int i = 0; i < sz; i++) {
+    UnionFind(int sz) : root(sz), rank(sz), count(sz) 
+    {
+        for (size_t i = 0; i < sz; i++) {
             root[i] = i;
             rank[i] = 1;
         }
@@ -14,7 +15,8 @@ public:
         return root[x] = find(root[x]);
     }
 
-    void unionSet(int x, int y) {
+    void unionSet(int x, int y) 
+    {
         int rootX = find(x);
         int rootY = find(y);
         if (rootX != rootY) {
@@ -30,7 +32,8 @@ public:
         }
     }
 
-    int getCount() {
+    int getCount() 
+    {
         return count;
     }
 
@@ -42,14 +45,15 @@ private:
 
 class Solution {
 public:
-    int findCircleNum(vector<vector<int>>& isConnected) {
+    int findCircleNum(vector<vector<int>>& isConnected) 
+    {
         if (isConnected.size() == 0) {
             return 0;
         }
         int n = isConnected.size();
         UnionFind uf(n);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (size_t i = 0; i < n; i++) {
+            for (size_t j = 0; j < n; j++) {
                 if (isConnected[i][j] == 1) {
                     uf.unionSet(i, j);
                 }
