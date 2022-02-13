@@ -1,8 +1,8 @@
 class UnionFind {
 public:
-    UnionFind(int sz) : root(sz), rank(sz), count(sz) 
+    UnionFind(int size) : root(size), rank(size), count(size) 
     {
-        for (size_t i = 0; i < sz; i++) {
+        for (size_t i = 0; i < size; i++) {
             root[i] = i;
             rank[i] = 1;
         }
@@ -12,6 +12,7 @@ public:
         if (x == root[x]) {
             return x;
         }
+        
         return root[x] = find(root[x]);
     }
 
@@ -19,6 +20,7 @@ public:
     {
         int rootX = find(x);
         int rootY = find(y);
+        
         if (rootX != rootY) {
             if (rank[rootX] > rank[rootY]) {
                 root[rootY] = rootX;
@@ -50,8 +52,10 @@ public:
         if (isConnected.size() == 0) {
             return 0;
         }
+        
         int n = isConnected.size();
         UnionFind uf(n);
+        
         for (size_t i = 0; i < n; i++) {
             for (size_t j = 0; j < n; j++) {
                 if (isConnected[i][j] == 1) {
@@ -59,6 +63,7 @@ public:
                 }
             }
         }
+        
         return uf.getCount();
     }
 };
