@@ -12,7 +12,7 @@ public:
         if (x == root[x]) {
             return x;
         }
-        
+  
         return root[x] = find(root[x]);
     }
 
