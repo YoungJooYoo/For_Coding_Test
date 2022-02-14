@@ -3,7 +3,7 @@ public:
     bool isLeaf(TreeNode* root){
         return root->left == nullptr && root->right == nullptr;
     }
-    TreeNode* dfs(TreeNode* root, vector<int> &v, vector<vector<int>> ans){
+    TreeNode* dfs(TreeNode* root, vector<int> &v, vector<vector<int>>& ans){
         if(root == nullptr)
             return root;
         if(isLeaf(root)){
