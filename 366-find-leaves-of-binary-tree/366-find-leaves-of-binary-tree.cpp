@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isLeaf(TreeNode* root){
-        return root->left == nullptr && root->right == nullptr;
+        return root->left == nullptr && root->right == nullptr ? true : false;
     }
     
     TreeNode* dfs(TreeNode* root, vector<int>& v, vector<vector<int>>& ans) 
@@ -27,7 +27,7 @@ public:
         vector<int> v;
         
         while (root != nullptr) {
-            root = dfs(root,v,ans);
+            root = dfs(root, v, ans);
             ans.push_back(v);
             v.clear();
         }
