@@ -15,8 +15,8 @@ public:
             return nullptr;
         }
         
-        root->left = dfs(root->left,v,ans);
-        root->right = dfs(root->right,v,ans);
+        root->left = dfs(root->left, v, ans);
+        root->right = dfs(root->right, v, ans);
         
         return root;
     }
