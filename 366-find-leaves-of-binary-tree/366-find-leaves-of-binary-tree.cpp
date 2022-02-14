@@ -7,7 +7,7 @@ public:
     TreeNode* dfs(TreeNode* root, vector<int>& v, vector<vector<int>>& ans) 
     {
         if (root == nullptr) {
-            return root;
+            return nullptr;
         }
         
         if (isLeaf(root)) {
