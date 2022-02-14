@@ -26,7 +26,7 @@ public:
     vector<vector<int>> findLeaves(TreeNode* root) 
     {
         while (root != nullptr) {
-            root = dfs(root);
+            root = dfs(root); // 최종적으로 트리의 시작점 즉 root도 null로 만들어 탐색을 끝낸다.
             ans.push_back(temp);
             temp.clear();
         }
