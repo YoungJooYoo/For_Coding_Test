@@ -4,34 +4,36 @@ public:
         return (root->left == nullptr && root->right == nullptr) ? true : false;
     }
     
-    TreeNode* dfs(TreeNode* root, vector<int>& v, vector<vector<int>>& ans) 
+    TreeNode* dfs(TreeNode* root) 
     {
         if (root == nullptr) {
             return nullptr;
         }
         
         if (isLeaf(root)) {
-            v.push_back(root->val);
+            temp.push_back(root->val);
             return nullptr;
         }
         
-        root->left = dfs(root->left, v, ans);
-        root->right = dfs(root->right, v, ans);
+        root->left = dfs(root->left);
+        root->right = dfs(root->right);
         
         return root;
     }
     
     vector<vector<int>> findLeaves(TreeNode* root) 
     {
-        vector<vector<int> > ans;
-        vector<int> v;
-        
         while (root != nullptr) {
-            root = dfs(root, v, ans);
-            ans.push_back(v);
-            v.clear();
+            root = dfs(root);
+            ans.push_back(temp);
+            temp.clear();
         }
         
         return ans;
     }
+    
+private:
+    vector<vector<int>> ans;
+    vector<int> temp;
+    
 };
