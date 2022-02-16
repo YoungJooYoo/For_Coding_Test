@@ -1,6 +1,6 @@
 class Solution {
 public:
-bool count_unival_subtrees_recursive(TreeNode* root, int& count)
+    bool count_unival_subtrees_recursive(TreeNode* root, int& count)
     {
         if(root == NULL) {
             return true;
