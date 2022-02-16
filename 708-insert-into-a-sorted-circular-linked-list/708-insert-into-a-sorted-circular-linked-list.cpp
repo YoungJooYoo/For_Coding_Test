@@ -13,7 +13,7 @@ public:
         
         while (curr->next != nullptr && next != head) {
             // curr->val < insertVal < next->val 인경우
-            if (curr->val < insertVal && insertVal <= next->val) {
+            if (curr->val <= insertVal && insertVal <= next->val) {
                 break;
             }
             // 리스트의 최대값과 최소값 경계 사이의 값이 들어온 경우
