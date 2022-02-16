@@ -2,11 +2,23 @@ class Solution {
 public:
     int findMin(vector<int>& nums) 
     {
-        if (nums.size() == 0) {
-            return 0;
-        }
+        int low=0;
+        int high=nums.size()-1;
         
-        sort(begin(nums), end(nums));
-        return nums[0];
+        while(low<high){
+            int mid=low+(high-low)/2;
+            cout << mid << endl;
+            
+            if(nums[mid]<nums[high]){
+                high=mid;
+            }
+            else if(nums[mid]>nums[high]){
+                low=mid+1;
+            }
+            else{
+                high--;
+            }
+        }
+        return nums[low];
     }
 };
