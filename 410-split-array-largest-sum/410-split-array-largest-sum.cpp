@@ -5,6 +5,7 @@ public:
         if(nums.empty() || m == 0) {
             return 0;
         }
+        
         size_t left = 0;
         size_t right = 0;
         
@@ -19,7 +20,7 @@ public:
             return right; //edge case
         }
         
-        while (left < right)  {//modified binary search w/ search space b/w highestnum...totalsum
+        while (left < right)  { //modified binary search w/ search space b/w highestnum...totalsum
             size_t mid = (left + right) / 2;
             size_t curr_bagsize = 0, curr_m = 1;
             
