@@ -22,14 +22,15 @@ public:
         
         while (left < right)  { //modified binary search w/ search space b/w highestnum...totalsum
             size_t mid = (left + right) / 2;
-            size_t curr_bagsize = 0, curr_m = 1;
+            size_t curr_bagsize = 0;
+            size_t curr_m = 1;
             
-            for (auto n : nums) {
-                if (curr_bagsize + n > mid) { //bag m is full, try the next bag now
+            for (const int& num : nums) {
+                if (curr_bagsize + num > mid) { //bag m is full, try the next bag now
                     curr_m++; 
                     curr_bagsize = 0;
                 }
-                curr_bagsize += n;
+                curr_bagsize = curr_bagsize + num;
             } 
             if(curr_m > m) //we need a bigger bag size if curr_m > m
                 left = mid + 1;
