@@ -5,7 +5,8 @@ public:
         if(nums.empty() || m == 0) {
             return 0;
         }
-        size_t left = 0, right = 0;
+        size_t left = 0;
+        size_t right = 0;
         
         for (size_t n : nums) {
             left = max(left, n); //highest number i.e the max it'll go incase of m==nums.size()
