@@ -23,3 +23,9 @@ public:
         return (helper(s, t) && helper(t, s)) ? true : false;
     }
 };
+
+/*
+풀이법 :
+해시맵을 이용해 저장
+find 함수를 이용해 순서를 확인한다.
+*/
