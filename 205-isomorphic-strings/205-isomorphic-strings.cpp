@@ -3,7 +3,6 @@ public:
     bool helper(string s, string t) 
     {
         unordered_map<char, char> mp;
-        //map<char, char> mp;
         
         for (size_t i = 0; i < s.size(); i++) {
             if (mp.find(s[i]) != mp.end()) {  // s[i]가 이미 존재한다면,
@@ -21,8 +20,6 @@ public:
     
     bool isIsomorphic(string s, string t) 
     {
-        cout << helper(s, t) << endl;
-        cout << helper(t, s) << endl;
         return (helper(s, t) && helper(t, s)) ? true : false;
     }
 };
