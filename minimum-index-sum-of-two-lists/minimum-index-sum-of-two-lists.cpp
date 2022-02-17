@@ -5,17 +5,17 @@ public:
         unordered_map<string, int> map;
         int mini = INT_MAX;
         
-        for(int i=0; i<list1.size(); i++){
+        for(int i = 0; i < list1.size(); i++){
             map[list1[i]] = i;
         }
-        for(int i=0; i < list2.size(); i++){
+        for(int i = 0; i < list2.size(); i++){
             if (map.find(list2[i]) != map.end()){
-                if (map[list2[i]]+i < mini){
-                    mini = map[list2[i]]+i;
+                if (map[list2[i]] + i < mini){
+                    mini = map[list2[i]] + i;
                     ans.clear();
                     ans.push_back(list2[i]);
                 }
-                else if (map[list2[i]]+i == mini){
+                else if (map[list2[i]] + i == mini){
                     ans.push_back(list2[i]);
                 }
             }
