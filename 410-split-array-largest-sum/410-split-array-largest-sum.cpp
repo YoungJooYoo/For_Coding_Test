@@ -9,9 +9,10 @@ public:
         size_t left = 0;
         size_t right = 0;
         
+        // left는 가장 작은 min_sum, right는 max_sum
         for (size_t num : nums) {
-            left = max(left, num); //highest number i.e the max it'll go incase of m==nums.size()
-            right = right + num; //total sum i.e the max it can go incase of m==1
+            left = max(left, num); // 배열의 가장 큰 값highest number i.e the max it'll go incase of m==nums.size()
+            right = right + num; // 배열의 총합total sum i.e the max it can go incase of m==1
         }
         if (m == nums.size()) {
             return left; //edge case
