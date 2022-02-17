@@ -8,9 +8,9 @@ public:
         size_t left = 0;
         size_t right = 0;
         
-        for (size_t n : nums) {
-            left = max(left, n); //highest number i.e the max it'll go incase of m==nums.size()
-            right += n; //total sum i.e the max it can go incase of m==1
+        for (size_t num : nums) {
+            left = max(left, num); //highest number i.e the max it'll go incase of m==nums.size()
+            right = right + num; //total sum i.e the max it can go incase of m==1
         }
         if (m == nums.size()) {
             return left; //edge case
