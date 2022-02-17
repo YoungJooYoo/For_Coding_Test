@@ -26,7 +26,7 @@ public:
             size_t curr_m = 1;
             
             for (const int& num : nums) {
-                if (curr_bagsize + num > mid) { //bag m is full, try the next bag now
+                if (curr_bagsize + num > mid) { // bag m is full, try the next bag now
                     curr_m++; 
                     curr_bagsize = 0;
                 }
