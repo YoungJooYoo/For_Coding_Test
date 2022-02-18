@@ -12,8 +12,8 @@ public:
             m[k].push_back(str);            
         }
         
-        for (const auto& [k, v] : m) { 
-            res.emplace_back(v);
+        for (const auto& [key, value] : m) { 
+            res.emplace_back(value);
         }
         
         return res;
