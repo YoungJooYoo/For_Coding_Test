@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<string>> groupStrings(vector<string>& strings) {
-        vector<vector<string> > res;
+        vector<vector<string>> res;
         unordered_map<string, vector<string>> m;
         
         for (const auto& str : strings) {
