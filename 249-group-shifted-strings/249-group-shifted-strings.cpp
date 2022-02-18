@@ -12,7 +12,7 @@ public:
             m[k].push_back(str);            
         }
         
-        for (const auto& [k, v]: m) { 
+        for (const auto& [k, v] : m) { 
             res.emplace_back(v);
         }
         
