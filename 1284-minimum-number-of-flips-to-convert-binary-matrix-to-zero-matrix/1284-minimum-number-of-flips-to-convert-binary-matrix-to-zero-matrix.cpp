@@ -1,4 +1,4 @@
-#define COUNT_MAX (100)
+#define COUNT_MAX (10)
 class Solution {
 public:
     vector<vector<int>>& flip(vector<vector<int>>& mat, int y, int x) 
@@ -29,16 +29,19 @@ public:
 
     int FlipOrNotFlip(vector<vector<int>> mat, int y, int x) 
     {
-        if (x == m) { // 행의 끝값에 도착
+        count++;
+        if (x == m) { // 행의 끝값에 도착, 행의시작 열 다시 탐색
             y++; 
             x = 0;
         }
-        if (y == n) { // 열의 끝값에 도착한 경우
+        if (y == n) { // 열의 끝값에 도착한 경우 전체탐색이 끝나면 행렬이 0인지 아닌지에 따라
             return isZeroMat(mat) ? 0 : COUNT_MAX; // 왜?? 100000
         }
 
-        int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip전에 flip할 범위를 
-        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; //플립 후 +1씩 플립 횟수를 누적
+        int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip을 하지 않은 경우의 수
+        cout << "ret1 : " << ret1 << endl;
+        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; //플립 후, +1씩 플립 횟수를 누적
+        cout << "ret2 : " << ret2 << endl;
         
         return min(ret1, ret2);
     }
@@ -55,4 +58,5 @@ public:
 private: 
     int n;
     int m;
+    int count = 0;
 };
