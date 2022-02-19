@@ -45,8 +45,8 @@ public:
 
     int minFlips(vector<vector<int>>& mat) 
     {
-        n = mat.size();
-        m = mat[0].size();
+        n = mat.size(); // y에 대응
+        m = mat[0].size(); // x에 대응
         int ret = FlipOrNotFlip(mat, 0, 0);
         
         return ret >= 10000 ? -1 : ret;
