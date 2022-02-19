@@ -12,11 +12,11 @@ public:
             for (size_t j = 0; j < col; j++) { 
                 dp[j] += points[i][j];
             }
-            for (int j = col - 2; j >= 0; j--) {
-                dp[j] = max(dp[j], dp[j + 1] - 1);
-            }
             for (size_t j = 1; j < col; j++){
                 dp[j] = max(dp[j], dp[j - 1] - 1);
+            }
+            for (int j = col - 2; j >= 0; j--) {
+                dp[j] = max(dp[j], dp[j + 1] - 1);
             }
             
         }
