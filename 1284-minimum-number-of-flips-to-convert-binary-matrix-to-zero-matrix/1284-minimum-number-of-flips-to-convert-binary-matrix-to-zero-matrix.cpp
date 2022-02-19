@@ -36,8 +36,8 @@ public:
             return isZeroMat(mat) ? 0:10000;
         }
 
-        int ret1 = FlipOrNotFlip(mat, y, x+1);
-        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x+1) + 1;
+        int ret1 = FlipOrNotFlip(mat, y, x + 1);
+        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1;
         
         return min(ret1, ret2);
     }
