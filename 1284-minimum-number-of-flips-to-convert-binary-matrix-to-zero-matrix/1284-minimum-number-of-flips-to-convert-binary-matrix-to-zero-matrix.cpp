@@ -33,7 +33,7 @@ public:
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우
-            return isZeroMat(mat) ? 0 : 100000; // 왜?? 100000
+            return isZeroMat(mat) ? 0 : 10000; // 왜?? 100000
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip전에 flip할 범위를 
@@ -48,7 +48,7 @@ public:
         m = mat[0].size(); // x에 대응
         int ret = FlipOrNotFlip(mat, 0, 0);
         
-        return ret >= 100000 ? -1 : ret;
+        return ret >= 10000 ? -1 : ret;
     }
     
 private: 
