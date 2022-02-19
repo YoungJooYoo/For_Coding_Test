@@ -1,72 +1,53 @@
 class Solution {
 public:
-    int row;
-    int col;
-    
-    int minFlips(vector<vector<int>>& mat) {
-        row = mat.size();
-        col = mat[0].size();
-        unordered_set<string> s;
-        queue<pair<vector<vector<int>>,int>> q; // mat, age
-        q.push({mat,0});
-
-        while(!q.empty()){
-            auto pair = q.front();q.pop();
-            vector<vector<int>> v = pair.first;
-            int age = pair.second;
-            string matStr = toString(v);
-
-            if(s.find(matStr) != s.end()) continue;
-            s.insert(matStr);
-         
-            if(isZeroMatrix(v)) return age;
-            
-            for(int i = 0 ; i < row ; i++){
-                for(int j = 0 ; j < col ; j++){
-                    vector<vector<int>> fliped = getFliped(v, i,j);
-                    q.push({fliped, age+1});
-                }
-            }
-            
-        }
-        return -1;
+    int n, m;
+    vector<vector<int>>& flip(vector<vector<int>>& mat, int y, int x) 
+    {
+        mat[y][x] ^= 1;
         
-    }
-    vector<vector<int>> getFliped(vector<vector<int>> mat,int i, int j){
+        if (y - 1 >= 0) mat[y - 1][x] ^= 1;
+        if (y + 1 <  n) mat[y + 1][x] ^= 1;
+        if (x - 1 >= 0) mat[y][x - 1] ^= 1;
+        if (x + 1 <  m) mat[y][x + 1] ^= 1;
         
-        mat[i][j] = 1^mat[i][j];
-        if(i-1>=0){
-            mat[i-1][j] = 1^mat[i-1][j];
-        }
-        if (i+1 < row){
-            mat[i+1][j] = 1^mat[i+1][j];
-        }
-        if(j-1>=0){
-            mat[i][j-1] = 1^mat[i][j-1];
-        }
-        if (j+1 < col){
-            mat[i][j+1] = 1^mat[i][j+1];
-        }
-   
         return mat;
     }
-    bool isZeroMatrix(vector<vector<int>>& mat){
-        for(int i = 0 ; i < row; i++){
-            for(int j = 0 ; j < col ; j++){
-                if(mat[i][j] == 1){
+
+    bool isZeroMat(vector<vector<int>>& mat) 
+    {
+        for (size_t i = 0; i < n; ++i) {
+            for (size_t j = 0; j < m; ++j){ 
+                if (mat[i][j]) {
                     return false;
                 }
             }
         }
+        
         return true;
     }
-    string toString(vector<vector<int>> & mat){
-        string result = "";
-        for(int i = 0 ; i < row; i++){
-            for(int j = 0 ; j < col ; j++){
-                result+=to_string(mat[i][j]) + " ";
-            }
+
+    int FlipOrNotFlip(vector<vector<int>> mat, int y, int x) 
+    {
+        if (x == m) { // 행의 끝값에 도착
+            y++; 
+            x = 0;
         }
-        return result;
+        if (y == n) { // 열의 끝값에 도착한 경우
+            return isZeroMat(mat) ? 0:10000;
+        }
+
+        int ret1 = FlipOrNotFlip(mat, y, x + 1);
+        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1;
+        
+        return min(ret1, ret2);
+    }
+
+    int minFlips(vector<vector<int>>& mat) 
+    {
+        n = mat.size();
+        m = mat[0].size();
+        int ret = FlipOrNotFlip(mat, 0, 0);
+        
+        return ret >= 10000 ? -1 : ret;
     }
 };
