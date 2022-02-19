@@ -37,10 +37,10 @@ public:
             return isZeroMat(mat) ? 0 : COUNT_MAX; // 탐색이 끝나고, 여전히 배열이 0이 아니면 count_max 반환
         }
 
-        int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip을 하지 않은 경우의 수
-        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
+        int not_flip_ret1 = FlipOrNotFlip(mat, y, x + 1); // flip을 하지 않은 경우의 수
+        int flip_ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
         
-        return min(ret1, ret2);
+        return min(not_flip_ret1, flip_ret2);
     }
 
     int minFlips(vector<vector<int>>& mat) 
