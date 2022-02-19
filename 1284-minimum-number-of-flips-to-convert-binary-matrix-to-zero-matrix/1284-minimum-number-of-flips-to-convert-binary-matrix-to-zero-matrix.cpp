@@ -2,8 +2,9 @@ class Solution {
 public:
     vector<vector<int>>& flip(vector<vector<int>>& mat, int y, int x) 
     {
-        mat[y][x] ^= 1;
+        mat[y][x] ^= 1; // 현재위치 비트 반전
         
+        // 동서남북으로 비트반전, 배열의 범위를 넘지 않는지 체크
         if (y - 1 >= 0) mat[y - 1][x] ^= 1;
         if (y + 1 <  n) mat[y + 1][x] ^= 1;
         if (x - 1 >= 0) mat[y][x - 1] ^= 1;
