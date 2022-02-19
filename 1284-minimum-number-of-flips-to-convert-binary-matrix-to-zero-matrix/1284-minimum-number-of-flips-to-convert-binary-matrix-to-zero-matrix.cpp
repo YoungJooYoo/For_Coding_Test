@@ -34,7 +34,7 @@ public:
             cout << "y : " << y << endl;
         }
         if (y == n) { // 열의 끝값에 도착한 경우
-            return isZeroMat(mat) ? 0 : 10000;
+            return isZeroMat(mat) ? 0 : 10000; // 왜?? 100000
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1);
@@ -53,5 +53,6 @@ public:
     }
     
 private: 
-    int n, m;
+    int n;
+    int m;
 };
