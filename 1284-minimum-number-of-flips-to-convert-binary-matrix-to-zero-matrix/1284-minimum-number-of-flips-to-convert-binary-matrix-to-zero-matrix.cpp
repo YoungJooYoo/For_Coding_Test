@@ -33,7 +33,7 @@ public:
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우
-            return isZeroMat(mat) ? 0 : 100000;
+            return isZeroMat(mat) ? 0 : 10000000;
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1);
