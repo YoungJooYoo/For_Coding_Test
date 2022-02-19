@@ -27,30 +27,18 @@ public:
         return true;
     }
 
-    int flip_or_notflip(vector<vector<int>> mat, int y, int x) 
+    int flip_or_notflip(vector<vector<int>> mat, int y, int x) // 원본 배열 유지하기 위해 레퍼런스로 안받음
     {
         if (x == m) { // 행의 끝값에 도착, 행의시작 열 다시 탐색
             y++; 
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우 전체탐색이 끝나면 행렬이 0인지 아닌지에 따라
-            cout << "---- start ---" << endl;
-            for (size_t i = 0; i < mat.size(); i++) {
-                cout << "[ ";
-                for (size_t j = 0; j < mat[0].size(); j++) {
-                    cout << mat[i][j] << " ";
-                }
-                cout << "]";
-                cout << endl;
-            }
             return is_zero_mat(mat) ? 0 : COUNT_MAX; // 탐색이 끝나고, 여전히 배열이 0이 아니면 count_max 반환
         }
 
         int not_flip_ret1 = flip_or_notflip(mat, y, x + 1); // flip을 하지 않은 경우의 수
-        // cout << "ret 1 : " << not_flip_ret1 << endl;
         int flip_ret2 = flip_or_notflip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
-        // cout << "ret 2 : " << flip_ret2 << endl;
-        cout << min(not_flip_ret1, flip_ret2) << " ";
         return min(not_flip_ret1, flip_ret2);
     }
 
