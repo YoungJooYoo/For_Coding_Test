@@ -1,3 +1,4 @@
+#define COUNT_MAX (100)
 class Solution {
 public:
     vector<vector<int>>& flip(vector<vector<int>>& mat, int y, int x) 
@@ -33,7 +34,7 @@ public:
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우
-            return isZeroMat(mat) ? 0 : 10; // 왜?? 100000
+            return isZeroMat(mat) ? 0 : COUNT_MAX; // 왜?? 100000
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip전에 flip할 범위를 
@@ -48,7 +49,7 @@ public:
         m = mat[0].size(); // x에 대응
         int ret = FlipOrNotFlip(mat, 0, 0);
         
-        return ret >= 10 ? -1 : ret;
+        return ret >= COUNT_MAX ? -1 : ret;
     }
     
 private: 
