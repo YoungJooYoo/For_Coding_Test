@@ -29,19 +29,16 @@ public:
 
     int FlipOrNotFlip(vector<vector<int>> mat, int y, int x) 
     {
-        count++;
         if (x == m) { // 행의 끝값에 도착, 행의시작 열 다시 탐색
             y++; 
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우 전체탐색이 끝나면 행렬이 0인지 아닌지에 따라
-            return isZeroMat(mat) ? 0 : COUNT_MAX;
+            return isZeroMat(mat) ? 0 : COUNT_MAX; // 탐색이 끝나고, 여전히 배열이 0이 아니면 count_max 반환
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip을 하지 않은 경우의 수
-        cout << "ret1 : " << ret1 << endl;
         int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
-        cout << "ret2 : " << ret2 << endl;
         
         return min(ret1, ret2);
     }
@@ -58,5 +55,12 @@ public:
 private: 
     int n;
     int m;
-    int count = 0;
 };
+
+/*
+풀이법 : 
+모든 경우의수를 직접 탐색한다.
+단 각 탐색이 진행될때마다 flip을 한경우 안한 경우를 전부 고려하면서
+찾아가는 방식이다. 전부 탐색하기에
+flip을 진행하면서 최소 flip인 경우를 찾을 수 있는 것이다.
+*/
