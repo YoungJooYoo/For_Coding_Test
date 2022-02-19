@@ -14,7 +14,7 @@ public:
     }
 
     bool isZeroMat(vector<vector<int>>& mat) 
-    {
+    { // 주어진 행렬이 전부 0인지 확인하는 함수
         for (size_t i = 0; i < n; ++i) {
             for (size_t j = 0; j < m; ++j){ 
                 if (mat[i][j] == 1) {
