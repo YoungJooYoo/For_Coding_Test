@@ -35,12 +35,12 @@ public:
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우 전체탐색이 끝나면 행렬이 0인지 아닌지에 따라
-            return isZeroMat(mat) ? 0 : COUNT_MAX; // 왜?? 100000
+            return isZeroMat(mat) ? 0 : COUNT_MAX;
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1); // flip을 하지 않은 경우의 수
         cout << "ret1 : " << ret1 << endl;
-        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; //플립 후, +1씩 플립 횟수를 누적
+        int ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
         cout << "ret2 : " << ret2 << endl;
         
         return min(ret1, ret2);
