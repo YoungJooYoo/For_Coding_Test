@@ -16,7 +16,7 @@ public:
     {
         for (size_t i = 0; i < n; ++i) {
             for (size_t j = 0; j < m; ++j){ 
-                if (mat[i][j]) {
+                if (mat[i][j] == 1) {
                     return false;
                 }
             }
@@ -49,6 +49,7 @@ public:
         
         return ret >= 10000 ? -1 : ret;
     }
+    
 private: 
     int n, m;
 };
