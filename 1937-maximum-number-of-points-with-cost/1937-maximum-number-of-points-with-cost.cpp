@@ -12,7 +12,7 @@ public:
             for (size_t j = 0; j < col; j++) { 
                 dp[j] += points[i][j];
             }
-            for (size_t j = 1; j < col; j++){
+            for (size_t j = 1; j < col; j++) { 
                 dp[j] = max(dp[j], dp[j - 1] - 1); // 왼쪽 값만 체크
             }
             for (int j = col - 2; j >= 0; j--) {
