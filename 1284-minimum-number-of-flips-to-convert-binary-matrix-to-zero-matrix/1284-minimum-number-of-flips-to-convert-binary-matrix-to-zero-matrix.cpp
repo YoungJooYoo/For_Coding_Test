@@ -1,6 +1,5 @@
 class Solution {
 public:
-    int n, m;
     vector<vector<int>>& flip(vector<vector<int>>& mat, int y, int x) 
     {
         mat[y][x] ^= 1;
@@ -33,7 +32,7 @@ public:
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우
-            return isZeroMat(mat) ? 0 : 10000000;
+            return isZeroMat(mat) ? 0 : 10000;
         }
 
         int ret1 = FlipOrNotFlip(mat, y, x + 1);
@@ -50,4 +49,6 @@ public:
         
         return ret >= 10000 ? -1 : ret;
     }
+private: 
+    int n, m;
 };
