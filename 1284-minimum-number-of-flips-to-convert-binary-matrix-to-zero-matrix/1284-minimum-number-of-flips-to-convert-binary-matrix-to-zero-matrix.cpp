@@ -29,7 +29,8 @@ public:
     int FlipOrNotFlip(vector<vector<int>> mat, int y, int x) 
     {
         if (x == m) {
-            y++, x = 0;
+            y++; 
+            x = 0;
         }
         if (y == n) {
             return isZeroMat(mat) ? 0:10000;
