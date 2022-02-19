@@ -14,9 +14,9 @@ public:
     }
 
     bool isZeroMat(vector<vector<int>>& mat) 
-    { // 주어진 행렬이 전부 0인지 확인하는 함수
+    {   // 주어진 행렬이 전부 0인지 확인하는 함수
         for (size_t i = 0; i < n; ++i) {
-            for (size_t j = 0; j < m; ++j){ 
+            for (size_t j = 0; j < m; ++j) {  
                 if (mat[i][j] == 1) {
                     return false;
                 }
@@ -31,6 +31,7 @@ public:
         if (x == m) { // 행의 끝값에 도착
             y++; 
             x = 0;
+            cout << "y : " << y << endl;
         }
         if (y == n) { // 열의 끝값에 도착한 경우
             return isZeroMat(mat) ? 0 : 10000;
