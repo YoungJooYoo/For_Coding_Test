@@ -5,10 +5,10 @@ public:
     {
         mat[y][x] ^= 1;
         
-        if (y - 1 >= 0) mat[y-1][x] ^= 1;
-        if (y + 1 <  n) mat[y+1][x] ^= 1;
-        if (x - 1 >= 0) mat[y][x-1] ^= 1;
-        if (x + 1 <  m) mat[y][x+1] ^= 1;
+        if (y - 1 >= 0) mat[y - 1][x] ^= 1;
+        if (y + 1 <  n) mat[y + 1][x] ^= 1;
+        if (x - 1 >= 0) mat[y][x - 1] ^= 1;
+        if (x + 1 <  m) mat[y][x + 1] ^= 1;
         
         return mat;
     }
