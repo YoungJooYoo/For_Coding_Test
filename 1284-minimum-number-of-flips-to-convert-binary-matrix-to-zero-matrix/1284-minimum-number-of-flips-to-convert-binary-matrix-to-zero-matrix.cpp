@@ -14,7 +14,7 @@ public:
         return mat;
     }
 
-    bool isZeroMat(vector<vector<int>>& mat) 
+    bool is_zero_mat(vector<vector<int>>& mat) 
     {   // 주어진 행렬이 전부 0인지 확인하는 함수
         for (size_t i = 0; i < n; ++i) {
             for (size_t j = 0; j < m; ++j) {  
@@ -27,19 +27,30 @@ public:
         return true;
     }
 
-    int FlipOrNotFlip(vector<vector<int>> mat, int y, int x) 
+    int flip_or_notflip(vector<vector<int>> mat, int y, int x) 
     {
         if (x == m) { // 행의 끝값에 도착, 행의시작 열 다시 탐색
             y++; 
             x = 0;
         }
         if (y == n) { // 열의 끝값에 도착한 경우 전체탐색이 끝나면 행렬이 0인지 아닌지에 따라
-            return isZeroMat(mat) ? 0 : COUNT_MAX; // 탐색이 끝나고, 여전히 배열이 0이 아니면 count_max 반환
+            cout << "---- start ---" << endl;
+            for (size_t i = 0; i < mat.size(); i++) {
+                cout << "[ ";
+                for (size_t j = 0; j < mat[0].size(); j++) {
+                    cout << mat[i][j] << " ";
+                }
+                cout << "]";
+                cout << endl;
+            }
+            return is_zero_mat(mat) ? 0 : COUNT_MAX; // 탐색이 끝나고, 여전히 배열이 0이 아니면 count_max 반환
         }
 
-        int not_flip_ret1 = FlipOrNotFlip(mat, y, x + 1); // flip을 하지 않은 경우의 수
-        int flip_ret2 = FlipOrNotFlip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
-        
+        int not_flip_ret1 = flip_or_notflip(mat, y, x + 1); // flip을 하지 않은 경우의 수
+        // cout << "ret 1 : " << not_flip_ret1 << endl;
+        int flip_ret2 = flip_or_notflip(flip(mat, y, x), y, x + 1) + 1; // 플립 후, +1씩 플립 횟수를 누적
+        // cout << "ret 2 : " << flip_ret2 << endl;
+        cout << min(not_flip_ret1, flip_ret2) << " ";
         return min(not_flip_ret1, flip_ret2);
     }
 
@@ -47,7 +58,7 @@ public:
     {
         n = mat.size(); // y에 대응
         m = mat[0].size(); // x에 대응
-        int ret = FlipOrNotFlip(mat, 0, 0);
+        int ret = flip_or_notflip(mat, 0, 0);
         
         return ret >= COUNT_MAX ? -1 : ret;
     }
