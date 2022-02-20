@@ -2,17 +2,17 @@ class Solution {
 public:
     int countPoints(string rings) 
     {
-        bool rgb_check[10][3] = {0, }; // init false;
+        bool rgb_check[10][3] = {0, }; // init false;  기둥 - RGB로 매핑;
         int ans = 0;
         
-        for (size_t i = 1; i < rings.size(); i += 2){
+        for (size_t i = 1; i < rings.size(); i += 2) {
             if (rings[i - 1]=='R') {
                 rgb_check[rings[i] - '0'][0] = true;
             }
-            if (rings[i-1] == 'G') {
+            if (rings[i - 1] == 'G') {
                 rgb_check[rings[i] - '0'][1] = true;
             }
-            if (rings[i-1] == 'B') {
+            if (rings[i - 1] == 'B') {
                 rgb_check[rings[i]-'0'][2] = true;
             }
         }
