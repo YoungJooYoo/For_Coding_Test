@@ -17,7 +17,6 @@ public:
             if (rings[i - 1] == 'B') {
                 rgb_check[rings[i] - '0'][2] = true;
             }
-            cout << "i : " << i << endl;
         }
         
         for (size_t i = 0; i < 10; i++) {
