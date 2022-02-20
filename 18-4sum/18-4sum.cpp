@@ -38,9 +38,11 @@ public:
 		}
 
         vector<vector<int>> result;
+        
 		for (const auto& element : ans) {
 			result.push_back(element);
 		}
+        
         return result;
     }
 };
