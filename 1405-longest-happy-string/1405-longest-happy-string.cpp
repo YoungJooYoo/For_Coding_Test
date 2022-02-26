@@ -4,13 +4,14 @@ public:
     string longestDiverseString(int a, int b, int c) 
     {
         priority_queue<pair<int, char>> pq;
+        char prev1 = ' ';
+        char prev2 = ' ';
+        string res;
         
         if(a != 0) pq.push({ a, 'a' });
         if(b != 0) pq.push({ b, 'b' });
         if(c != 0) pq.push({ c, 'c' });
-        char prev1 = '#';
-        char prev2 = '#';
-        string res;
+       
         while(!pq.empty())
         {
             auto [cnt1, ch1] = pq.top(); pq.pop();
