@@ -22,7 +22,7 @@ public:
             auto it = pq.top();
             pq.pop();
             
-            if (size > 1 && result[size - 1] == it.second && result[size-2] == it.second) { 
+            if (size > 1 && result[size - 1] == it.second && result[size - 2] == it.second) { 
                 if (pq.empty()) {
                     return result;
                 }
@@ -32,8 +32,8 @@ public:
                 size++;
                 pq.pop();
                 
-                if( tp.first >1) {
-                    pq.push({tp.first-1, tp.second});           
+                if (tp.first > 1) {
+                    pq.push({tp.first - 1, tp.second});           
                 }
                 pq.push({it.first, it.second});
             }
