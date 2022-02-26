@@ -16,7 +16,7 @@ public:
             pq.push({c, 'c'});
         }
         
-        int size = 0;
+        size_t size = 0;
         
         while (!pq.empty()) {
             auto it = pq.top();
