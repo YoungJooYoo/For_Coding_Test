@@ -18,17 +18,20 @@ public:
         
         int size = 0;
         
-        while(!pq.empty()) {
+        while (!pq.empty()) {
             auto it = pq.top();
             pq.pop();
+            
             if (size > 1 && result[size - 1] == it.second && result[size-2] == it.second) { 
                 if (pq.empty()) {
                     return result;
                 }
+                
                 result += pq.top().second;
                 auto tp = pq.top();
                 size++;
                 pq.pop();
+                
                 if( tp.first >1) {
                     pq.push({tp.first-1, tp.second});           
                 }
