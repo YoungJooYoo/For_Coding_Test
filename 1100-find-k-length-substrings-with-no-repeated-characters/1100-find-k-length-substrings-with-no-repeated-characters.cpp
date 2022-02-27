@@ -11,14 +11,13 @@ public:
         int n = s.size();
         
         for (int i = 0; i <= n - k; i++) {
-            int freq[ALPHABET_LENGTH] = {0};
+            int freq[ALPHABET_LENGTH] = {0};  // 알파벳 개수 26개, 알파벳 빈도수 체크용 배열
             bool isUnique = true;
             
             for (int j = i; j < i + k; j++) {
                 freq[s[j] - 'a']++;
-                
                 if (freq[s[j] - 'a'] > 1) {
-                    isUnique = false;
+                    isUnique = false; // 중복을 찾을시 멈춤
                     break;
                 }
             }
