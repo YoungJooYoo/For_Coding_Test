@@ -26,7 +26,7 @@ public:
                 cnt[word[i][j] - 'a'] -= count;
             }
             while (count) {    
-                ans+=to_string(num[i]);
+                ans += to_string(num[i]);
                 count--;
             }
         }
