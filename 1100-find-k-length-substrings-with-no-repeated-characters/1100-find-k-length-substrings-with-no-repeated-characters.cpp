@@ -1,8 +1,11 @@
+#define ALPHABET_LENGTH (26)
+
 class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
-        if (k > 26)
+        if (k > 26) {
             return 0;
+        }
         
         int answer = 0;
         int n = s.size();
