@@ -2,22 +2,21 @@ class Solution {
 public:
     string originalDigits(string s) 
     {
-        vector<int> count(26);
-        
-        for (const auto& c: s) {
-            count[c - 'a']++;
-        }
-        
+        vector<int> count(26); // 알파벳 개수 26개
         vector<int> nums(10);
         
-        //         Unique cases 
+        for (const auto& ch: s) {
+            count[ch - 'a']++;
+        }
+        
+        // Unique cases 유니크케이스 짝수
         nums[0] = count['z' - 'a'];
         nums[2] = count['w' - 'a'];
         nums[4] = count['u' - 'a'];
         nums[6] = count['x' - 'a'];
         nums[8] = count['g' - 'a'];
         
-        //         Derived Cases
+        // Derived Cases 파생케이스, 홀수
         nums[1] = count['o' - 'a'] - nums[0] -nums[2] - nums[4];
         nums[3] = count['h' - 'a'] - nums[8];
         nums[5] = count['f' - 'a'] - nums[4];
