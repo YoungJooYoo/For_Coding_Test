@@ -3,7 +3,7 @@
 class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
-        if (k > 26) {
+        if (k > ALPHABET_LENGTH) {
             return 0;
         }
         
@@ -11,7 +11,7 @@ public:
         int n = s.size();
         
         for (int i = 0; i <= n - k; i++) {
-            int freq[26] = {0};
+            int freq[ALPHABET_LENGTH] = {0};
             bool isUnique = true;
             
             for (int j = i; j < i + k; j++) {
