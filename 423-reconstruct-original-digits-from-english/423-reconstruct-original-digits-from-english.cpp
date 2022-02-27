@@ -23,7 +23,7 @@ public:
         nums[7] = count['s' - 'a'] - nums[6];
         nums[9] = count['i' - 'a'] - nums[5] - nums[6] - nums[8];
         
-        //         Resultant String
+        //  Resultant String
         string str;
         for (size_t i = 0; i < 10; i++){
             while (nums[i]--) {
