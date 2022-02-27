@@ -19,11 +19,11 @@ public:
         }
         
         for (size_t i = 0; i <= 9; i++) {
-            int idx = hint[i] - 'a';
+            size_t idx = hint[i] - 'a';
             int count = cnt[idx];
             
             for (size_t j = 0; j < word[i].length(); j++) {
-                cnt[word[i][j]-'a']-=count;
+                cnt[word[i][j] - 'a'] -= count;
             }
             while (count) {    
                 ans+=to_string(num[i]);
