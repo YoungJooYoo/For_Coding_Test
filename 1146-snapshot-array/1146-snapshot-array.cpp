@@ -4,7 +4,6 @@ public:
     
     void set(int index, int val) {
         mp[mp_snap_index][index] = val;
-        
     }
     
     int snap() {
