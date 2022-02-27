@@ -10,11 +10,11 @@ public:
         }
         
         // Unique cases 유니크케이스 짝수
-        nums[0] = count['z' - 'a'];
-        nums[2] = count['w' - 'a'];
-        nums[4] = count['u' - 'a'];
-        nums[6] = count['x' - 'a'];
-        nums[8] = count['g' - 'a'];
+        nums[0] = count['z' - 'a']; // Zero
+        nums[2] = count['w' - 'a']; // tWo
+        nums[4] = count['u' - 'a']; // fouR
+        nums[6] = count['x' - 'a']; // siX
+        nums[8] = count['g' - 'a']; // eiGht
         
         // Derived Cases 파생케이스, 홀수
         nums[1] = count['o' - 'a'] - nums[0] -nums[2] - nums[4];
