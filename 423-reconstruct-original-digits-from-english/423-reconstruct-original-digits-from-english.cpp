@@ -1,38 +1,37 @@
 class Solution {
 public:
     string originalDigits(string s) 
-    {    
-        const size_t str_length = s.length();
-        int num[] = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9};
+    {
+        vector<int> count(26);
         
-        string word[]={"zero", "two", "four", "six", "eight", "one", "three", "five", "seven", "nine"};
-        char hint[]={'z', 'w', 'u', 'x', 'g', 'o', 'h', 'f', 's', 'i'};
-        vector<int> cnt(26, 0); // 알파벳 개수 26개
-        string ans = "";
-        
-        if (str_length == 0) {
-            return "";
+        for (const auto& c: s) {
+            count[c - 'a']++;
         }
         
-        for (const auto& it : s) {
-            cnt[it - 'a']++;
-        }
+        vector<int> nums(10);
         
-        for (size_t i = 0; i <= 9; i++) {
-            size_t idx = hint[i] - 'a';
-            int count = cnt[idx];
-            
-            for (size_t j = 0; j < word[i].length(); j++) {
-                cnt[word[i][j] - 'a'] -= count;
+        //         Unique cases 
+        nums[0] = count['z' - 'a'];
+        nums[2] = count['w' - 'a'];
+        nums[4] = count['u' - 'a'];
+        nums[6] = count['x' - 'a'];
+        nums[8] = count['g' - 'a'];
+        
+        //         Derived Cases
+        nums[1] = count['o' - 'a'] - nums[0] -nums[2] - nums[4];
+        nums[3] = count['h' - 'a'] - nums[8];
+        nums[5] = count['f' - 'a'] - nums[4];
+        nums[7] = count['s' - 'a'] - nums[6];
+        nums[9] = count['i' - 'a'] - nums[5] - nums[6] - nums[8];
+        
+        //         Resultant String
+        string str;
+        for (size_t i = 0; i < 10; i++){
+            while (nums[i]--) {
+                str += to_string(i);
             }
-            while (count) {    
-                ans += to_string(num[i]);
-                count--;
-            }
         }
         
-        sort(ans.begin(),ans.end());
-        
-        return ans;
+        return str;
     }
 };
