@@ -2,13 +2,14 @@
 
 class Solution {
 public:
-    int numKLenSubstrNoRepeats(string s, int k) {
+    int numKLenSubstrNoRepeats(string s, int k) 
+    {
         if (k > ALPHABET_LENGTH) {
             return 0;
         }
         
         int answer = 0;
-        int n = s.size();
+        const int n = s.size();
         
         for (int i = 0; i <= n - k; i++) {
             int freq[ALPHABET_LENGTH] = {0};  // 알파벳 개수 26개, 알파벳 빈도수 체크용 배열
