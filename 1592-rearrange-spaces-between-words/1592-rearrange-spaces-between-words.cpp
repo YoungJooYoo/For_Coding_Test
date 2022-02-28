@@ -10,12 +10,14 @@ public:
         for (const auto& ch : text) {
             if (ch == ' ') {
                 spaces++;
-                if (!word.empty())
+                if (!word.empty()) {
                     words.push_back(word);
+                }
                 word = "";
             }
-            else
+            else {
                 word += ch;
+            }
         }
         
         if (!word.empty()) {
