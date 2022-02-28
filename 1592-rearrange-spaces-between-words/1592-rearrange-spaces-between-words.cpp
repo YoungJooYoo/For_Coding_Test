@@ -30,7 +30,7 @@ public:
         int gap = spaces / (words.size() - 1);
         int suff = spaces % (words.size() - 1);
         
-        for (auto w : words) {
+        for (const auto& w : words) {
             s += w + string(gap, ' ');
         }
         
