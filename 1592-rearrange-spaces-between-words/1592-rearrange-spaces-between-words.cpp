@@ -7,16 +7,17 @@ public:
         string s;
         vector<string> words;
         
+        
         for (const auto& ch : text) {
             if (ch == ' ') {
-                spaces++;
-                if (!word.empty()) {
+                spaces++; /* 문자열 text에서 공백의 갯수를 카운트한다. */
+                if (!word.empty()) { /*공백을 재거한 단어들을 words 배열에 넣는다. */
                     words.push_back(word);
                 }
-                word = "";
+                word = ""; // 문자열 word 초기화
             }
             else {
-                word += ch;
+                word += ch; // 단어를 누적한다.
             }
         }
         
