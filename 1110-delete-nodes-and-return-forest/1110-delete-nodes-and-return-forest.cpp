@@ -18,10 +18,8 @@ public:
                 result.push_back(root->right);
             }
             root = nullptr;
-            delete root;
-                
+            delete root; 
         }
-        
     }
     
     vector<TreeNode*> delNodes(TreeNode* root, vector<int>& to_delete) 
