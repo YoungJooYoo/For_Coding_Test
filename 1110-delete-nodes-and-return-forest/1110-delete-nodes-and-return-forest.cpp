@@ -18,7 +18,7 @@ public:
                 result.push_back(root->right);
             }
             root = nullptr;
-            //delete root; 
+            delete root; 
         }
     }
     
