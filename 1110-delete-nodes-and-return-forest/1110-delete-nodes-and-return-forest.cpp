@@ -13,10 +13,10 @@ public:
         // to_delete 배열에 root->val 값이 있는지 확인한다. 없다면 end를 반환
         if (find(to_delete.begin(), to_delete.end(), root->val) != to_delete.end()) {
             if (root->left) {
-                res.push_back(root->left);
+                result.push_back(root->left);
             }
             if (root->right) {
-                res.push_back(root->right);
+                result.push_back(root->right);
             }
             
             root = nullptr;
@@ -30,12 +30,12 @@ public:
         dfs(root,to_delete);
         
         if (root) {
-            res.push_back(root);
+            result.push_back(root);
         }
         
-        return res;
+        return result;
     }
     
 private:
-    vector<TreeNode*> res;
+    vector<TreeNode*> result;
 };
