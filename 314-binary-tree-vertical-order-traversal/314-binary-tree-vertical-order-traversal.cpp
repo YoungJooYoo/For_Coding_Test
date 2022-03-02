@@ -15,11 +15,12 @@ public:
             m[temp.second].push_back(temp.first->val);// put the current element into its group in the map
             
             auto tree_node = temp.first;
-            if(tree_node->left) { // temp.first => TreeNode
-                q.push({tree_node->left, temp.second - 1}); // temp.second => int, node의 값
+            auto value = temp.second;
+            if(tree_node->left) {
+                q.push({tree_node->left, value - 1}); // value - 1,  + 1하면서 찾아야할 값들을 짝을 지어준다. ex) root val = 3, value = 0,   root val = 15 그리고 value 0 서로 짝이다.
             }
             if(tree_node->right) {
-                q.push({tree_node->right, temp.second + 1});
+                q.push({tree_node->right, value + 1});
             }
         }
         
