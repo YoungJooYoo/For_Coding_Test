@@ -1,4 +1,5 @@
 #define ONE_COIN (1)
+
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) 
