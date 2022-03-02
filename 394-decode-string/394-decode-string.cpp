@@ -22,10 +22,8 @@ public:
                     base *= 10;
                 }
                 
-                int currentLen = decodedString.size();
                 while (k != 0) { // decode k[decodedString], by pushing decodedString k times into stack
                     for (int j = decodedString.size() - 1; j >= 0; j--) {
-                        cout << decodedString[j] << endl;
                         stack.push(decodedString[j]);
                     }
                     k--;
