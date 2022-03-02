@@ -1,3 +1,4 @@
+#define ONE_COIN (1)
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) 
@@ -8,7 +9,7 @@ public:
         for (size_t i = 1; i <= amount; i++) { 
             for (const int& coin : coins) {
                 if (coin <= i) {
-                    dp[i] = min(dp[i], dp[i - coin] + 1); // dp[i - coin] + 1  == dp[value - coin종류] + 1이유는
+                    dp[i] = min(dp[i], dp[i - coin] + ONE_COIN); // dp[i - coin] + 1  == dp[value - coin종류] + 1이유는
                 }
             }
         }
