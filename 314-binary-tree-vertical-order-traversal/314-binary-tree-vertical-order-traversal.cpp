@@ -14,11 +14,12 @@ public:
             pair<TreeNode*, int> temp = q.front(); q.pop();
             m[temp.second].push_back(temp.first->val);// put the current element into its group in the map
             
-            if(temp.first->left) {
-                q.push({temp.first->left, temp.second - 1});
+            auto tree_node = temp.first;
+            if(tree_node->left) { // temp.first => TreeNode
+                q.push({tree_node->left, temp.second - 1}); // temp.second => int, node의 값
             }
-            if(temp.first->right) {
-                q.push({temp.first->right, temp.second + 1});
+            if(tree_node->right) {
+                q.push({tree_node->right, temp.second + 1});
             }
         }
         
