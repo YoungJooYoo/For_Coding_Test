@@ -1,3 +1,34 @@
+
+class Solution {
+public:
+    vector<vector<int>> verticalOrder(TreeNode* root) 
+    {
+        map<int, vector<int>> m;
+        queue<pair<TreeNode*, int>> q;
+        vector<vector<int>> ans;
+        
+        q.push({root, 0});
+        
+        while(!q.empty()) {
+            auto a = q.front();
+
+            if(a.first) {
+                m[a.second].push_back(a.first->val);
+                if(a.first->left != nullptr) q.push({a.first->left, a.second - 1});
+                if(a.first->right != nullptr) q.push({a.first->right, a.second + 1});
+            }
+            q.pop();
+        }
+        
+        for(auto mm : m)
+            ans.push_back(mm.second);
+        
+        return ans;
+    }
+};
+
+/*
+
 class Solution {
 public:
 
@@ -42,3 +73,5 @@ public:
         return ans;
     }
 };
+
+*/
