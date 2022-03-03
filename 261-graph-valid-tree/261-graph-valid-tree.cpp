@@ -14,16 +14,17 @@ public:
             }
         }
         
-        return count == 1 ? true : false;     //some disconnected component in tree if count !=1
+        // 트리에서 홀로 떨어진 원소가 있다면 1이 나오지 않는다.
+        return count == 1 ? true : false;     // some disconnected component in tree if count != 1
     }
     
 private:
-    vector<int>parent; // 배열로 그래프를 표현
+    vector<int> parent; // 배열로 그래프를 표현
     int count;  // int n을 받는다.
     
     int find(int v)
     {
-        /* 노트가 아무것도 연결성이 없다면 그냥 반환 */
+        /* 노트가 아무것도 연결성이 없다면 그냥 정점을 반환 */
         if (parent[v] == -1) {
             return v;
         }
@@ -40,7 +41,7 @@ private:
             return false;
         } 
         
-        parent[pb] = pa;
+        parent[pb] = pa; // 연관된 v끼리 연결한다.
         count--;  
         
         //decrease no of parents
@@ -48,8 +49,9 @@ private:
     }
 };
 
-/*
 
+/*
+풀이밥 :
 그래프 문제의 전형적인 패턴인
 find, union 기법을 사용한다.
 
