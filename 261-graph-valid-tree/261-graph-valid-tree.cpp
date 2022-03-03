@@ -9,7 +9,7 @@ public:
         
         // 주어진 edges 배열에서, 관게가 있는지 찾는다
         for (const auto edge : edges) {
-            if (!union_set(edge[0], edge[1])) { 
+            if (union_set(edge[0], edge[1]) == false) { 
                 return false; //cycle is present
             }
         }
