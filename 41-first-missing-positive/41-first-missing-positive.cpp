@@ -5,7 +5,7 @@ public:
         const size_t n = nums.size();
         
         for (size_t i = 0 ; i < n; i++) {
-            while (nums[i] > 0 and nums[i] <= n and nums[i] != nums[nums[i] - 1])
+            while (nums[i] > 0 and nums[i] <= n and nums[i] != nums[nums[i] - 1]) // 양수만 신경쓰기, 중복 제거하기
                 swap(nums[i], nums[nums[i] - 1]);
         }
         
