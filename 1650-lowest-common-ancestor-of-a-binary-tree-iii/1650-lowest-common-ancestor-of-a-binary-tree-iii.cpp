@@ -1,6 +1,7 @@
 class Solution {
 public:
-    Node* lowestCommonAncestor(Node* p, Node * q) {
+    Node* lowestCommonAncestor(Node* p, Node * q) 
+    {
         Node* a = p;
         Node* b = q;
         
