@@ -1,10 +1,10 @@
 class SparseVector {
 public:
-    SparseVector(vector<int>& nums) {
+    SparseVector(vector<int>& nums) 
+    {
         array = nums;
     }
     
-    // Return the dotProduct of two sparse vectors
     int dotProduct(SparseVector& vec) 
     {
         for (size_t i = 0; i < array.size(); i++) {
