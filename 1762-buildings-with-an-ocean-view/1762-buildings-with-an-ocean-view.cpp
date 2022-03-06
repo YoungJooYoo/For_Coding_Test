@@ -6,8 +6,9 @@ public:
         int i = heights.size() - 1; // i: current index
         vector<int> buildingIdx; // buildingIdx: the result vector to be returned
         
+        /* 배열의 맨 뒤에서부터 작은 건물 순서대로 접근을 시작한다. */
         while (i >= 0) { // loop starts from the very end
-            if (rightMaxHeight < heights[i]) {// if the tallest building to the right of current i is shorter
+            if (rightMaxHeight < heights[i]) { // 뒤에서부터 출발해 점점 건물이 커지는 조건이 맞다면 정답배열에 넣는다. 
                 buildingIdx.push_back(i);
             }
             rightMaxHeight = max(rightMaxHeight, heights[i]); // update tallest building to the right to include current building
