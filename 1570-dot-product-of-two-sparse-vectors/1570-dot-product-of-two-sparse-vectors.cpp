@@ -17,7 +17,6 @@ public:
 private:
     vector<int> array;
     int sum = 0;
-    
 };
 
 // Your SparseVector object will be instantiated and called as such:
