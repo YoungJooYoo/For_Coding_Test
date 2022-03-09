@@ -21,6 +21,8 @@ public:
                 mp.erase(it);
             }
         }
+        
+        // 순서에 맞게 문자열을 넣었다면, 남아있는 다른 문자열을 뒤에 붙이는 작업
         for (auto& it : mp) {
             while (it.second > 0) {
                 s += it.first;
