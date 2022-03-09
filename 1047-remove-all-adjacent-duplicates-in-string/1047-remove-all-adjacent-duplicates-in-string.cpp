@@ -1,11 +1,11 @@
 class Solution {
 public:
-    string removeDuplicates(string a) 
+    string removeDuplicates(string s) 
     {
         stack<char> st;
         string ans = "";
         
-	    for (const char& curr:a) {
+	    for (const char& curr : s) {
             if(st.empty()) st.push(curr);
             else if(st.top() == curr) st.pop();
             else st.push(curr);
