@@ -5,10 +5,16 @@ public:
         stack<char> st;
         string ans = "";
         
-	    for (const char& curr : s) {
-            if(st.empty()) st.push(curr);
-            else if(st.top() == curr) st.pop();
-            else st.push(curr);
+	    for (const char& ch : s) {
+            if (st.empty()) {
+                st.push(ch);
+            }
+            else if (st.top() == ch) {
+                st.pop();
+            }
+            else {
+                st.push(ch);
+            }
         }
 
         while(!st.empty()) {
