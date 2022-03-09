@@ -3,7 +3,7 @@ public:
     string removeDuplicates(string s) 
     {
         stack<char> st;
-        string ans = "";
+        string result = "";
         
 	    for (const char& ch : s) {
             if (st.empty()) {
@@ -18,12 +18,12 @@ public:
         }
 
         while(!st.empty()) {
-            ans += st.top();
+            result += st.top();
             st.pop();
         }
 
-	    reverse(ans.begin(), ans.end());
+	    reverse(result.begin(), result.end());
 
-	    return ans;
+	    return result;
     }
 };
