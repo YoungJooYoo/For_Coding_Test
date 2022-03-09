@@ -5,7 +5,7 @@ public:
         stack<char> st;
         string ans = "";
         
-	    for (auto curr:a) {
+	    for (const char& curr:a) {
             if(st.empty()) st.push(curr);
             else if(st.top() == curr) st.pop();
             else st.push(curr);
