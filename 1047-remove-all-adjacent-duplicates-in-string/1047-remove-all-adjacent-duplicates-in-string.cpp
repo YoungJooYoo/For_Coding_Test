@@ -18,7 +18,7 @@ public:
         }
         
         while (!st.empty()) {
-            result += st.top();
+            result += st.top(); // result = result + st.top() 하면 속도초과 발생
             st.pop();
         }
         
