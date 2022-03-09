@@ -18,7 +18,7 @@ public:
                     s += it->first; // 
                     it->second -= 1;
                 }
-                //mp.erase(it);
+                mp.erase(it);
             }
         }
         for (auto& it : mp) {
