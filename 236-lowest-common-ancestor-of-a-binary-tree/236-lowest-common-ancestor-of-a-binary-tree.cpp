@@ -21,10 +21,8 @@ public:
         else if (left_node != nullptr) {
             return left_node;
         }
-        else if(right_node != nullptr) {
+        else { // 조건 -> if (right_node != nullptr) 
             return right_node;
         }
-        
-        return nullptr;
     }
 };
