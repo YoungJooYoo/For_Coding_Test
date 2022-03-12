@@ -9,20 +9,15 @@ class Solution {
         
         for (size_t start = 0; start < str_length; ++start) {
             if (s[start] != ' ') {
-                // go to the beginning of the word
-                if (idx != 0) {
+                if (idx != 0) { // go to the beginning of the word
                     s[idx++] = ' ';
                 }
-
-                // go to the end of the word
-                int end = start;
-                while (end < str_length && s[end] != ' ') s[idx++] = s[end++];
-
-                // reverse the word
-                reverse(s.begin() + idx - (end - start), s.begin() + idx);
-
-                // move to the next word
-                start = end;
+                size_t end = start; // go to the end of the word
+                while (end < str_length && s[end] != ' ') {
+                    s[idx++] = s[end++];
+                }
+                reverse(s.begin() + idx - (end - start), s.begin() + idx); // reverse the word
+                start = end; // move to the next word
             }
         }
         
