@@ -1,29 +1,22 @@
 class Solution {
 public:
-    string reverseWords(string s) {
-        string res; 
-        string tmp;
+    string reverseWords(string s) 
+    {
+        vector<string> vec;
+        stringstream str(s);
+        string word;
+        string res;
         
-        size_t i = 0; 
-        size_t j;
-        const size_t len = s.size();
-        
-        while (true) {
-            while (i < len && s[i] == ' ') { // 공백이면 무시
-                i++;
-            }
-            if (i >= len) {
-                break; // 문자열 끝까지 갔다면 종료
-            }
-            j = i + 1;
-            while (j < len && s[j] != ' ') {
-                j++; // 공백이 아니면 인덱스 전진
-            }
-            tmp = s.substr(i, j - i); // 단어별로 서브스트링 생성
-            res = tmp + (res.size() ? " " : "") + res;
-            // moving to the next word
-            i = j + 1;
+        while (str >> word) { // store separated words in vector
+            vec.push_back(word); // 공백을 제거하고 단어단위로 배열에 넣기
         }
+        
+        reverse(vec.begin(), vec.end());
+        
+        for (const auto&it : vec) { // 배열의 저장된 문자열을 이어 붙인다.
+            res+=" "+it;
+        }
+        res.erase(0, 1); // 리버스 후, 시작점은 항상 공백이 들어가 있다. 그래서 공백을 제거한다.
         
         return res;
     }
