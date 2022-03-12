@@ -19,7 +19,7 @@ private:
         
         ans = ans + abs(left) + abs(right);
         
-        return root->val + left + right - 1;
+        return root->val + left + right - 1; // -1은 현재 내 노드의 
     }
     
     int ans = 0;
