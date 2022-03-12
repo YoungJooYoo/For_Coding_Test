@@ -2,6 +2,29 @@ class Solution {
 public:
     vector<int> sumZero(int n) 
     {
+	    vector<int> res;
+        
+        if (n == 0) {
+            return res;
+        }
+        
+        if (n % 2 != 0) { // 배열 길이가 홀수인 경우
+            res.push_back(0); 
+        }
+        for (size_t i = 1; i <= floor(n / 2); i++) {
+            res.push_back(i);
+            res.push_back(-i);
+        }
+        
+        return res;
+    }
+};
+
+/*
+class Solution {
+public:
+    vector<int> sumZero(int n) 
+    {
         vector<int> result(n, 0);
         int num = 1;
         
@@ -32,6 +55,7 @@ public:
         return result;
     }
 };
+*/
 
 /*
 
