@@ -1,8 +1,13 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        string res, tmp;
-        int i = 0, j, len = s.size();
+        string res; 
+        string tmp;
+        
+        size_t i = 0; 
+        size_t j;
+        const size_t len = s.size();
+        
         while (true) {
             // advancing i and j indexes around the next word
             while (i < len && s[i] == ' ') i++;
@@ -15,6 +20,7 @@ public:
             // moving to the next word
             i = j + 1;
         }
+        
         return res;
     }
 };
