@@ -2,8 +2,8 @@ class Solution {
 public:
     int distributeCoins(TreeNode* root) 
     {   
-        ans = 0;
         dfs(root);
+        
         return ans;
     }
     
@@ -20,5 +20,5 @@ private:
         return root->val + left + right - 1;
     }
     
-    int ans;
+    int ans = 0;
 };
