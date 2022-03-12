@@ -13,8 +13,10 @@ private:
         if (root == nullptr) {
             return 0;
         }
+        
         int left = dfs(root->left);
         int right = dfs(root->right);
+        
         ans = ans + abs(left) + abs(right);
         
         return root->val + left + right - 1;
