@@ -9,7 +9,7 @@ public:
         /* 오른쪽 왼쪽 dfs로 탐색하면서 서브 트리를 만들어간다. */
         string l = helper(root->left);
         string r = helper(root->right);
-        string s = "(" + l + to_string(root->val) +  r + ")";
+        string s = "[" + l + to_string(root->val) +  r + "]";
         
         if (mp[s] != -1) { // 이미 사용된 서브트리가 아니라면 빈도수체크
             mp[s]++;
