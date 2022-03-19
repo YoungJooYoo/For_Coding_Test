@@ -13,7 +13,7 @@ public:
                 bool all_present = true; // 
                 for (const string& item : ingredients[i]) {
                     if (items.find(item) == items.end()) { // ingredients의 값이 supplies에 있다면, 
-                        all_present = false;
+                        all_present = false; 
                         break;
                     }
                 }
@@ -29,9 +29,9 @@ public:
         
         vector<string> res;
         
-        for (string item: recipes) {
-            if (items.find(item) != items.end()) {
-                res.push_back(item);
+        for (const string& recipe: recipes) {
+            if (items.find(recipe) != items.end()) {
+                res.push_back(recipe);
             }
         }
         
