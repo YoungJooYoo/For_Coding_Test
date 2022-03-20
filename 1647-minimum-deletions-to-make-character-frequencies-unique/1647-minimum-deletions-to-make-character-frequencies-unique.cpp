@@ -12,7 +12,7 @@ public:
         }
 		
 		for (auto& freq : alphabet_freq) {
-			while (mp.find(freq.second) != mp.end() && freq.second > 0) { // 알파벳 빈도수를 넣은 값 freq.second가 mp에 존재한다면, 
+			while (mp.find(freq.second) != mp.end() && freq.second > 0) { // 알파벳 빈도수를 넣은 값 freq.second가 mp에 존재한다면, mp에 존재하지 않는 값이 나올떄까지 마이너스를 한다.
 				freq.second--; // 알파벳 빈도수를 감소시킨다. 조건에따라 빈도수는 1까지 떨어뜨려야한다.
 				count++; // 감소시켰으므로 몇번 감소시켰는지 체크하는 count를 ++
 			}
