@@ -4,11 +4,11 @@ public:
     
     int get(int key) 
     {
-        if (cache.find(key) == cache.end()) {
+        if (cache.find(key) == cache.end()) { // key가 없다면 -1
             return -1;
         }
-        q.push(key);
-        cache[key]++;
+        q.push(key); // 사용한 키를 순서 큐에 넣는다.
+        cache[key]++; // 사용한 키를 빈도수에 체크한다.
         
         return m[key];
     }
