@@ -1,6 +1,5 @@
 class LRUCache {
 public:
-    
     LRUCache(int capacity) : cache_capacity(capacity) {}
     
     int get(int key) 
