@@ -28,7 +28,7 @@ public:
     }
     
 private:
-    unordered_map<int, int>m; // key - value 자료구조, 들어오는 모든 inpput 저장
+    unordered_map<int, int>m; // key - value 자료구조, 들어오는 모든 input 저장
     unordered_map<int, int>cache; // cache사이즈가 일정하게 유지, 호출된 횟수기록 빈도기록
     queue<int> q; // get or put 호출한 순서를 기록
     const size_t cache_capacity;
