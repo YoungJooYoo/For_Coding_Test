@@ -10,7 +10,7 @@ public:
         int player = 1;
 
         // For each move
-        for (const vector<int> move : moves) {
+        for (const vector<int>& move : moves) {
             int row = move[0];
             int col = move[1];
 
