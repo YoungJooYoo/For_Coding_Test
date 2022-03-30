@@ -71,7 +71,7 @@ public:
 
         // If all moves are completed and there is still no result, we shall check if 
         // the grid is full or not. If so, the game ends with draw, otherwise pending.
-        return moves.size() == 3 * 3 ? "Draw" : "Pending";
+        return moves.size() == 9 ? "Draw" : "Pending";
     }
     
 };   
