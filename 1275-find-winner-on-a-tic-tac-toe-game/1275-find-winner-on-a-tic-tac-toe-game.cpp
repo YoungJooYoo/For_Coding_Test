@@ -54,17 +54,14 @@ public:
             size_t row = move[0];
             size_t col = move[1];
 
-            board[row][col] = player; // Mark the current move with the current playrer's id.
+            board[row][col] = player;
 
             if (checkRow(row, player) || checkCol(col, player) || 
                 (row == col && checkDiagonal(player)) ||
                 (row + col == ARRAY_SIZE - 1 && checkAntiDiagonal(player))) {
                 return player == 1 ? "A" : "B";
-                //return player == 1 ? "A" : "B";
             }
 
-            // If no one wins so far, change to the other player alternatively. 
-            // That is from 1 to -1, from -1 to 1.
             player *= -1;
         }
 
@@ -74,6 +71,7 @@ public:
 
 /*
 풀이법 :
+
 배열의 순서가 A, B, A, B 순서로 나아간다.
 따라서 Player를 flag로 두고 1 = a, -1 = b로 둔다.
 
@@ -82,4 +80,10 @@ public:
 2. 현재 위치에서 col 전체가 mark 되었는지
 3. 현재 위치에서 대각선(역슬래시 방향)에서 mark가 되었는지
 4. 현재 위치에서 대각선(슬래시 방향 : /)에서 mark가 되었는지
+
+4가지 승리 조건을 판단 후, 일치하면 A or B를 반환한다.
+없는 경우 플레이어 A, B를 바꾸면서 반복문을 다시 실행
+
+이 반복문을 통해 승리 판별을 다해보았으나, 결과가 없는 경우
+보드의 모든 칸에 채워졌다면 무승부를 반환, 아니라면 Pending 반환
 */
