@@ -29,13 +29,13 @@ public:
         
     void findSecretWord(vector<string>& wordlist, Master& master, int res = 0) 
     {
-        vector<vector<int>> probs(6, vector<int>(26));
+        vector<vector<int>> probs(6, vector<int>(26)); // 6 * 26(알파벳갯수) 배열을 만든다. 
         list<string> remWords; // 연결리스트로 단어를 저장한다.
         
         for (const auto& word: wordlist) {
-            remWords.push_back(word);
+            remWords.push_back(word); // 리스트에 단어들을 연결한다.
             for (size_t i = 0; i < 6; ++i) {
-                probs[i][word[i] - 'a'] += 1;
+                probs[i][word[i] - 'a'] += 1; // 알파벳 빈도수를 체크한다. 즉 6개의 문자열, 문자열의 길이는 6
             }
         }
         
@@ -66,4 +66,8 @@ secret 문자가 무엇인지 알아 맞추는 것이다.
 일부 맞으면 맞은갯수 만큼 반환해서
 
 6 자리로 이루어진 scret 문자열이 무엇인지 찾는 것이다.
+
+즉, 6개의 word가 주어지고, 각 word는 6자리로 구성되어있다.
+
+이 단어마다, 알파벳 빈도수를 체크한다.
 */
