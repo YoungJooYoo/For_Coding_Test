@@ -7,21 +7,24 @@ public:
                 ++res;
             }
         }
+        
         return res;
     }
         
-    string bestCandidate(list<string>& words, vector<vector<int>> &probs, int m_scr = 0, string best = "") {
-      for (const auto& w : words) {
-        int score = 1;
-        for (auto i = 0; i < 6; ++i) {
-            score *= probs[i][w[i] - 'a'];
+    string bestCandidate(list<string>& words, vector<vector<int>> &probs, int m_scr = 0, string best = "") 
+    {
+        for (const auto& w : words) {
+            int score = 1;
+            for (auto i = 0; i < 6; ++i) {
+                score *= probs[i][w[i] - 'a'];
+            }
+            if (score > m_scr) {
+                m_scr = score;
+                best = w;
+            }
         }
-        if (score > m_scr) {
-            m_scr = score;
-            best = w;
-        }
-      }
-      return best;
+        
+        return best;
     }
         
     void findSecretWord(vector<string>& wordlist, Master& master, int res = 0) 
