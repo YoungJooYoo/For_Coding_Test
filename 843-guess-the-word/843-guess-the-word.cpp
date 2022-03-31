@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int match(string w1, string w2, int res = 0) 
+    int match(string w1, string w2, int res = 0) // 알파벳들이 얼마나 매치되는지 반환하는 함수
     {
         for (size_t i = 0; i < w1.size(); ++i) {
             if (w1[i] == w2[i]) {
@@ -13,14 +13,14 @@ public:
         
     string bestCandidate(list<string>& words, vector<vector<int>> &probs, int m_scr = 0, string best = "") 
     {
-        for (const auto& w : words) {
+        for (const auto& word : words) {
             int score = 1;
-            for (auto i = 0; i < 6; ++i) {
-                score *= probs[i][w[i] - 'a'];
+            for (size_t i = 0; i < 6; ++i) {
+                score *= probs[i][word[i] - 'a'];
             }
             if (score > m_scr) {
                 m_scr = score;
-                best = w;
+                best = word;
             }
         }
         
