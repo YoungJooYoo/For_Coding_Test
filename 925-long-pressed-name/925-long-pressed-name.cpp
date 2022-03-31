@@ -10,7 +10,7 @@ public:
                 ++i; 
                 ++j;
             }        
-            else if (i > 0 && name[i - 1] == typed[j]) { // 같지 않다면,
+            else if (i > 0 && name[i - 1] == typed[j]) { // 같지 않다면, 중복 문자 발견하면 j인덱스만 올린다.
                 ++j;
             }
             else {
