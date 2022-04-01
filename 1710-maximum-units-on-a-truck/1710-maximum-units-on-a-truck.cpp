@@ -3,29 +3,6 @@ public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize)
     {
         int result = 0;
-        int current_selection;
-        
-        sort(boxTypes.begin(), boxTypes.end(), [](const auto& a, const auto& b){return a[1] > b[1];});
-        
-        for (const auto& elem : boxTypes) {
-            current_selection = min(elem[0], truckSize);
-            truckSize -= current_selection;
-            result += current_selection * elem[1];
-            if (truckSize == 0) {
-                break;
-            }
-        }
-        
-        return result;
-    }
-};
-
-/*
-class Solution {
-public:
-    int maximumUnits(vector<vector<int>>& boxTypes, int truckSize)
-    {
-        int result = 0;
         int currBatch;
         
         // boyTypes에 두번쨰 값, 즉 값이 큰 순서대로 정렬한다.
@@ -44,6 +21,3 @@ public:
         return result;
     }
 };
-
-
-*/
