@@ -16,8 +16,8 @@ int main(void)
     size_t n;
     size_t m;
     int weight;
-    int value
-        ;
+    int value;
+    
     cin >> n >> m;
 
     vector<int> dp(m + 1, 0);
