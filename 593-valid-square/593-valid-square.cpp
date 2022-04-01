@@ -14,16 +14,16 @@ public:
         
         for (size_t i = 0; i < 4 - 1; i++) { // 각 점의 서로 모든 거리를 다 구한다.
             for (size_t j = i + 1; j < 4; j++) {
-                double curr = get_distance(points[i], points[j]);
-                if (curr != 0)
-                    lengths.insert(curr);
-                
-                // if distance is zero - we got a duplicated point
-                else
+                double distance = get_distance(points[i], points[j]);
+                if (distance != 0) {
+                    lengths.insert(distance);
+                }
+                else { // if distance is zero - we got a duplicated point
                     return false;
+                }
             }
         }
         // We are supposed to end with only two different lengths: the sides and the diagonals
-        return lengths.size() == 2;
+        return lengths.size() == 2 ? true : false;
     }
 };
