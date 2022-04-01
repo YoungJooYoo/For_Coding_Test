@@ -7,10 +7,16 @@ public:
         int end = toBeRemoved[1];
         
         for (const auto& v : intervals) {
-            if (v[1] <= start || v[0] >= end) res.push_back(v);
+            if (v[1] <= start || v[0] >= end) {
+                res.push_back(v);
+            }
             else {
-                if (v[0] < start) res.push_back({v[0], start});
-                if (v[1] > end) res.push_back({end, v[1]});
+                if (v[0] < start) {
+                    res.push_back({v[0], start});
+                }
+                if (v[1] > end) {
+                    res.push_back({end, v[1]});
+                }
             }
         }
         
