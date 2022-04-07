@@ -19,7 +19,7 @@ public:
         const size_t m = w.size();
         size_t j = 0;
         
-        for (int i = 0; i < n; i++) {
+        for (size_t i = 0; i < n; i++) {
             if (j < m && s[i] == w[j]) {
                 j++;
             }
