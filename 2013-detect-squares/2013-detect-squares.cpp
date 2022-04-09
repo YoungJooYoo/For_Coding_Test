@@ -3,7 +3,7 @@ private:
     map<pair<int,int>, int>mp; // <pair<x, y> , freq>
     
 public:
-    DetectSquares() 
+    DetectSquares()  
     {
     }
     
