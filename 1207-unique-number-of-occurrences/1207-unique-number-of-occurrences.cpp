@@ -8,7 +8,7 @@ public:
         for (const int& elem : arr) {
             mp[elem]++;
         }   
-        for (const auto elem : mp) {
+        for (const auto elem : mp) { // 중복이 없다면 set size와 mp 사이즈가 같아야한다.
             set.insert(elem.second); 
         }
         
