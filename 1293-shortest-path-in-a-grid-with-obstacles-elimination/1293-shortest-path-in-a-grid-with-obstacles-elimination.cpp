@@ -17,8 +17,7 @@ public:
             int x = t[0];
             int y = t[1];
             
-            // Invalid cases being dealt here since it's easier to write one condition instead of 4 while pushing.
-            if (x < 0 || x >= m || y < 0 || y >= n) {
+            if (x < 0 || x >= m || y < 0 || y >= n) { // Invalid cases being dealt here since it's easier to write one condition instead of 4 while pushing.
                 continue;
             }
             if (x == m - 1 && y == n - 1) {// If you've reached the end, great, return the currentLength!
