@@ -14,7 +14,6 @@ public:
                 count++;
             }
             else {
-                //max_length = max(max_length, count);
                 count = 1;
             }
             max_length = max(max_length, count);
