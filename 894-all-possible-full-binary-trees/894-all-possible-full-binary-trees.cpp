@@ -1,37 +1,42 @@
 class Solution {
 public:
-    vector<TreeNode*> allPossibleFBT(int n) 
+    vector<TreeNode*> allPossibleFBT(int N) 
     {
-        vector<TreeNode*> ans;
-
-        if (n < 1 || n % 2 == 0) { // n이 짝수라면 완전 이진트리로 만드는 것이 불가능하다.
-            return ans;
+        vector<TreeNode*> tree;
+        
+        if (memo.find(N) != memo.end()) {
+            return memo[N];
+        }
+        if (N == 1) { // 루트 노드를 만들어서 반환
+            return memo[N] = {new TreeNode(0)};
+        }
+        if (N % 2 == 0) { // 짝수면 빈 것을 반환, 짝수며 정확하게 완전 2진트리 만들기기 불가능하다
+            return {};
         }
         
-        for (int k = 2; k < n; k += 2) { // 이진 트리를 만들 좌우 노드 생성, 루트는 있다고 가정하면 k=2부터
-            vector<TreeNode*> v1 = allPossibleFBT(k - 1); //
-            vector<TreeNode*> v2 = allPossibleFBT(n - k);
-            cout << "k - 1 : " << k - 1 << endl;
-            cout << "n - k : " << n - k << "\n " << endl;
-            const size_t n1 = v1.size();
-            const size_t n2 = v2.size();
-            
-            for (size_t i = 0; i < n1; i++) {
-                for (size_t j = 0; j < n2; j++) {
-                    TreeNode* newRoot = new TreeNode(0);
-                    newRoot->left = v1[i];
-                    newRoot->right = v2[j];
-                    ans.push_back(newRoot);
+        for (int x = 0; x < N ; ++x) {
+            int y = N - x - 1;
+            for (const auto l: allPossibleFBT(x)) {
+                for (const auto r: allPossibleFBT(y)) {
+                    TreeNode *root = new TreeNode(0);
+                    root->left = l;
+                    root->right = r;
+                    tree.push_back(root);
                 }
             }
         }
         
-        if (ans.empty()) { // if N == 1
-            ans.push_back(new TreeNode(0));
-        }
-        
-        return ans;
+        return memo[N] = tree;
     }
+private:
+    unordered_map<int, vector<TreeNode*>> memo;
 };
 
-// https://leetcode.com/problems/all-possible-full-binary-trees/discuss/340007/C%2B%2B-recursive-solution
+/* 
+풀이법 :  
+n = 5 개는 n = 3개일때 나오는 트리의 모습을 내포한다.
+다시, n = 7은 n = 5일때 트리 모습을 가지고 있다. 즉 이전의 트리 노드의 모습을
+재사용하면서 n이 커질때 마다 트리의 모습이 나오게 된다.
+
+https://leetcode.com/problems/all-possible-full-binary-trees/discuss/944704/C%2B%2B-DP-with-simple-explanation
+*/
