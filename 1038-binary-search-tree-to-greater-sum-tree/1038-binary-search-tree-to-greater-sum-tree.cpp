@@ -12,7 +12,7 @@ public:
     }
 
     TreeNode* bstToGst(TreeNode* root) 
-    {
+    { 
         dfs(root);
         return root;
     }
