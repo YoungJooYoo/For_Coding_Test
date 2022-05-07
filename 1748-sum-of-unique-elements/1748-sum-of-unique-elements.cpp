@@ -6,7 +6,7 @@ public:
         int ans = 0;
         
         for (const int& num : nums) {
-            mp[num]++;
+            mp[num]++; 
         }
         
         for (const auto& ele : mp) {
