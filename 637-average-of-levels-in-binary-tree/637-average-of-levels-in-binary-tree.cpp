@@ -8,7 +8,7 @@ public:
         
         q.push(root);
         
-        while (q.size()) {
+        while (q.size() != 0) {
             vector<int> tmp;
             size_t len = q.size(); // bfs, 탐색 중, 탐색 레벨이 내려갈수록 노드의 갯수가 다르니, 사이즈를 다시 계산한다.
             for (size_t i = 0; i < len; i++) {
