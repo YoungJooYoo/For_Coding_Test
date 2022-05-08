@@ -3,8 +3,8 @@ public:
     vector<double> averageOfLevels(TreeNode* root) 
     {
         queue<TreeNode*> q;
-        TreeNode* curr;
         vector<double> res;
+        TreeNode* curr;
         
         q.push(root);
         
