@@ -7,7 +7,7 @@ public:
         
         // 알파벳의 빈도수 체크
         for (const char& ch : chars) {
-            ++count_chars[ch - 'a'];
+            count_chars[ch - 'a']++;
         }
         
         for (const string& word : words) {
