@@ -19,7 +19,7 @@ public:
                     break;
                 }
             }
-            if (match) {
+            if (match == true) {
                 res += word.size();
             }
         }
