@@ -21,7 +21,7 @@ public:
         while (i < s.length() && (s[i] >= '0' && s[i] <= '9')) { //traverse string till nondigit not found or string ends
             int digit = (s[i] - '0') * sign;
             if (sign == 1 && (res > INT_MAX / 10 || (res == INT_MAX / 10 && digit > INT_MAX % 10))) {
-                return INT_MAX;  //check for overflow
+                return INT_MAX;  //check for overflow  int_max / 10 이유는, 밑에서 res * 10을 하기 때문에 미리 체크
             } 
             if (sign == -1 && (res < INT_MIN / 10 || (res == INT_MIN / 10 && digit < INT_MIN % 10))) {
                 return INT_MIN; //check for underflow
