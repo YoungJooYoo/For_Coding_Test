@@ -16,8 +16,7 @@ public:
             sign = s[i] =='-'?-1:1;
             i++;
         }
-        
-        
+     
         
         // now iterate across digits if any
 		// should only be in range 0-9
