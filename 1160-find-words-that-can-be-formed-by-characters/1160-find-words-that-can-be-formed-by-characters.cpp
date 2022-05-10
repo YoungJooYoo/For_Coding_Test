@@ -13,7 +13,7 @@ public:
         for (const string& word : words) {
             int word_count[26] = {0, };
             bool match = true;
-            for (auto ch : word) {
+            for (const char& ch : word) {
                 if (++word_count[ch - 'a'] > count_chars[ch - 'a']) {
                     match = false;
                     break;
