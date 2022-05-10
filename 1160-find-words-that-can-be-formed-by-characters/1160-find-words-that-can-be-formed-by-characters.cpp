@@ -11,10 +11,10 @@ public:
         }
         
         for (const string& word : words) {
-            int cnt1[26] = {};
+            int word_count[26] = {0, };
             bool match = true;
             for (auto ch : word) {
-                if (++cnt1[ch - 'a'] > count_chars[ch - 'a']) {
+                if (++word_count[ch - 'a'] > count_chars[ch - 'a']) {
                     match = false;
                     break;
                 }
