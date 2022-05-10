@@ -10,17 +10,17 @@ public:
             ++count_chars[ch - 'a'];
         }
         
-        for (const string& w : words) {
+        for (const string& word : words) {
             int cnt1[26] = {};
             bool match = true;
-            for (auto ch : w) {
+            for (auto ch : word) {
                 if (++cnt1[ch - 'a'] > count_chars[ch - 'a']) {
                     match = false;
                     break;
                 }
             }
             if (match) {
-                res += w.size();
+                res += word.size();
             }
         }
         
