@@ -5,10 +5,10 @@ public:
         vector<vector<int>> res = {{}};
         vector<int> curr;
         
-        for (auto num : nums) {
+        for (const int& num : nums) {
             size_t size = res.size();
             
-            for (int i = 0; i < size; i++) {
+            for (size_t i = 0; i < size; i++) {
                 curr = res[i];
                 curr.push_back(num);
                 res.push_back(curr);
