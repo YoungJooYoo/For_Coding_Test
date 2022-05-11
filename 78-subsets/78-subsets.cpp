@@ -1,12 +1,12 @@
 class Solution {
 public:
-    vector<vector<int>> subsets(vector<int>& nums) {
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
         vector<vector<int>> res = {{}};
         vector<int> curr;
-        int size;
         
         for (auto num : nums) {
-            size = res.size();
+            size_t size = res.size();
             
             for (int i = 0; i < size; i++) {
                 curr = res[i];
