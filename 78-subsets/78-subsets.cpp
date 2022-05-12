@@ -13,6 +13,8 @@ public:
                 curr = res[i]; // 2차원 배열의 행(일차원배열)을 curr에 대입한다.
                 curr.push_back(num);
                 res.push_back(curr);
+                
+                
             }
         }
         
