@@ -7,8 +7,9 @@ public:
 
     bool addCar(int carType) 
     {
-        return count[carType - 1]-- > 0;
+        return count[carType - 1]-- > 0 ? true : false;
     }
+    
 private:
     vector<int> count;
 };
