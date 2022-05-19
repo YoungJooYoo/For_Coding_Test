@@ -8,7 +8,7 @@ public:
 		vector<int> result(BOXES_LENGTH, 0);
                 
         for (size_t i = 1; i < BOXES_LENGTH; ++i) {
-		    if( boxes[i-1] =='1') { 
+		    if (boxes[i-1] == '1') { 
 			    ballSeen += 1;
 			}
 			sum += ballSeen;
@@ -19,7 +19,7 @@ public:
 		 ballSeen = 0;
         
 		 for (int i = BOXES_LENGTH - 2; i >= 0; --i) {
-			 if (boxes[i + 1] =='1') { 
+			 if (boxes[i + 1] == '1') { 
 				 ballSeen += 1;
 			 }
 			 sum += ballSeen;
