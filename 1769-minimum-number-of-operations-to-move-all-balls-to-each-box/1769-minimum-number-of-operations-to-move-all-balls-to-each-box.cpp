@@ -20,7 +20,7 @@ public:
         
 		 for (int i = BOXES_LENGTH - 2; i >= 0; --i) {
 			 if (boxes[i + 1] == '1') { 
-				 ballSeen += 1;
+				 ballSeen++;
 			 }
 			 sum += ballSeen;
 			 result[i] += sum;
