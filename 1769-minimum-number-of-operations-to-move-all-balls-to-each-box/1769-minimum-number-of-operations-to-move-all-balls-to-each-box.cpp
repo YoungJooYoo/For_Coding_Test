@@ -9,7 +9,7 @@ public:
                 
         for (size_t i = 1; i < BOXES_LENGTH; ++i) {
 		    if (boxes[i-1] == '1') { 
-			    ballSeen += 1;
+			    ballSeen++;
 			}
 			sum += ballSeen;
 			result[i] += sum;
