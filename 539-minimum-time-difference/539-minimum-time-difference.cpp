@@ -3,10 +3,10 @@ public:
     int findMinDifference(vector<string>& timePoints) 
     {
         const size_t ARRAY_SIZE = timePoints.size();
-        vector<int>time;
+        vector<int> time;
         
         for (size_t i = 0; i < ARRAY_SIZE; i++) {
-            time.push_back(stoi(timePoints[i].substr(0, 2)) * 60 + stoi(timePoints[i].substr(3, 2)));
+            time.push_back(stoi(timePoints[i].substr(0, 2)) * 60 + stoi(timePoints[i].substr(3, 2))); // 시간을 전부 분으로 바꾸기
         }
            
         sort(time.begin(), time.end());
