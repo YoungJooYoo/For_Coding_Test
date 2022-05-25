@@ -13,7 +13,7 @@ public:
         int ans = INT_MAX;
         
         for (size_t i = 1; i < ARRAY_SIZE; i++) {
-            ans = min(time[i] - time[i-1], ans);
+            ans = min(time[i] - time[i - 1], ans);
         }
         
         ans = min(ans, time[0] - time[ARRAY_SIZE - 1] + 24 * 60);
