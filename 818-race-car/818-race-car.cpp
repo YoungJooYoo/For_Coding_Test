@@ -18,13 +18,26 @@ public:
                 todo_list.push({pos + speed, speed * 2, steps + 1});
             }
             if (speed > 0 && (pos + speed > target)) { // 방향 리버스
-                todo_list.push({pos, -1, steps + 1});
+                todo_list.push({pos, -1, steps + 1}); // 제자리, 속도만 -1, 스텝은 누적
             }
             if (speed < 0 && (pos + speed < target)) { // 리버스 2번한 경우
-                todo_list.push({pos, 1, steps + 1});
+                todo_list.push({pos, 1, steps + 1}); // rr  두번한경우, 제 자리, 속도는 정상 + 1부터 시작, 스텝은 누적
             }
         }
         
         return 000111000;
     }
 };
+
+/*
+풀이법 :
+스피드 = 2^n
+포지션 = (2^n) - 1
+
+결국 둘의 식의 차이는 -1 하나만 난다
+즉, r을 2번해, 속도를 줄요 1부터 다시 가는 구간 1개만 딱 나오는 문제이다.
+
+손으로 그려보면 r을 통해 마이너스 속도로 앞으로 쭈욱 가보았자, 다시 돌아오면 결국 제자리임을 알 수 있으므로
+RR을 통해서 감속을 한경우에만, target으로 가는 타이밍을 바꿀 수 있다.
+
+*/
