@@ -9,7 +9,7 @@ public:
             vector<int> cur = todo.front(); todo.pop();
             int pos = cur[0];
             int speed = cur[1];
-            int steps = cur[2];
+            int steps = cur[2]; // target을 도달하기 위해 옮긴 발걸음 수
             
             if (pos == target) { // 타겟을 찾은 경우
                 return steps;
