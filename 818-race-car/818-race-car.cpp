@@ -1,27 +1,30 @@
 class Solution {
 public:
-    int racecar(int target) 
+    int racecar (int target) 
     {
-        if (dp[target] > 0) {
-            return dp[target];
-        }
+        queue<vector<int>> todo;
+        todo.push({0, 1, 0}); // {pos, speed, steps}
         
-        int n = floor(log2(target)) + 1; // 내림함수 floor,   (2^n) - 1 = 누적속도,
-        int res;
-        
-        if ( 1 << n == target + 1) {
-            dp[target] = n;
-        }
-        else {
-            dp[target] = racecar((1 << n) - 1 - target) + n + 1;
-            for (int m = 0; m < n - 1; ++m) {
-                dp[target] = min(dp[target], racecar(target - (1 << (n - 1)) + (1 << m)) + n + m + 1);
+        while (!todo.empty()) {
+            vector<int> cur = todo.front(); todo.pop();
+            int pos = cur[0];
+            int speed = cur[1];
+            int steps = cur[2];
+            
+            if (pos == target) { // 타겟을 찾은 경우
+                return steps;
+            }
+            if ((pos + speed <= 10000 && pos + speed > 0)) { // 가속
+                todo.push({pos + speed, speed * 2, steps + 1});
+            }
+            if (speed > 0 && (pos + speed > target)) { // 방향 리버스
+                todo.push({pos, -1, steps + 1});
+            }
+            if (speed < 0 && (pos + speed < target)) {
+                todo.push({pos, 1, steps + 1});
             }
         }
         
-        return dp[target];
+        return -1;
     }
-    
-private:    
-    int dp[10001];
 };
