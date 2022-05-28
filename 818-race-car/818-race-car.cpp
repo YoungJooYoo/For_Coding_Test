@@ -5,7 +5,7 @@ public:
         queue<vector<int>> todo;
         todo.push({0, 1, 0}); // {pos, speed, steps}
         
-        while (!todo.empty()) {
+        while (todo.empty() == false) {
             vector<int> cur = todo.front(); todo.pop();
             int pos = cur[0];
             int speed = cur[1];
