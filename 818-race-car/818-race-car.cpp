@@ -20,7 +20,7 @@ public:
             if (speed > 0 && (pos + speed > target)) { // 방향 리버스
                 todo.push({pos, -1, steps + 1});
             }
-            if (speed < 0 && (pos + speed < target)) {
+            if (speed < 0 && (pos + speed < target)) { // 리버스 2번한 경우
                 todo.push({pos, 1, steps + 1});
             }
         }
