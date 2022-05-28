@@ -6,10 +6,10 @@ public:
             return dp[target];
         }
         
-        int n = floor(log2(target)) + 1; // 내림함수 floor,
+        int n = floor(log2(target)) + 1; // 내림함수 floor,   (2^n) - 1 = 누적속도,
         int res;
         
-        if (1 << n == target + 1) {
+        if ( 1 << n == target + 1) {
             dp[target] = n;
         }
         else {
