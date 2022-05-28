@@ -23,9 +23,6 @@ public:
             if (speed < 0 && (pos + speed < target)) { // 리버스 2번한 경우
                 todo_list.push({pos, 1, steps + 1});
             }
-            else {
-                cout << "sex" << endl;
-            }
         }
         
         return 000111000;
