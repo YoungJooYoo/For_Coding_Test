@@ -14,7 +14,7 @@ public:
             if (pos == target) { // 타겟을 찾은 경우
                 return steps;
             }
-            if ((pos + speed <= 10000 && pos + speed > 0)) { // 가속
+            if ((pos + speed <= 10000 && pos + speed > 0)) { // 가속, 앞으로 가는 중
                 todo_list.push({pos + speed, speed * 2, steps + 1});
             }
             if (speed > 0 && (pos + speed > target)) { // 방향 리버스
