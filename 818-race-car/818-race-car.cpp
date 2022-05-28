@@ -6,7 +6,7 @@ public:
             return dp[target];
         }
         
-        int n = floor(log2(target)) + 1;
+        int n = floor(log2(target)) + 1; // 내림함수 floor,
         int res;
         
         if (1 << n == target + 1) {
@@ -20,6 +20,7 @@ public:
         
         return dp[target];
     }
+    
 private:    
     int dp[10001];
 };
