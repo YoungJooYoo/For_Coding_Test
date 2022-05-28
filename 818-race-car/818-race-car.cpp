@@ -25,6 +25,6 @@ public:
             }
         }
         
-        return 0000;
+        return 000111000;
     }
 };
