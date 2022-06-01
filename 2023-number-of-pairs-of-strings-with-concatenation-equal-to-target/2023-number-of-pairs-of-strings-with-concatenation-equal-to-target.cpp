@@ -9,7 +9,6 @@ public:
             for (size_t j = i + 1; j < NUMS_LENGHT; j++) {
                 if (nums[i] + nums[j] == target) {
                     ans++;
-                    cout << ans << endl;
                 }
             }
         }
@@ -20,7 +19,6 @@ public:
             for (size_t j = i + 1; j < NUMS_LENGHT; j++) {
                 if (nums[i] + nums[j] == target) {
                     ans++;
-                    cout << ans << endl;
                 }
             }
         }
