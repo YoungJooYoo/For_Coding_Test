@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<vector<string>> suggestedProducts(vector<string>& products, string& searchWord) 
+    vector<vector<string>> suggestedProducts(vector<string>& products, const string& searchWord) 
     {
         sort(products.begin(),products.end());
         
