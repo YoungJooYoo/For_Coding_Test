@@ -3,7 +3,7 @@ public:
     vector<vector<string>> suggestedProducts(vector<string>& products, const string& searchWord) 
     {
         sort(products.begin(),products.end());
-        
+       
         for (size_t i = 0; i< searchWord.size(); i++) {
             if (i == 0) {
                 space = products;
@@ -14,15 +14,15 @@ public:
             
             temp.clear();
             filtered.clear();
-            int count = 0;
+            int size = 0;
             
             for (const string& s : space) {
                 if (i < s.size() and s[i] == searchWord[i]) {
-                    if (count < 3) {
+                    if (size < MAX_SIZE) {
                         temp.push_back(s);
                     }
                     filtered.push_back(s);
-                    count++;
+                    size++;
                 }
             }
             output.push_back(temp);
@@ -36,4 +36,5 @@ private:
         vector<string> temp;
         vector<string> space;
         vector<string> filtered;
+        const int MAX_SIZE = 3;
 };
