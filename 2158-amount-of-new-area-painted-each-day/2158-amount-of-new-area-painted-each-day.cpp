@@ -20,7 +20,8 @@ public:
                 if (bit->second < start) {
                     bit++;
                 }
-                for (; bit != eit;) {     // from before begin to after end
+                //for (; bit != eit;) {     // from before begin to after end
+                while(bit != eit) {
                     size -= min(end, bit->second) - max(start, bit->first);
                     start = min(start, bit->first);
                     end = max(end, bit->second);
