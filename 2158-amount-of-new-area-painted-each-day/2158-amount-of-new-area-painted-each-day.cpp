@@ -11,20 +11,20 @@ public:
             int size = end - start;
             
             if (!inter.empty()) {
-                auto bit = inter.upper_bound(start);
-                auto eit = inter.upper_bound(end);
+                auto start_idx = inter.upper_bound(start);
+                auto end_idx = inter.upper_bound(end);
                 
-                if (bit != inter.begin()) {
-                    bit--;
+                if (start_idx != inter.begin()) {
+                    start_idx--;
                 }
-                if (bit->second < start) {
-                    bit++;
+                if (start_idx->second < start) {
+                    start_idx++;
                 }  
-                while (bit != eit) { // from before begin to after end
-                    size -= min(end, bit->second) - max(start, bit->first);
-                    start = min(start, bit->first);
-                    end = max(end, bit->second);
-                    bit = inter.erase(bit);                                        
+                while (start_idx != end_idx) { // from before begin to after end
+                    size -= min(end, start_idx->second) - max(start, start_idx->first);
+                    start = min(start, start_idx->first);
+                    end = max(end, start_idx->second);
+                    start_idx = inter.erase(start_idx);                                        
                 }
             }
             inter[start] = end;
