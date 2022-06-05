@@ -5,9 +5,9 @@ public:
         vector<int> result(length, 0);
         
         for (const auto& update : updates) {
-            int start = update[0];
-            int end = update[1];
-            int inc = update[2];
+            const int& start = update[0];
+            const int& end = update[1];
+            const int& inc = update[2];
             
             result[start] += inc;
             
