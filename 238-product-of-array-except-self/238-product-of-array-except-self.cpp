@@ -9,15 +9,11 @@ public:
         
         left_side[0] = 1;
         right_side[ARR_SIZE - 1] = 1;
-        size_t j = ARR_SIZE - 2;
         
-        for (int i = 1; i < ARR_SIZE; i++) {
+        for (size_t i = 1, j = ARR_SIZE - 2; i < ARR_SIZE; i++) {
             left_side[i] = left_side[i - 1] * nums[i - 1];
             right_side[j] = right_side[j + 1] * nums[j + 1];
             j--;
-        }
-        for (int j = ARR_SIZE - 2; j >= 0; j--) {
-            //right_side[j] = right_side[j + 1] * nums[j + 1];
         }
          
         for (size_t i = 0; i < ARR_SIZE; i++) {
