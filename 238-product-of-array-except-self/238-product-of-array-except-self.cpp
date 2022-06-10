@@ -20,7 +20,7 @@ public:
             ans[i] = left_side[i] * right_side[i];
         }
     
-        return ans; 
+        return ans;
     }
 };
 
