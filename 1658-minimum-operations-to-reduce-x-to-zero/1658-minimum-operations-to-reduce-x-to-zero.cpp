@@ -14,7 +14,8 @@ public:
                     res = min(res, left + ARR_SIZE - right);
                 }
                 if (right < ARR_SIZE) {
-                    sum -= nums[right++];
+                    sum -= nums[right];
+                    right++;
                 }
                 else {
                     break;
