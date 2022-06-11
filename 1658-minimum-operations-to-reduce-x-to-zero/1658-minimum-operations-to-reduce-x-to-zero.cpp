@@ -20,8 +20,9 @@ public:
                     break;
                 }
             }
-            else {
-                sum += nums[left++];
+            else { // sum < x
+                sum += nums[left];
+                left++;
             }
         }
         
