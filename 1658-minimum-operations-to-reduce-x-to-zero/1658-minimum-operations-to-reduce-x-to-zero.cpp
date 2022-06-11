@@ -13,15 +13,16 @@ public:
             total += num;
         }
 
+        // 인덱스 관점에서 right는 끝 인덱스, left는 뒤에서 따라오는 시작 인덱스이다.
         for (int right = 0; right < ARR_SIZE; right++) {
-            current += nums[right];
+            current += nums[right]; // 인덱스 0부터 순차적 누적값을 구한다.
             while (current > total - x && left <= right) {
-                current -= nums[left];
-                left += 1;
+                current -= nums[left]; // 누적된 값에서 앞부분의 값을을 빼온다.
+                left++;  // left 값을 앞으로 땡겨온다
             }
-            if (current == total - x) {
+            if (current == total - x) { // oo xxx oo -> 우린x의 길이를 구함, x가 길어야 o길이가 짧다.
                 int length = right - left + 1;
-                ans = max(ans, length);
+                ans = max(ans, length); // 길이가 길어야 무제에서 요구 하는 최소 길이가 나온다.
             }
         }
         
