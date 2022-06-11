@@ -16,7 +16,7 @@ public:
         // 인덱스 관점에서 right는 끝 인덱스, left는 뒤에서 따라오는 시작 인덱스이다.
         for (int right = 0; right < ARR_SIZE; right++) {
             current += nums[right]; // 인덱스 0부터 순차적 누적값을 구한다.
-            while (current > total - x && left <= right) {
+            while (current > total - x && left <= right) { // current > total -x 조건 : 
                 current -= nums[left]; // 누적된 값에서 앞부분의 값을을 빼온다.
                 left++;  // left 값을 앞으로 땡겨온다
             }
