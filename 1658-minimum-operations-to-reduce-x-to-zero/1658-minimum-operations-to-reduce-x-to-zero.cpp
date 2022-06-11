@@ -14,9 +14,7 @@ public:
         }
 
         for (int right = 0; right < ARR_SIZE; right++) {
-            // sum([left ,..., right]) = total - x
             current += nums[right];
-            // if larger, move `left` to left
             while (current > total - x && left <= right) {
                 current -= nums[left];
                 left += 1;
