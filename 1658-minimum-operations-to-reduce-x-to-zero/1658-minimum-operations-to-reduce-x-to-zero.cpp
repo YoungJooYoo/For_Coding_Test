@@ -24,6 +24,6 @@ public:
                 j++;
           } 
           if(len == 0) return -1;  
-          return size-len;
+          return size - len;
     }
 };
