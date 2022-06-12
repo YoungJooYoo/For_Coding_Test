@@ -1,29 +1,34 @@
 class Solution {
 public:
-    int minOperations(vector<int>& n, int x) 
+    int minOperations(vector<int>& nums, int x) 
     {
-          int size = n.size();
-          int total = 0;
-          int len = 0;
-          for (int i : n) total += i;
-          if (total == x) return size;
+        const int ARR_SIZE = nums.size();
+        int total = 0;
+        int max_len = 0;
+        int left = 0;
+        int right = 0;
+        int sum = 0;
+       
+        for (int num : nums) total += num;
+        if (total == x) return ARR_SIZE;
         
-          int need = total - x;
-          int i = 0 , j = 0;
-          int sum = 0;
+        int sub_sum = total - x;
         
-          while( j < size ) {
-                sum += n[j];  
-                while(i < j && sum > need){
-                        sum -= n[i++];
-                }
-                if(sum == need){
-                    
-                    len = max(len, j-i+1);
-                }
-                j++;
-          } 
-          if(len == 0) return -1;  
-          return size - len;
+        while (right < ARR_SIZE) {
+            sum += nums[right];  
+            while(left < right && sum > sub_sum) {
+                sum -= nums[left++];
+            }
+            if (sum == sub_sum) {
+                max_len = max(len, right - left + 1);
+            }
+            right++;
+        } 
+        
+        if (len == 0) {
+            return -1;
+        }  
+        
+        return ARR_SIZE-  max_len;
     }
 };
