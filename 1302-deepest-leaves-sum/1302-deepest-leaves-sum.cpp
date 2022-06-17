@@ -27,8 +27,6 @@ public:
         
         get_deepest_sum(root->left, depth);
         get_deepest_sum(root->right, depth);
-
-        
     }
     
     int deepestLeavesSum(TreeNode* root) 
