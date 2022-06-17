@@ -1,7 +1,7 @@
 class Solution 
 {
 public:
-    void get_depth(TreeNode* root, int depth) 
+    void get_max_depth(TreeNode* root, int depth) 
     {
         if (root == nullptr) {
             return;
@@ -9,8 +9,8 @@ public:
         
         depth++;
         max_depth = max(max_depth, depth);
-        get_depth(root->left, depth);
-        get_depth(root->right, depth);
+        get_max_depth(root->left, depth);
+        get_max_depth(root->right, depth);
     }
     
     void get_deepest_sum(TreeNode* root, int depth)
@@ -33,7 +33,7 @@ public:
     
     int deepestLeavesSum(TreeNode* root) 
     {
-        get_depth(root, 0);
+        get_max_depth(root, 0);
         get_deepest_sum(root, 0);
         
         return sum;
