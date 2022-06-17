@@ -36,8 +36,6 @@ public:
         get_depth(root, 0);
         get_deepest_sum(root, 0);
         
-        cout << max_depth << endl;
-        
         return sum;
     }
 
