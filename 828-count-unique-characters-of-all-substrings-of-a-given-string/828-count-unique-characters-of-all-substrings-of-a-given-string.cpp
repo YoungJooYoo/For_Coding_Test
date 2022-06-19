@@ -7,8 +7,8 @@ public:
         
         for (char ch = 'A'; ch <= 'Z'; ch++) {
             int cnt = 0;
-            int curr = -1;
-            int prev = -1;
+            int curr = 0;
+            int prev = 0;
             
             for (int i = 0; i < s.size(); i++) {
                 if (s[i] == ch) {
