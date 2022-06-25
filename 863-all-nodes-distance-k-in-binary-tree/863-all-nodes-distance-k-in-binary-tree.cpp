@@ -46,7 +46,7 @@ public:
                     q.push(curr->left);
                     st.insert(curr->left->val); // 방문표시
                 }
-                if (curr->right && st.find(curr->right->val) == st.end()) {
+                if (curr->right != nullptr && st.find(curr->right->val) == st.end()) {
                     q.push(curr->right);
                     st.insert(curr->right->val); // 방문표시
                 }
