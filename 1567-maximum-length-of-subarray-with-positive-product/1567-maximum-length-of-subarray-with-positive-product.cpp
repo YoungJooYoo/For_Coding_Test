@@ -2,35 +2,36 @@ class Solution {
 public:
     int getMaxLen(vector<int>& nums) 
     {
-        int max_length = 0;
-        int positive_count = 0;
-        int negative_count = 0;
+        int neg = 0;
+        int last0idx = -1;
+        int firstnegidx = -1;
+        int ans = 0;
+        bool flag = false;
         
-        for (const auto& num : nums) {
-            if (num == 0) { // 원소가 0 이라면, 패스 카운트 전부 초기화
-                positive_count = 0;
-                negative_count = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == 0) {
+                flag = false;
+                last0idx = i;
+                firstnegidx = i;
+                neg = 0;
             }
-            if (num < 0) { // 음수인 경우 체크, 음수가 짝수가 되어야 유효한 길이가 된다
-                int temp_pos = positive_count; // 양수의 갯수 임시 저장
-                if (negative_count != 0) { // true 라면
-                    negative_count++;
+            else {
+                if (nums[i] < 0) {
+                    neg++;
+                    if(flag == false) {
+                        flag = true;
+                        firstnegidx = i;
+                    }
                 }
-                else { // netative가 0보다 크다면
-                    negative_count = 0;
+                if (neg % 2== 0) {
+                    ans = max(ans,i - last0idx);
                 }
-                positive_count = negative_count;
-                negative_count = temp_pos + 1; // 양수 갯수 + 1
+                else {
+                    ans = max(ans, i - firstnegidx);
+                }
             }
-            if (num > 0) { // 양수인 경우
-                if (negative_count != 0) {
-                    negative_count++;  // 왜왜왜????
-                }
-                positive_count++; // 양수 갯수 카운트 
-            }
-            max_length = max(max_length, positive_count);
         }
         
-        return max_length;
+        return ans;
     }
 };
