@@ -38,7 +38,7 @@ public:
             ans.push_back(node->val);
             return;
         }
-        if (node->left != nullptr) {
+        if (node->left != nullptr) { // 자식 노드들 탐색
             dfs(node->left, K - 1);
         }
         if (node->right != nullptr) {
@@ -47,6 +47,7 @@ public:
         
         TreeNode* p = parent[node]; // parent 노드
         
+        // 부모 노드로 올라가서 탐색
         if (p != nullptr) {
             dfs(p, K - 1);
         }
