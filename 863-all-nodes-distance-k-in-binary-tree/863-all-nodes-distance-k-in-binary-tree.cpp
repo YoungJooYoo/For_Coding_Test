@@ -45,10 +45,11 @@ public:
             dfs(node->right, K - 1);
         }
         
-        TreeNode* p = parent[node];
+        TreeNode* p = parent[node]; // parent 노드
         
-        if (p != nullptr)
+        if (p != nullptr) {
             dfs(p, K - 1);
+        }
     }
     
 private:
