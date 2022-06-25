@@ -42,7 +42,7 @@ public:
                 TreeNode* curr = q.front();
                 q.pop();
                 
-                if (curr->left && st.find(curr->left->val) == st.end()) {
+                if (curr->left != nullptr && st.find(curr->left->val) == st.end()) {
                     q.push(curr->left);
                     st.insert(curr->left->val); // 방문표시
                 }
