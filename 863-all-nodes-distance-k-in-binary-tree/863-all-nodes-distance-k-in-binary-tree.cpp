@@ -1,67 +1,51 @@
 class Solution {
-public:
-    void func(TreeNode* root)
+public:    
+    void findParent(TreeNode* node)
     {
-        if (root == NULL) {
-            return ;
+        if (!node) {
+            return;
         }
-        if (root->left) {
-            mp[root->left] = root;
-            func(root->left);
+        if (node->left) {
+            parent[node->left] = node;
+            findParent(node->left);
         }
-        if (root->right) {
-            mp[root->right] = root;
-            func(root->right);
+        if (node->right) {
+            parent[node->right] = node;
+            findParent(node->right);
         }
-        
-        return;
     }
     
-    vector<int> distanceK(TreeNode* root, TreeNode* target, int k) 
+    vector<int> distanceK(TreeNode* root, TreeNode* target, int K) 
     {
-        queue<TreeNode*> q;
-        unordered_set<int> st;  // 방문체크
-        int level = 0; // at level == k
-        vector<int> ans;
-        
-        st.insert(target->val); // 방문했던 노드의 값을 넣는다.
-        q.push(target); // bfs 큐에 넣는다.
-        func(root); // 재귀함수로, 자식-부모 해시를 구한다.
-        
-        while (!q.empty()) { // BFS 탐색
-            int size = q.size();
-            while (size--) { // 큐 사이즈만큼 퓨를 비워가면서 탐색
-                if (level == k) { //????
-                    while (!q.empty()) {
-                        ans.push_back(q.front()->val);
-                        q.pop();
-                    }
-                    return ans;
-                }
-                
-                TreeNode* curr = q.front();
-                q.pop();
-                
-                // 방문한적 없다면, 방문 체크
-                if (curr->left != nullptr && st.find(curr->left->val) == st.end()) { 
-                    q.push(curr->left); // 방문 큐에 넣기
-                    st.insert(curr->left->val); // 방문표시
-                }
-                if (curr->right != nullptr && st.find(curr->right->val) == st.end()) {
-                    q.push(curr->right);
-                    st.insert(curr->right->val); // 방문표시
-                }
-                if (mp[curr] && st.find(mp[curr]->val) == st.end()) {
-                    q.push(mp[curr]); // curr의 부모 노드 넣는다.
-                    st.insert(mp[curr]->val); // 방문표시
-                }
-            }
-            level++; // 방문 깊이 증가
+        if (!root) {
+            return ans;
         }
+        findParent(root);
+        dfs(target, K );
         
-        return ans;   
+        return ans;
+    }
+    
+    void dfs( TreeNode* node, int K) {
+        if (visit.find(node) != visit.end())  return;
+        visit.insert(node);
+        if( K == 0 ){
+            ans.push_back(node->val);
+            return;
+        }
+        if( node->left ){
+            dfs(node->left, K-1);
+        }
+        if( node->right){
+            dfs(node->right, K-1);
+        }
+        TreeNode* p = parent[node];
+        if( p )
+            dfs(p, K-1);
     }
     
 private:
-    unordered_map<TreeNode*, TreeNode*> mp; // 자식-부모 노드 매잉
+    vector<int> ans;   
+    map<TreeNode*, TreeNode*> parent;  // son=>parent  매핑
+    set<TreeNode*> visit;    // 유니크한 val 값으로 방문체크
 };
