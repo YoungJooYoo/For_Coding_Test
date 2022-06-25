@@ -17,8 +17,8 @@ public:
 
     void dfs( TreeNode* node, int K) 
     {
-        if (visit.find(node) != visit.end())  { // 존재하지 않는 곳 방문 x
-            return; // node가 존재하지 않으면, 리턴 방문할 필요 없는 장소
+        if (visit.find(node) != visit.end())  { // 이미 방문했다면 return
+            return;
         }
         
         visit.insert(node); // 방문 표시
