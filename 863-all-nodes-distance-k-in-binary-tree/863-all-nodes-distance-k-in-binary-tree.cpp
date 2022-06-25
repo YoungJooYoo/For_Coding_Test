@@ -17,7 +17,7 @@ public:
     
     vector<int> distanceK(TreeNode* root, TreeNode* target, int K) 
     {
-        if (!root) {
+        if (root == nullptr) {
             return ans;
         }
         findParent(root); // 해시에 자식-부모 노드 관계 만들어 두기
