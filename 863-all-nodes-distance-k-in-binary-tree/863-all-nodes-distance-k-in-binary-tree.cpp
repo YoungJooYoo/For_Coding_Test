@@ -17,7 +17,7 @@ public:
 
     void dfs( TreeNode* node, int K) 
     {
-        if (visit.find(node) != visit.end())  {
+        if (visit.find(node) != visit.end())  { // 존재하지 않는 곳 방문 x
             return; // node가 존재하지 않으면, 리턴 방문할 필요 없는 장소
         }
         
@@ -36,7 +36,7 @@ public:
         
         TreeNode* p = parent[node]; // parent 노드
         
-        // 부모 노드로 올라가서 탐색
+        // 부모 노드로 올라가서 탐색 방문체크가 되어 있으니 중복 방문 존재 x
         if (p != nullptr) {
             dfs(p, K - 1);
         }
