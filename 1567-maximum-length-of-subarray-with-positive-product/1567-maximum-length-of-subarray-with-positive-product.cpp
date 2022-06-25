@@ -13,8 +13,15 @@ public:
             }
             if (num < 0) { // 음수인 경우 체크, 음수가 짝수가 되어야 유효한 길이가 된다
                 int temp_pos = positive_count; // 양수의 갯수 임시 저장
-                negative_count ? negative_count++ : 0;
-                positive_count = negative_count;  // 왜왜왜
+                
+                if (negative_count != 0) { // true 라면
+                    negative_count++;
+                }
+                else {
+                    negative_count = 0;
+                }
+                //negative_count ? negative_count++ : 0;
+                positive_count = negative_count;
                 cout << positive_count << endl;
                 negative_count = temp_pos + 1; // 양수 갯수 + 1
             }
