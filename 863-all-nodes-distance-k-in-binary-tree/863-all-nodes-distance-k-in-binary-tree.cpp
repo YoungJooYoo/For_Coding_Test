@@ -14,18 +14,7 @@ public:
             findParent(node->right);
         }
     }
-    
-    vector<int> distanceK(TreeNode* root, TreeNode* target, int K) 
-    {
-        if (root == nullptr) {
-            return ans;
-        }
-        findParent(root); // 해시에 자식-부모 노드 관계 만들어 두기
-        dfs(target, K);
-        
-        return ans;
-    }
-    
+
     void dfs( TreeNode* node, int K) 
     {
         if (visit.find(node) != visit.end())  {
@@ -51,6 +40,17 @@ public:
         if (p != nullptr) {
             dfs(p, K - 1);
         }
+    }
+    
+    vector<int> distanceK(TreeNode* root, TreeNode* target, int K) 
+    {
+        if (root == nullptr) {
+            return ans;
+        }
+        findParent(root); // 해시에 자식-부모 노드 관계 만들어 두기
+        dfs(target, K);
+        
+        return ans;
     }
     
 private:
