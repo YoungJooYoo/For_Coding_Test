@@ -20,28 +20,35 @@ public:
         if (!root) {
             return ans;
         }
-        findParent(root);
-        dfs(target, K );
+        findParent(root); // 해시에 자식-부모 노드 관계 만들어 두기
+        dfs(target, K);
         
         return ans;
     }
     
-    void dfs( TreeNode* node, int K) {
-        if (visit.find(node) != visit.end())  return;
-        visit.insert(node);
-        if( K == 0 ){
+    void dfs( TreeNode* node, int K) 
+    {
+        if (visit.find(node) != visit.end())  {
+            return; // node가 존재하지 않으면, 리턴 방문할 필요 없는 장소
+        }
+        
+        visit.insert(node); // 방문 표시
+        
+        if (K == 0) { // K = 0; 상대 위치 k를 깍아 내리면서, 해당 노드 위치로 상대 위치 구해서, 결국 0이 되면 탐색종료
             ans.push_back(node->val);
             return;
         }
-        if( node->left ){
-            dfs(node->left, K-1);
+        if (node->left != nullptr) {
+            dfs(node->left, K - 1);
         }
-        if( node->right){
-            dfs(node->right, K-1);
+        if (node->right != nullptr) {
+            dfs(node->right, K - 1);
         }
+        
         TreeNode* p = parent[node];
-        if( p )
-            dfs(p, K-1);
+        
+        if (p != nullptr)
+            dfs(p, K - 1);
     }
     
 private:
