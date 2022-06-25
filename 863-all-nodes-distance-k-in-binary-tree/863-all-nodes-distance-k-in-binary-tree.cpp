@@ -21,7 +21,7 @@ public:
     {
         queue<TreeNode*> q;
         unordered_set<int> st;  // 방문체크
-        int level = 0; // at level == k , all the nodes in queue is our required nodes
+        int level = 0; // at level == k
         vector<int> ans;
         
         st.insert(target->val); // 방문했던 노드의 값을 넣는다.
@@ -31,7 +31,7 @@ public:
         while (!q.empty()) { // BFS 탐색
             int size = q.size();
             while (size--) { // 큐 사이즈만큼 퓨를 비워가면서 탐색
-                if (level == k) {
+                if (level == k) { //????
                     while (!q.empty()) {
                         ans.push_back(q.front()->val);
                         q.pop();
@@ -42,8 +42,9 @@ public:
                 TreeNode* curr = q.front();
                 q.pop();
                 
-                if (curr->left != nullptr && st.find(curr->left->val) == st.end()) {
-                    q.push(curr->left);
+                // 방문한적 없다면, 방문 체크
+                if (curr->left != nullptr && st.find(curr->left->val) == st.end()) { 
+                    q.push(curr->left); // 방문 큐에 넣기
                     st.insert(curr->left->val); // 방문표시
                 }
                 if (curr->right != nullptr && st.find(curr->right->val) == st.end()) {
@@ -54,7 +55,6 @@ public:
                     q.push(mp[curr]); // curr의 부모 노드 넣는다.
                     st.insert(mp[curr]->val); // 방문표시
                 }
-                
             }
             level++; // 방문 깊이 증가
         }
