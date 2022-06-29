@@ -2,24 +2,27 @@ class Solution {
 public:
     int numPairsDivisibleBy60(vector<int>& time) 
     {
-        unordered_map<int, long long int> mp;
-        long long int cnt = 0;
+        int seen[60] = {0, };
+        int count = 0;
         
-        // 60으로 나눈 나머지를 hash에 저장.
-        for (const int& num : time) {
-            mp[num % 60]++;
+        // 숫자가 어떻든 나머지 패턴은 같으므로
+        for (int& ele : time) {
+            ele = ele % 60;
         }
         
-        for (const auto& [first, second] : mp) {
-            if (first == 0 || first == 30) {
-                cnt += ((second - 1) * second) / 2;
-            }
-            else if (mp.count(60 - first)) {
-                cnt += second * mp[60 - first];
-                mp[60 - first] = 0;
-            }
+        for (const int& ele : time) {
+            int x = 60 - ele;
+            count += seen[x % 60]; // 60 - (ele % 60) 나머지 구하고  -> 60 - 나머지  =  
+            seen[ele % 60]++;
         }
         
-        return cnt;
+        return count;
     }
 };
+
+/*
+
+Brute Force로 풀이할 경우 시간 초과가 나온다.
+따라서 O(n)에 끝나는 방법으로 진행 해야한다.
+
+*/
