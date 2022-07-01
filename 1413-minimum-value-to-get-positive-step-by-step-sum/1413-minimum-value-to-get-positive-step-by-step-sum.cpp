@@ -7,7 +7,6 @@ public:
         while (true) {
             int total = startValue;
             bool isValid = true;
-
             for (const int& num : nums) {
                 total += num;
                 if (total < 1) {
