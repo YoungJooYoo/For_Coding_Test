@@ -15,8 +15,8 @@ public:
             s.push(num);
         }
         
-        for (const int& n : findNums) {
-            ans.push_back(m.count(n) ? m[n] : -1);
+        for (const int& num : findNums) {
+            ans.push_back(m.count(num) ? m[num] : -1);
         }
         
         return ans;
