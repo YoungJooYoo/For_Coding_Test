@@ -8,7 +8,7 @@ public:
         vector<int> ans;
         
         for (const int& num : nums) {
-            while (s.size() != 0 && s.top() < num) {
+            while (s.empty() == false && s.top() < num) {
                 m[s.top()] = num;
                 s.pop();
             }
