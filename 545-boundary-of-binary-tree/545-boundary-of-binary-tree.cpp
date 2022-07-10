@@ -22,7 +22,7 @@ public:
         if (node == nullptr || (node->left == nullptr && node->right == nullptr)) {
             return;
         }
-        if(node->right != nullptr) {
+        if (node->right != nullptr) {
             dfsRight(node->right, ans);    
         } 
         else {
