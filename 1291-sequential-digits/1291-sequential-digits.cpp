@@ -13,7 +13,7 @@ public:
         sequentialDigitsHelperRecursive(i + 1, low, high, (num * 10) + i + 1);
     }
     
-    vector<int> sequentialDigits(int low, int high) 
+    vector<int> sequentialDigits(const int& low, const int& high) 
     {
         for (size_t i = 1; i <= 9; i++) {
             sequentialDigitsHelperRecursive(i, low, high, i);
