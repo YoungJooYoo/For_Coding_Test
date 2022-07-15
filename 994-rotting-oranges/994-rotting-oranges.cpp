@@ -5,7 +5,7 @@ public:
     {
         const int ROW = grid.size();
         const int COL = grid[0].size();
-        int time_stamp = ROTTEN_ORANGE;
+        int time_stamp = ROTTEN_ORANGE; // 상한오렌지로 바꾸며, 몇번만에 바꾸었는지 카운트 하는 변수
         
         while (runRottingProcess(time_stamp, grid, ROW, COL) == true) {
             time_stamp++;
@@ -20,7 +20,7 @@ public:
             }
         }
         
-        return time_stamp - 2;
+        return time_stamp - 2; // 처음 +2로 시작한 것 뺴고, count 된 값만 반환
     }  
     
     bool runRottingProcess(int time_stamp, vector<vector<int>>& grid, const int ROW, const int COL) 
@@ -35,8 +35,9 @@ public:
                         int nRow = row + direction[0]; // 동서 남북을 움직인다.
                         int nCol = col + direction[1];
                         if (nRow >= 0 && nRow < ROW && nCol >= 0 && nCol < COL)  { // 배열의 범위를 벗어나지 않는 범위에서 탐색
-                            if (grid[nRow][nCol] == ORANGE)  {
-                                grid[nRow][nCol] = time_stamp + 1;
+                            if (grid[nRow][nCol] == ORANGE)  { // 오랜지라면, 상한 오렌지로 바꾼다.
+                                grid[nRow][nCol] = time_stamp + 1; // 시간에 지남에 따라 트리 탐색처럼 단계가 + 1 된다,
+
                                 is_continued = true;
                             }
                         }
