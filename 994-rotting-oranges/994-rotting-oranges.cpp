@@ -34,20 +34,14 @@ public:
         vector<vector<int>> directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}}; // 동서남북 방향
         bool is_continued = false;
         
-        for (int row = 0; row < ROW; ++row) 
-        {
-            for (int col = 0; col < COL; ++col) 
-            {
-                if (grid[row][col] == timestamp) 
-                {
+        for (int row = 0; row < ROW; ++row) {
+            for (int col = 0; col < COL; ++col) {
+                if (grid[row][col] == timestamp) {
                     // current contaminated cell
-                    for (auto d : directions) 
-                    {
-                        int nRow = row + d[0], nCol = col + d[1];
-                        if (nRow >= 0 && nRow < ROW && nCol >= 0 && nCol < COL) 
-                        {
-                            if (grid[nRow][nCol] == 1) 
-                            {
+                    for (const auto direction : directions)  {
+                        int nRow = row + direction[0], nCol = col + direction[1];
+                        if (nRow >= 0 && nRow < ROW && nCol >= 0 && nCol < COL)  {
+                            if (grid[nRow][nCol] == 1)  {
                                 // this fresh orange would be contaminated next
                                 grid[nRow][nCol] = timestamp + 1;
                                 is_continued = true;
