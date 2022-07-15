@@ -7,12 +7,9 @@ public:
         const int ROTTEN_ORANGE = 2;
         const int ROW = grid.size();
         const int COL = grid[0].size();
-        
-        queue<int> job_q;
-       
         int time_stamp = 2;
         
-        while (runRottingProcess(time_stamp, grid, ROW, COL)) {
+        while (runRottingProcess(time_stamp, grid, ROW, COL) == true) {
             time_stamp++;
         }
         
