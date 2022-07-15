@@ -37,7 +37,6 @@ public:
                         if (nRow >= 0 && nRow < ROW && nCol >= 0 && nCol < COL)  { // 배열의 범위를 벗어나지 않는 범위에서 탐색
                             if (grid[nRow][nCol] == ORANGE)  { // 오랜지라면, 상한 오렌지로 바꾼다.
                                 grid[nRow][nCol] = time_stamp + 1; // 시간에 지남에 따라 트리 탐색처럼 단계가 + 1 된다,
-
                                 is_continued = true;
                             }
                         }
