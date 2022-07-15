@@ -3,11 +3,9 @@ class Solution
 public:
     int orangesRotting(vector<vector<int>>& grid) 
     {
-        const int ORANGE = 1;
-        const int ROTTEN_ORANGE = 2;
         const int ROW = grid.size();
         const int COL = grid[0].size();
-        int time_stamp = 2;
+        int time_stamp = ROTTEN_ORANGE;
         
         while (runRottingProcess(time_stamp, grid, ROW, COL) == true) {
             time_stamp++;
@@ -34,9 +32,10 @@ public:
             for (int col = 0; col < COL; ++col) {
                 if (grid[row][col] == time_stamp) {
                     for (const auto direction : directions)  {
-                        int nRow = row + direction[0], nCol = col + direction[1];
-                        if (nRow >= 0 && nRow < ROW && nCol >= 0 && nCol < COL)  {
-                            if (grid[nRow][nCol] == 1)  {
+                        int nRow = row + direction[0]; // 동서 남북을 움직인다.
+                        int nCol = col + direction[1];
+                        if (nRow >= 0 && nRow < ROW && nCol >= 0 && nCol < COL)  { // 배열의 범위를 벗어나지 않는 범위에서 탐색
+                            if (grid[nRow][nCol] == ORANGE)  {
                                 grid[nRow][nCol] = time_stamp + 1;
                                 is_continued = true;
                             }
@@ -48,6 +47,10 @@ public:
 
         return is_continued;
     }
+    
+private:
+    const int ORANGE = 1;
+    const int ROTTEN_ORANGE = 2;
 };
 
 
