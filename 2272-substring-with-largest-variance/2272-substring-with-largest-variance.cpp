@@ -20,16 +20,16 @@ public:
                     if (lowFreq > 0) { // 한개문자 몰빵 케이스 걸러내기
                         result = max(result, highFreq - lowFreq);
                     } 
-                    else { // lowFreq == 0;
+                    else if(lowFreq == 0) { // lowFreq == 0;
                         if (lowFreqAbandoned == true) { 
-                            result = max(result, highFreq - 1);
+                            result = max(result, highFreq - 1); 
                         }
                     }
-                    
+    
                     if (lowFreq > highFreq) {
-                        lowFreq = 0;
+                        lowFreq = 0; // 값 초기화
                         highFreq = 0;
-                        lowFreqAbandoned = true;
+                        lowFreqAbandoned = true; // low 빈도수 버리기
                     }
                 }
             }
