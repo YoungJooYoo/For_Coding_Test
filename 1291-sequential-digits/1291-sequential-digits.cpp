@@ -15,7 +15,7 @@ public:
     
     vector<int> sequentialDigits(const int& low, const int& high) 
     {
-        for (size_t i = 1; i <= 9; i++) {
+        for (size_t i = 1; i <= 9; i++) { 
             sequentialDigitsHelperRecursive(i, low, high, i);
         }
         
