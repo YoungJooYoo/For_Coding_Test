@@ -5,7 +5,7 @@ public:
     {
         int result = 0;
         
-        for (const auto& i : n) {
+        for (const char& i : n) {
             result = max(result, i - '0');
         }
         
