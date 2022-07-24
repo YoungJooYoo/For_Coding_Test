@@ -26,11 +26,11 @@ public:
                 int n = curr_location.second;
                 int x = m + direction[0];
                 int y = n + direction[1];
-                // If it steps out of the matrix, or the adjacent cell already records a smaller distance (for instance, the adjacent cell is also 0). 
+
                 if (x < 0 || x >= ROW || y < 0 || y >= COL || mat[x][y] <= mat[m][n] + 1) {
                     continue;
                 }
-                mat[x][y] = mat[m][n] + 1; // Adds one distance to the adjacent cell.
+                mat[x][y] = mat[m][n] + 1; // 인접 셀에 크기를 1 씩 늘려준다.
                 job_queue.push({x, y});
             }
         }
