@@ -5,7 +5,6 @@ public:
     {
         const int ROW = mat.size();
         const int COL = mat[0].size();
-        vector<vector<int>> directions{{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
         queue<pair<int, int>> job_queue;
         
         for (int i = 0; i < ROW; ++i) {
@@ -38,4 +37,7 @@ public:
         
         return mat;
     }
+    
+private:
+    vector<vector<int>> directions{{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 };
