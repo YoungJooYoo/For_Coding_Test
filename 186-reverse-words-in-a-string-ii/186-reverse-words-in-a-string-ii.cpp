@@ -4,7 +4,6 @@ public:
     {
         const size_t SIZE = s.size();
         stack<string> st;
-        //vector<char> result;
         string temp = "";
         size_t count = 0;
         
@@ -18,11 +17,10 @@ public:
                 st.push(temp);
                 temp = "";
             }
-            
         }
         
         s.clear();
-        // 스택에서 뽑아서, 다시 만들기
+        // 스택에 쌓은 단어를 다시 복구
         while (!st.empty()) {
             size_t st_size = st.size();
             string str = st.top(); st.pop();
@@ -33,7 +31,5 @@ public:
                 s.push_back(' ');
             }
         }
-        
-        //s = result;
     }
 };
