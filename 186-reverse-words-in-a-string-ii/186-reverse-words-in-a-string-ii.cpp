@@ -21,8 +21,6 @@ public:
             
         }
         
-        
-        
         while (!st.empty()) {
             size_t st_size = st.size();
             string str = st.top(); st.pop();
@@ -33,13 +31,6 @@ public:
                 result.push_back(' ');
             }
         }
-        
-        /*
-        vector<int>::iterator it = v.begin();
-        it = v.insert(it, 2); //맨앞에 2를 삽입
-        it = v.insert(it, 2, 3); // 맨앞에 3을 2개 삽입
-        it = v.insert(it+2, 2, 4); // 2번째부터 4를 2개 삽입
-        */
         
         s = result;
     }
