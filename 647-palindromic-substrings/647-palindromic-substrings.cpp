@@ -26,7 +26,7 @@ public:
     int countSubstrings(string& s) 
     {
         const size_t STR_SIZE = s.size();
-        vector<string> sub_str;
+        //vector<string> sub_str;
         int count = 0;
         
         // 서브스트링 전부 구하기
@@ -34,16 +34,14 @@ public:
             string temp;
             for (size_t j = i; j < STR_SIZE; j++) {
                 temp += s[j];
-                sub_str.push_back(temp);
+                //sub_str.push_back(temp);
+            if (is_palindromic(temp) == true) {
+                count++;
+            }
             }
         }
         
-        // Palindromic 확인하기
-        for (const auto& str : sub_str) {
-            if (is_palindromic(str) == true) {
-                count++;
-            }
-        }
+
         
         return count;
     }
