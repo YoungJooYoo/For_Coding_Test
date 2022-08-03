@@ -23,7 +23,7 @@ public:
         return true;
     }
     
-    int countSubstrings(string s) 
+    int countSubstrings(string& s) 
     {
         const size_t STR_SIZE = s.size();
         vector<string> sub_str;
