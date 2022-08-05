@@ -23,7 +23,7 @@ public:
             if (!st.empty()) {
                 result[i] = st.top(); // 스택이 비어있지 않은 조건에서, top에 nums[i]보다 큰 값 있으면 정답 배열에 넣는다
             }
-          st.push(nums[i]); // pop된 그 큰수를 다시 짚어 넣고 재활용 한다. 
+          st.push(nums[i]); // 비교한 현재 수 다시 넣는다(저장개념, 재활용)
         } 
         return result;
     }
