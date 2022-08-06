@@ -12,8 +12,8 @@ public:
         }
         
         for (int i = index; i < candidates.size(); i++) {
-            sum += candidates[i]; // 배열의 누적
-            temp.push_back(candidates[i]);  // 
+            sum += candidates[i]; // 합산 누적
+            temp.push_back(candidates[i]);  // 임시 배열 추가
             recursive(candidates, target, i);
             sum -= candidates[i]; // 백트랙킹 더 한 것 빼고
             temp.pop_back(); // 추가한 원소 삭제
