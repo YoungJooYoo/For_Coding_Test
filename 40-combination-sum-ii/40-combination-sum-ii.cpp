@@ -22,7 +22,7 @@ public:
             backtrack(candidates, target - candidates[index], index + 1);
             curr.pop_back();
             while (index + 1 < candidates.size() && candidates[index + 1] == candidates[index]) { // 중복값이면 체크
-                ++index;
+                index++; // 중복이면 인덱스를 쭈욱 넘긴다
             }
             backtrack(candidates, target, index + 1);
         }
