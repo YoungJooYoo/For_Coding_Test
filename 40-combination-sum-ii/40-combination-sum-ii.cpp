@@ -14,11 +14,10 @@ public:
             ans.push_back(curr);
             return;
         }
-        
-        if (index >= candidates.size()) {
+        else if (index >= candidates.size()) {
             return;
         }
-        if (target >= candidates[index]) {
+        else if (target >= candidates[index]) {
             curr.push_back(candidates[index]);
             backtrack(candidates, target - candidates[index], index + 1);
             curr.pop_back();
