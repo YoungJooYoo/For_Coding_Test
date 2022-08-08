@@ -16,7 +16,7 @@ public:
         }
         
         for (int i = index; i < candidates.size(); i++) {
-            if (i != index && candidates[i - 1] == candidates[i]) {
+            if (i != index && candidates[i - 1] == candidates[i]) { // 시작인덱스와 같지 않으면서, 이전 값과 현재 인덱스 값이 같은 경우 pass
                 continue;
             }
             if (target - candidates[i] >= 0) {
