@@ -3,32 +3,34 @@ public:
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) 
     {
         sort(candidates.begin(), candidates.end());
-        backtrack(candidates, target, 0);
+        recursive(candidates, target, 0);
         
-        return ans;
+        return result;
     }
     
-    void backtrack(vector<int>& candidates, int target, int index) 
+    void recursive(vector<int>& candidates, int target, int index) 
     {
         if (target == 0) {
-            ans.push_back(curr);
+            result.push_back(temp);
             return;
         }
-        else if (index >= candidates.size()) {
-            return;
-        }
-        else if (target >= candidates[index]) {
-            curr.push_back(candidates[index]);
-            backtrack(candidates, target - candidates[index], index + 1); 
-            curr.pop_back();
-            while (index + 1 < candidates.size() && candidates[index + 1] == candidates[index]) { // 중복값이면 체크 사용했으니까
-                index++; // 중복이면 인덱스를 쭈욱 넘긴다
+        
+        for (int i = index; i < candidates.size(); i++) {
+            if (i != index && candidates[i - 1] == candidates[i]) {
+                continue;
             }
-            backtrack(candidates, target, index + 1);
+            if (target - candidates[i] >= 0) {
+                temp.push_back(candidates[i]);
+                recursive(candidates, target - candidates[i], i + 1);
+                temp.pop_back();
+            }
+            else {
+                return;
+            }
         }
     }
     
 private:
-    vector<vector<int>> ans;
-    vector<int> curr;
+    vector<vector<int>> result;
+    vector<int> temp;
 };
