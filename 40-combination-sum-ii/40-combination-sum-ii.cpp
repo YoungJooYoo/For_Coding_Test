@@ -21,7 +21,7 @@ public:
             curr.push_back(candidates[index]);
             backtrack(candidates, target - candidates[index], index + 1);
             curr.pop_back();
-            while(index + 1 < candidates.size() && candidates[index + 1] == candidates[index]) {
+            while (index + 1 < candidates.size() && candidates[index + 1] == candidates[index]) {
                 ++index;
             }
             backtrack(candidates, target, index + 1);
