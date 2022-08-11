@@ -11,11 +11,10 @@ public:
 
         for (int j = i; j < nums.size(); j++) {
             if (j == i || nums[j] != nums[i]) {
-            swap(nums[i], nums[j]);
-            permute(nums, i + 1);
+                swap(nums[i], nums[j]);
+                permute(nums, i + 1);
             }
         }
-
     }
 
     vector<vector<int>> permuteUnique(vector<int>& nums) 
