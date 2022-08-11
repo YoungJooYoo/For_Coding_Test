@@ -9,8 +9,7 @@ public:
         
         for (size_t i = index; i < arr_size; i++) {
             if (index == i || nums[index] != nums[i]) {
-                //swap(nums[i], nums[index]);
-                swap(nums[index], nums[i]);
+                swap(nums[i], nums[index]);
                 recursive_backtracking(index + 1, arr_size, nums);
             }
         }
@@ -26,3 +25,14 @@ public:
 private:
     vector<vector<int>> result;
 };
+
+
+/*
+풀이법 :
+
+재귀함수할때 레퍼런스로 받지 않아야, 
+swap되지 않은 배열로 돌아갈 수 있다.
+
+
+
+*/
