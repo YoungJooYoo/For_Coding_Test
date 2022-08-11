@@ -2,17 +2,17 @@ class Solution
 {
   
 public:
-    void permute(vector<int> nums, int i) 
+    void permute(vector<int> nums, int index) 
     {
-        if (i == nums.size()) {
+        if (index == nums.size()) {
             result.push_back(nums);
             return;
         }
 
-        for (int j = i; j < nums.size(); j++) {
-            if (j == i || nums[j] != nums[i]) {
-                swap(nums[i], nums[j]);
-                permute(nums, i + 1);
+        for (int j = index; j < nums.size(); j++) {
+            if (j == index || nums[j] != nums[index]) {
+                swap(nums[index], nums[j]);
+                permute(nums, index + 1);
             }
         }
     }
