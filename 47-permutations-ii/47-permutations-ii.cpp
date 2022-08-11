@@ -1,27 +1,25 @@
-class Solution 
-{
-  
+class Solution {
 public:
-    void permute(vector<int> nums, int index) 
+    void recursive_backtracking(int index, int arr_size, vector<int> nums)
     {
-        if (index == nums.size()) {
+        if (index == arr_size) {
             result.push_back(nums);
             return;
         }
-
-        for (int j = index; j < nums.size(); j++) {
-            if (j == index || nums[j] != nums[index]) {
-                swap(nums[index], nums[j]);
-                permute(nums, index + 1);
+        
+        for (size_t i = index; i < arr_size; i++) {
+            if (index == i || nums[index] != nums[i]) {
+                //swap(nums[i], nums[index]);
+                swap(nums[index], nums[i]);
+                recursive_backtracking(index + 1, arr_size, nums);
             }
         }
     }
-
+    
     vector<vector<int>> permuteUnique(vector<int>& nums) 
     {
         sort(nums.begin(), nums.end());
-        permute(nums, 0);
-        
+        recursive_backtracking(0, nums.size(), nums);
         return result;
     }
     
