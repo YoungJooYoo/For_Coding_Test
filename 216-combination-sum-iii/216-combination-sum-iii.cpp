@@ -8,7 +8,7 @@ public:
             return;
         }
         
-        for (int i = index; i < 10; i++) {
+        for (int i = index; i < MAX; i++) {
             temp.push_back(i);
             recursive(k, n - i, i + 1);
             temp.pop_back();
@@ -24,6 +24,7 @@ public:
 private:
     vector<vector<int>> result;
     vector<int> temp;
+    enum { MAX = 10 };
 };
 
 /*
