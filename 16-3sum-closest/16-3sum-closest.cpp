@@ -33,3 +33,8 @@ public:
         return result;
     }
 };
+
+/*
+sum : 현재
+result : 이전 값
+*/
