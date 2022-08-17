@@ -12,8 +12,7 @@ public:
             int y = min(height[i], height[j]); // height, 높이
             int curr_area = x * y;
             max_area = max(max_area, curr_area);
-            cout << max_area <<" " << i <<" " << j << endl;
-            
+
             while (i < j && height[i] <= y) {
                 i++;
             }
