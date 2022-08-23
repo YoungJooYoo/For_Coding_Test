@@ -16,7 +16,6 @@ public:
             }
         }
         
-        
         for (const auto& word : words1) {
             vector<int> words1_freq(MAX, 0);
             bool b_is_all = true;
