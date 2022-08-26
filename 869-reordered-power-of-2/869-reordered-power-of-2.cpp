@@ -4,9 +4,11 @@ public:
     {
         string number = sortedDigits(n);
 
+        // 정렬된 숫자가, 앞에서부터 
         for (int i = 0; i < INT_RANGE_MAX; ++i) {
             string powerOfTwo = sortedDigits(1 << i);
             if (number == powerOfTwo) {
+                cout << "지금" << endl;
                 return true;
             }
         }
@@ -14,7 +16,7 @@ public:
         return false;
     }
     
-    string sortedDigits(int n) 
+    string sortedDigits(int n) // 문자 -> 문자열 -> 정렬 -> 0이 맨 앞
     {
         string digits = to_string(n);
         sort(digits.begin(), digits.end());
