@@ -8,7 +8,6 @@ public:
         for (int i = 0; i < INT_RANGE_MAX; ++i) {
             string powerOfTwo = sortedDigits(1 << i);
             if (number == powerOfTwo) {
-                cout << "지금" << endl;
                 return true;
             }
         }
