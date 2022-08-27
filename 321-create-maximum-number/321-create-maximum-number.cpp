@@ -3,10 +3,11 @@ class Solution
 public:
     vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) 
     {
-        int n1 = nums1.size(), n2 = nums2.size();
+        int n1 = nums1.size();
+        int n2 = nums2.size();
         vector<int> best;
         
-        for (int k1=max(k-n2, 0); k1<=min(k, n1); ++k1) {
+        for (int k1 = max(k - n2, 0); k1 <= min(k, n1); ++k1) {
             best = max(best, maxNumber(maxNumber(nums1, k1), maxNumber(nums2, k-k1)));            
         }
             
