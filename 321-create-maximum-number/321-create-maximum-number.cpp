@@ -14,24 +14,6 @@ public:
         return best;
     }
 
-    vector<int> maxNumber(vector<int> nums, int k) 
-    {
-        int drop = nums.size() - k;
-        vector<int> out;
-        
-        for (const int& num : nums) {
-            while (drop && out.size() && out.back() < num) {
-                out.pop_back();
-                drop--;
-            }
-            out.push_back(num);
-        }
-        
-        out.resize(k);
-        
-        return out;
-    }
-
     vector<int> maxNumber(vector<int> nums1, vector<int> nums2) 
     {
         vector<int> out;
@@ -41,6 +23,24 @@ public:
             out.push_back(now[0]);
             now.erase(now.begin());
         }
+        
+        return out;
+    }
+    
+    vector<int> maxNumber(vector<int> nums, int k) 
+    {
+        int drop = nums.size() - k;
+        vector<int> out;
+        
+        for (const int& num : nums) {
+            while (drop != 0 && out.size() && out.back() < num) {
+                out.pop_back();
+                drop--;
+            }
+            out.push_back(num);
+        }
+        
+        out.resize(k);
         
         return out;
     }
