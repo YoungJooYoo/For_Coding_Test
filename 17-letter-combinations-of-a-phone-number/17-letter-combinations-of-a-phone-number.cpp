@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void dfs (const string& digits, string& path, int index)
+    void dfs(const string& digits, string& path, int index)
     {
         if (index == digits.size()) {
             result.push_back(path);
