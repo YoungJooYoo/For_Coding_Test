@@ -4,6 +4,7 @@ public:
     {
         if (index == digits.size()) {
             result.push_back(path);
+            
             return;
         }
         
