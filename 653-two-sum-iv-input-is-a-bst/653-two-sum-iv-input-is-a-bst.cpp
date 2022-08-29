@@ -1,32 +1,33 @@
 class Solution {
 public:
-    void recursive(TreeNode* root)
-    {
-        if (root == nullptr) {
-            return;   
-        }
-        
-        elements.push_back(root->val);
-
-        recursive(root->left);
-        recursive(root->right);
-    }
-    
-    bool findTarget(TreeNode* root, int k) 
-    {
-        recursive(root);
-        
-        for (size_t i = 0; i < elements.size() - 1; i++) {
-            for (size_t j = i + 1; j < elements.size(); j++) {
-                if (elements[i] + elements[j] == k) {
-                    return true;
-                }
-            }
-        }
-        
-        return false;
+    bool findTarget(TreeNode* root, int k) {
+        vector<int> nums;
+        inorder(root, nums);
+        return findTargetInSortedArray(nums, k);
     }
 
 private:
-    vector<int> elements;
+    void inorder(TreeNode* node, vector<int>& nums) {
+        if (!node) return;
+        inorder(node->left, nums);
+        nums.push_back(node->val);
+        inorder(node->right, nums);
+    }
+
+    bool findTargetInSortedArray(vector<int> a, int target) {
+        for (int i = 0, j = a.size() - 1; i < j;) {
+            int sum = a[i] + a[j];
+            if (sum == target) {
+                return true;
+            }
+            else if (sum < target) {
+                i++;
+            }
+            else {
+                j--;
+            }
+        }
+
+        return false;
+    }
 };
