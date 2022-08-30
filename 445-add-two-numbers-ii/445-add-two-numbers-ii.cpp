@@ -27,12 +27,12 @@ public:
             int y = st2.empty() ? 0 : st2.top();
             int sum = x + y + carry;
             
-            if(!st1.empty()) st1.pop();
-            if(!st2.empty()) st2.pop();
+            if (!st1.empty()) st1.pop();
+            if (!st2.empty()) st2.pop();
             
             ListNode* temp = new ListNode(sum % 10);
-            temp->next = result;
-            result = temp;
+            temp->next = result; // 새로 생성한 노드 temp를  result노드 맨 앞에 붙인다.
+            result = temp; // result는 맨 앞 노드인 temp로 갱신한다.
             carry = sum / 10;
         }
         
