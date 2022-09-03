@@ -7,7 +7,7 @@ public:
         int right = 0; 
         int n = nums.size();
         int sum = 0;
-        int length = INT_MAX;
+        int length = INT_MAX; // 0을 넣으면 항상 0을 반환한다.
         
         while (right < n) {
             sum += nums[right++];
