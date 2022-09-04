@@ -7,9 +7,9 @@ public:
         
         for (int k = 0; k < x; k++){
             int temp;
-            for (int i = n - 1; i >= 0; i--) {
+            for (int i = n - 1; i >= 0; i--) { // 배열을 뒤에서 부터 읽는다.
                 for (int j = m - 1; j >= 0; j--) {
-                    if (i == n - 1 && j == m - 1) {
+                    if (i == n - 1 && j == m - 1) { // 배열을 읽는 첫 시작(끝의 값) 경우
                         temp = grid[i][j];
                     }
                     else if (j == m - 1) {
