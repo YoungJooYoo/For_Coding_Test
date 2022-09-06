@@ -20,7 +20,7 @@ public:
     int combinationSum4(vector<int>& nums, int target) 
     {
         vector<int> dp(target + 1, -1);
-        dp[0]=1;
+        dp[0] = 1;
         
         recursive(nums, target, dp);
         
