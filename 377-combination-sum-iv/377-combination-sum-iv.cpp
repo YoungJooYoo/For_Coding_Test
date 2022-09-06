@@ -8,8 +8,8 @@ public:
         
         int count = 0;
         
-        for(int i=0; i<nums.size(); i++) {
-            count += recursive(nums, target-nums[i], dp);
+        for (int i = 0; i < nums.size(); i++) {
+            count += recursive(nums, target - nums[i], dp);
         }
         
         dp[target] = count;
