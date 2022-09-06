@@ -1,24 +1,28 @@
 class Solution {
 public:
-    int combinationSum4(vector<int>& nums, int target) {
-        vector<int> dp(target+1, -1);
-        dp[0]=1;
+
+    int recursive(vector<int> &nums, int target, vector<int> &dp)
+    {
+        if (target < 0) return 0;
+        if (dp[target] != -1) return dp[target];
         
-        func(nums, target, dp);
-        return dp[target];
+        int count = 0;
+        
+        for(int i=0; i<nums.size(); i++) {
+            count += recursive(nums, target-nums[i], dp);
+        }
+        
+        dp[target] = count;
+        
+        return count;
     }
     
-    int func(vector<int> &nums, int target, vector<int> &dp){
-        if(target<0)
-            return 0;
-    
-        if(dp[target] != -1)
-            return dp[target];
+    int combinationSum4(vector<int>& nums, int target) 
+    {
+        vector<int> dp(target + 1, -1);
+        dp[0]=1;
         
-        int res=0;
-        for(int i=0; i<nums.size(); i++)
-            res+= func(nums, target-nums[i], dp);
-        
-        return dp[target] = res;
+        recursive(nums, target, dp);
+        return dp[target];
     }
 };
