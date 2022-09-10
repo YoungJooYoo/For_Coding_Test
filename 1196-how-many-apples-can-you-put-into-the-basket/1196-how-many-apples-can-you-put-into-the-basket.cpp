@@ -7,10 +7,9 @@ public:
         
         sort(weight.begin(), weight.end());
         
-        for (size_t i = 0; i < weight.size(); i++) {
-            sum -= weight[i];
+        for (const auto& elem : weight) {
+            sum -= elem;
             count++;
-            cout << sum << endl;
             if (sum == 0) {
                 return count;
             }
