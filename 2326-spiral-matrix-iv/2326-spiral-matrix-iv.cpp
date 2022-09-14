@@ -16,8 +16,6 @@ public:
                     head = head->next;
                     j++;
                 }
-                if (head == NULL)
-                    break;
                 i++;
                 j--;
             }
