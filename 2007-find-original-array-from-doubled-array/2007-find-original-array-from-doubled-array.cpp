@@ -3,7 +3,7 @@ public:
 	vector<int> findOriginalArray(vector<int>& changed) 
 	{
         vector<int> ans;
-		unordered_map<int,int> mp;
+		unordered_map<int, int> mp;
         const size_t changed_size = changed.size();
 
         if (changed_size == 1) {
