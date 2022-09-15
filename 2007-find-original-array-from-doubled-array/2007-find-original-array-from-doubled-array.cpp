@@ -10,7 +10,7 @@ public:
 			return {};
 		}
 
-		sort(begin(changed),end(changed));
+		sort(begin(changed), end(changed));
 
         for (const auto& num : changed) { // 숫자가 얼마나 나오는지 빈도체크
 			mp[num]++;
