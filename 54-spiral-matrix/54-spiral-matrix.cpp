@@ -20,7 +20,7 @@ public:
             }
             right--;
             
-            if(left > right || top > bottom) {
+            if(left > right || top > bottom) { // 경계점 체크
                 break;
             }
             
