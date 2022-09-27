@@ -7,7 +7,7 @@ public:
         while (n)
         {
             if (n % 2 != 0) {
-            count++;
+                count++;
             }
             n /= 2;
         }
