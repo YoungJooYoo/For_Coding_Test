@@ -29,7 +29,7 @@ public:
         
         for (auto it = mp.begin(); it != mp.end(); it++) {
             for (const int& elem : it->second) {
-            result.push_back(elem);
+                result.push_back(elem);
             }
         }
         
