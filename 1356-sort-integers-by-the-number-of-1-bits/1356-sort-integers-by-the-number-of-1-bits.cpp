@@ -4,10 +4,11 @@ public:
     int countsetbits(int n)
     {
         int count = 0;
-        while (n)
+        
+        while (n != 0)
         {
             if (n % 2 != 0) {
-                count++;
+                count++; // 비트 1이 존재
             }
             n /= 2;
         }
