@@ -24,7 +24,8 @@ public:
         sort(arr.begin(), arr.end());
         
         for (int i = 0; i < arr.size(); i++) {
-            mp[countsetbits(arr[i])].push_back(arr[i]); // 1의 비트의 갯수에 따라 분류해서 맵에 저장
+            int bit_num = countsetbits(arr[i]);
+            mp[bit_num].push_back(arr[i]); // 1의 비트의 갯수에 따라 분류해서 맵에 저장
         }
         
         for (auto it = mp.begin(); it != mp.end(); it++) {
