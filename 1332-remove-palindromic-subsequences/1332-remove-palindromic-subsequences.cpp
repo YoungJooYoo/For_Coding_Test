@@ -11,10 +11,10 @@ public:
                 r--;
             }
             else {
-                return 2; // if the string is not a palindrome
+                return 2;
             }
         }
         
-        return 1; // if the string is a palindrome
+        return 1; 
     }
 };
