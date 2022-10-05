@@ -26,12 +26,9 @@ public:
     TreeNode* addOneRow(TreeNode* root, int val, int depth) 
     {
         if (depth == 1) {
-            TreeNode* tempRoot = root;
             TreeNode* newRoot = new TreeNode(val);
-            newRoot->left = tempRoot;
-            newRoot->right = nullptr;
+            newRoot->left = root;
             root = newRoot;
-            cout << "endl" << endl;
             
             return root;
         }
