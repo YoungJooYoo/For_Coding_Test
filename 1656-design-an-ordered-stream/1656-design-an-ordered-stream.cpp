@@ -2,19 +2,20 @@ class OrderedStream {
 public:
     OrderedStream(int n) 
     {
-        stream.resize(n); //change the size of the vector when orderedStream is called
+        stream.resize(n);
     }
     
     vector<string> insert(int id, string value) 
     {
         vector<string> result;
-        stream[id-1] = value; // value is stored in the ith position
+        stream[id - 1] = value; // value is stored in the ith position
         
-        while(i<stream.size() && stream[i]!="") //stream[i] !="" because an entry is printed only if the entry before it is printed
+        while (i < stream.size() && stream[i] != "") //stream[i] !="" because an entry is printed only if the entry before it is printed
         {
             result.push_back(stream[i]);
             i++;
         }
+        
         return result;
     }
     
