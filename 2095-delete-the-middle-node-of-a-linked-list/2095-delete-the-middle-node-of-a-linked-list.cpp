@@ -23,7 +23,9 @@ public:
             count++;
         }
         
+        ListNode* temp = node->next;
         node->next = node->next->next;
+        //free(temp);
         
         return head;
     }
