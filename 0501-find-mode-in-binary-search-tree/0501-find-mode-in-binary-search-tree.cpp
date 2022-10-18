@@ -7,7 +7,7 @@ public:
         }
         
         map[root->val]++;
-        fre = max(fre, map[root->val]);
+        max_value = max(max_value, map[root->val]);
         
         helper_recursive(root->left);
         helper_recursive(root->right);
@@ -18,12 +18,11 @@ public:
     vector<int> findMode(TreeNode* root) 
     {
         vector<int> result;
-        fre = 0;
         
         helper_recursive(root);
         
         for (const auto& elem : map){
-            if (elem.second == fre) result.push_back(elem.first);
+            if (elem.second == max_value) result.push_back(elem.first);
         }
         
         return result;
@@ -31,5 +30,5 @@ public:
     
 private:
     unordered_map<int, int> map;
-    int fre;
+    int max_value = 0;
 };
