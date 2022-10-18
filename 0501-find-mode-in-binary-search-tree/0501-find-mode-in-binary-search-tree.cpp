@@ -17,16 +17,16 @@ public:
     
     vector<int> findMode(TreeNode* root) 
     {
-        vector<int> res;
-        
+        vector<int> result;
         fre = 0;
+        
         helper_recursive(root);
         
         for (const auto& elem : map){
-            if (elem.second == fre) res.push_back(elem.first);
+            if (elem.second == fre) result.push_back(elem.first);
         }
         
-        return res;
+        return result;
     }
     
 private:
