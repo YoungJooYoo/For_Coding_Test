@@ -7,7 +7,7 @@ public:
         }
         
         map[root->val]++;
-        max_value = max(max_value, map[root->val]);
+        max_freq_value = max(max_freq_value, map[root->val]);
         
         helper_recursive(root->left);
         helper_recursive(root->right);
@@ -22,7 +22,7 @@ public:
         helper_recursive(root);
         
         for (const auto& elem : map){
-            if (elem.second == max_value) result.push_back(elem.first);
+            if (elem.second == max_freq_value) result.push_back(elem.first);
         }
         
         return result;
@@ -30,5 +30,5 @@ public:
     
 private:
     unordered_map<int, int> map;
-    int max_value = 0;
+    int max_freq_value = 0;
 };
