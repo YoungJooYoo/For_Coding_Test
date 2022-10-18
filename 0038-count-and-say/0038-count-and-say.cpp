@@ -7,21 +7,21 @@ public:
             return "";
         }
         
-        string res = "1";
+        string result = "1";
         
-        while (--n) {
+        while (--n != 0) {
             string cur = "";
-            for (int i = 0; i < res.size(); i++) {
+            for (int i = 0; i < result.size(); i++) {
                 int count = 1;
-                 while ((i + 1 < res.size()) && (res[i] == res[i + 1])){
+                 while ((i + 1 < result.size()) && (result[i] == result[i + 1])){
                     count++;    
                     i++;
                 }
-                cur += to_string(count) + res[i];
+                cur += to_string(count) + result[i];
             }
-            res = cur;
+            result = cur;
         }
         
-        return res;
+        return result;
     }
 };
