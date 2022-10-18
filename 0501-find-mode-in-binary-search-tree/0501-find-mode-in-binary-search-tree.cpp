@@ -24,6 +24,7 @@ public:
         
         return res;
     }
+    
 private:
     unordered_map<int, int> map;
     int fre;
