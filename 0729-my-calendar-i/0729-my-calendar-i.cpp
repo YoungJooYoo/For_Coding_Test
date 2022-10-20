@@ -8,7 +8,7 @@ public:
     {
         auto itr = days.upper_bound(start);
         
-        if (itr == days.end() || end <= itr->second) {
+        if (itr == days.end() || end <= itr->second) { // start 체크, end c체크
             days[end] = start;
             return true;
         }
