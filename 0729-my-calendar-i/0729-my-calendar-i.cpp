@@ -12,7 +12,6 @@ public:
             days[end] = start;
             return true;
         }
-
         
         return false;
     }
