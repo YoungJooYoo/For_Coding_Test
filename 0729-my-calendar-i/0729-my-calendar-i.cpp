@@ -1,13 +1,17 @@
 class MyCalendar {
-private:
-    vector<pair<int, int>> calendar;
-
 public:
+    map<int,int> m;
+    MyCalendar() {
+        
+    }
+    
     bool book(int start, int end) {
-        for (const auto [s, e] : calendar) {
-            if (start < e && s < end) return false;
-        }
-        calendar.emplace_back(start, end);
-        return true;
+        auto p= m.upper_bound(start);
+        if(p== m.end() || end <= p->second) 
+        {
+            m[end]=start;
+            return true;
+        } 
+        return false;
     }
 };
