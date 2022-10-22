@@ -9,7 +9,7 @@ public:
         dp[0] = 1;
         
         for (const auto& coin : coins) {
-            for (int i = coin; i < amount + 1; i++) {
+            for (int i = coin; i <= amount; i++) {
                 dp[i] += dp[i - coin];
             }
         }
