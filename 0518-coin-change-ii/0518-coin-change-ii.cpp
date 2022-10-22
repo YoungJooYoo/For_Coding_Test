@@ -4,7 +4,7 @@ public:
     int change(int amount, vector<int>& coins) 
     {
         int size = coins.size();
-        vector<int> dp(5000 + 1, 0);   //dp 배열만들어서 진행하기 dp[0] = 1   
+        vector<int> dp(ARR_LENGTH + 1, 0);   //dp 배열만들어서 진행하기 dp[0] = 1   
         
         dp[0] = 1;
         
@@ -16,4 +16,7 @@ public:
         
         return dp[amount];
     }
+    
+private:
+    enum { ARR_LENGTH = 5000 };
 };
