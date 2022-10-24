@@ -2,7 +2,7 @@ class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) 
     {
-        vector<int> dp(amount + 1, INT_MAX - 1); // i <= amount 까지므로 배열 길이는 amount + 1
+        vector<int> dp(amount + 1, INT_MAX - 1); // INT_MAX 사용시 오버플로우 날 수 있음.
         dp[0] = 0; 
         
         for (size_t i = 1; i <= amount; i++) { 
@@ -15,6 +15,7 @@ public:
         
         return dp[amount] > amount ? -1 : dp[amount];
     }
+    
 private:
     enum { ONE_COIN = 1 };
 };
