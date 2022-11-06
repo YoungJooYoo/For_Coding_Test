@@ -19,6 +19,7 @@ public:
                 }
                 cur += to_string(count) + result[i];
             }
+            
             result = cur;
         }
         
