@@ -3,20 +3,18 @@ public:
     int balancedStringSplit(string s) 
     {
         int count = 0;
-        size_t count_r = 0;
-        size_t count_l = 0;
+        size_t flag = 0;
         
         for (const auto& ch : s) {
             if (ch == 'R') {
-                count_r++;
+                flag++;
             }
             else if (ch == 'L') {
-                count_l++;
+                flag--;
             }
-            if (count_r == count_l) {
+            if (flag == 0) {
                 count++;
-                count_r = 0;
-                count_l = 0;
+                flag = 0;
             }
         }
         
