@@ -16,9 +16,9 @@ public:
             else if (ch == 'n') n++;
         }
         
-        l_2 = l_2 / 2;
+        l_2 = l_2 / 2; // 2개씩 소모하므로 2로 나눈다. 
         o_2 = o_2 / 2;
         
-        return min({a, b, l_2, o_2, n});
+        return min({a, b, l_2, o_2, n}); // 최소 갯수가, balloon이 나올 수 있는 숫자
     }
 };
