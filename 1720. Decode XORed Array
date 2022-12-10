@@ -5,7 +5,7 @@ public:
         vector<int> result = {first, };
 
         for (const auto& elem : encoded) {
-            first ^= elem;
+            first ^= elem; 
             result.push_back(first);
         }
 
