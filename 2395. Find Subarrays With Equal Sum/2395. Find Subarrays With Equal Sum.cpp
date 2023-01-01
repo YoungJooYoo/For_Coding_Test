@@ -7,14 +7,11 @@ public:
         for (size_t i = 0; i < nums.size() - 1; ++i) {
             int sum = nums[i] + nums[i + 1];
             freq[sum]++;
-        }
-
-        for (const auto& elem : freq) {
-            if (elem.second != 1) {
+            if (freq[sum] != 1) {
                 return true;
             } 
         }
-
+        
         return false;
     }
 };
