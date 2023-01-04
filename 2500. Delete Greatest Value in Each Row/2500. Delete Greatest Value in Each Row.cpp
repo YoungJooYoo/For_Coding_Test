@@ -1,21 +1,25 @@
 class Solution {
 public:
-    vector<vector<int>> indexPairs(string text, vector<string>& words) 
+    int deleteGreatestValue(vector<vector<int>>& grid) 
     {
-        vector<vector<int>> result;
+        set<int> nums;
+        int ans = 0;
 
-        for (const auto& word : words) {
-            int pos = text.find(word);
-            while (pos != string::npos) {
-                result.push_back({pos, pos + (int)word.size() - 1}); // 시작점, 시작점 + 단어길이  묶음으로 배열에 집어 넣는다.
-                pos = text.find(word, pos + 1); // 다음 탐색 위치는, 탐색된 위치 pos + 1 그 다음부터 다시 검색한다.
+        // 행마다 정렬 후, 열중의 최대 값만 모아서 계산하기
+        for (auto& row : grid) {
+            sort(row.begin(), row.end());
+        }    
+
+        for (size_t j = 0; j < grid[0].size(); ++j) {
+            int max = -1;
+            for (size_t i = 0; i < grid.size(); ++i) {
+                if (max < grid[i][j]) max = grid[i][j];
             }
-        }   
+            ans += max;
+        }
 
-        sort(result.begin(), result.end());
-        
-        return result;
+        return ans;
     }
 };
 
-// https://leetcode.com/problems/index-pairs-of-a-string/description/
+// https://leetcode.com/problems/delete-greatest-value-in-each-row/description/
