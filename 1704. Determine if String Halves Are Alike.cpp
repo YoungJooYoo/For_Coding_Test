@@ -13,7 +13,7 @@ public:
 
     bool halvesAreAlike(string s) 
     {
-        size_t SIZE = s.size();
+        const size_t SIZE = s.size();
         size_t vowel_1 = 0;
         size_t vowel_2 = 0;
 
@@ -28,7 +28,5 @@ public:
     }
 
 private:
-    string vowel = "aeiouAEIOU";
+    const string vowel = "aeiouAEIOU";
 };
-
-// https://leetcode.com/problems/determine-if-string-halves-are-alike/description/
