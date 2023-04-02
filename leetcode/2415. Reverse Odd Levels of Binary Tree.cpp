@@ -20,6 +20,6 @@ public:
 
         return root;
     }
-};
+}; 
 
 // https://leetcode.com/problems/reverse-odd-levels-of-binary-tree/description/
