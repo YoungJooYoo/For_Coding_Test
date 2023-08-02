@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int countVowelSubstrings(string word) 
+    {
+        const size_t SIZE = word.size();
+        int count = 0;
+
+        for (size_t i = 0; i < SIZE; ++i) {
+            set<char> set;
+            for (size_t j = i; j < SIZE; ++j) {
+                if (is_vowel(word[j]) == false) break;
+                set.insert(word[j]);
+                if (set.size() == 5) ++count;
+            }
+        }
+
+        return count;
+    }
+    
+    static bool is_vowel(const char ch)
+    {
+        return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+    }
+};
+
+// https://leetcode.com/problems/count-vowel-substrings-of-a-string/description/
