@@ -35,3 +35,27 @@ public:
 };
 
 // https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description/
+
+
+
+// or
+
+class Solution {
+public:
+    ListNode* insertGreatestCommonDivisors(ListNode* head) 
+    {
+        ListNode* curr = head;
+        ListNode* next = head->next;
+
+        while (next != nullptr) {
+            int div = gcd(curr->val, next->val);
+            ListNode* node = new ListNode(div);
+            curr->next = node;
+            node->next = next;
+            curr = next;
+            next = next->next;
+        }
+
+        return head;
+    }
+};
