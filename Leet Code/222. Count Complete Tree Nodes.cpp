@@ -11,7 +11,7 @@ public:
         dfs(root->right);
     }
 
-    int countNodes(const TreeNode* const const root) 
+    int countNodes(const TreeNode* const root) 
     {
         dfs(root);
         return count;
@@ -20,3 +20,5 @@ public:
 private: 
     int count = 0;
 };
+
+// https://leetcode.com/problems/count-complete-tree-nodes/description/
