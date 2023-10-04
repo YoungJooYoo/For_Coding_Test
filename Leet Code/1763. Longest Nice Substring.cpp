@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool check(const string const temp) const
+    bool hasUpperAndLowerCase(const string& temp) const
     {
         for (size_t i = 0; i< temp.size(); ++i) {
             char ch = temp[i];
@@ -13,7 +13,7 @@ public:
         return true;
     }
 
-    string longestNiceSubstring(const string const s) const
+    string longestNiceSubstring(const string& s) const
     {
         const size_t LEN = s.size();
         string result;
@@ -23,7 +23,7 @@ public:
             temp += s[i];
             for(size_t j = i + 1; j < LEN; ++j) {
                 temp += s[j];
-                if (check(temp) == true && temp.size() > result.size()) {
+                if (hasUpperAndLowerCase(temp) == true && temp.size() > result.size()) {
                     result = temp;
                 }
             }
