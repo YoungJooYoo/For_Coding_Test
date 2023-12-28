@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int minCostToMoveChips(const vector<int>& position) 
+    {
+        int odd_pos = 0;
+        int even_pos = 0;
+
+        for (const int& pos : position) {
+            (pos & 1) == 1 ? ++odd_pos : ++even_pos;
+        }
+            
+        return min(odd_pos, even_pos);
+    }
+};
+
+/*
+풀이 :
+
+우리에게는 두 가지 종류의 이동 방법만 있습니다:
+
+±2 (무료) 및
+±1 (비용 1 소요)
+비용을 최소화하려면 ±2 이동을 가능한 한 많이 사용하여 칩을 동일한 위치로 가져와야 합니다. 
+±1 이동은 절대 필요할 때만 사용합니다. 여기서 중요한 것은 모든 짝수 위치의 칩을 동일한 위치인 p_even으로 이동시킬 수 있다는 것입니다. 
+마찬가지로 모든 홀수 위치의 칩을 동일한 위치인 p_odd로 이동시킬 수 있습니다. 
+또한 p_odd = p_even ± 1이 되도록 할 수 있으며, 다시 말해서 ±2 이동만을 사용하여 모든 홀수 위치의 칩을 짝수 위치의 칩과 인접하도록 만들 수 있습니다. 
+이러한 이동에는 비용이 들지 않습니다.
+
+이제 이 시점에서 모든 칩을 동일한 위치로 이동해야 하는 경우 반드시 ±1 이동을 사용해야 합니다. 
+다음 중 하나를 선택할 수 있습니다.
+
+모든 p_odd 위치의 칩을 p_even 위치로 이동시키고, p_odd 위치의 칩마다 ±1 이동을 사용합니다. 이렇게 하면 비용은 p_odd 위치의 칩의 수와 같습니다 (각 칩당 1개).
+모든 p_even 위치의 칩을 p_odd 위치로 이동시키고, p_even 위치의 칩마다 ±1 이동을 사용합니다. 이렇게 하면 비용은 p_even 위치의 칩의 수와 같습니다.
+
+따라서 홀수 위치의 칩의 수나 짝수 위치의 칩의 수 중 더 작은 쪽에서 ±1 이동을 사용합니다.
+
+*/
+
+// https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/description/
