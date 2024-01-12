@@ -3,7 +3,6 @@ public:
     int incremovableSubarrayCount(vector<int>& nums) 
     {
         const size_t LEN = nums.size();
-        int total_subarr = 0;
         int count = 0;
 
         for (size_t i = 0; i < LEN; ++i) {
