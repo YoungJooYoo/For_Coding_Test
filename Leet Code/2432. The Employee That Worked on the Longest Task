@@ -1,0 +1,74 @@
+class Solution {
+public:
+    int hardestWorker(const int n, const vector<vector<int>>& logs) 
+    {
+        int max_task_time = 0;
+        int employee_id = 0;
+        int prev_time = 0;
+
+        for (const auto& log : logs) {
+            const int curr_time = log[1] - prev_time;
+            if (curr_time == max_task_time) {
+                employee_id = min(employee_id, log[0]);
+            }
+            else if (max_task_time < curr_time) {
+                max_task_time = curr_time;
+                employee_id = log[0];
+            }
+            prev_time = log[1];
+        }
+
+        return employee_id;
+    }
+};
+
+// https://leetcode.com/problems/the-employee-that-worked-on-the-longest-task/description/
+
+/*
+
+2432. 가장 긴 작업을 수행한 직원
+쉬움
+주제: 회사
+힌트: n명의 직원이 있으며, 각각의 ID는 0부터 n - 1까지 고유합니다.
+
+n명의 직원이 있고, 각 직원은 0부터 n - 1까지 고유한 ID를 가집니다.
+
+2차원 정수 배열 logs가 주어지는데, logs[i] = [idi, leaveTimei] 형태로 주어집니다. 여기서:
+
+- idi는 i번째 작업을 수행한 직원의 ID입니다.
+- leaveTimei는 직원이 i번째 작업을 완료한 시간입니다. 모든 leaveTimei 값은 고유합니다.
+- i번째 작업은 (i - 1)번째 작업이 종료된 직후에 시작되며, 0번째 작업은 시간 0에 시작합니다.
+
+가장 오랜 시간을 소요한 작업을 수행한 직원의 ID를 반환합니다. 만약 여러 직원이 동일한 길이의 작업을 수행했다면, 그 중에서 가장 작은 ID를 반환합니다.
+
+예제 1:
+
+입력: n = 10, logs = [[0,3],[2,5],[0,9],[1,15]]
+출력: 1
+설명:
+작업 0은 0부터 3까지 3시간이 소요됩니다.
+작업 1은 3부터 5까지 2시간이 소요됩니다.
+작업 2는 5부터 9까지 4시간이 소요됩니다.
+작업 3은 9부터 15까지 6시간이 소요됩니다.
+가장 오랜 시간이 소요된 작업은 작업 3이며, 이를 수행한 직원의 ID는 1입니다. 따라서 1을 반환합니다.
+
+예제 2:
+
+입력: n = 26, logs = [[1,1],[3,7],[2,12],[7,17]]
+출력: 3
+설명:
+작업 0은 0부터 1까지 1시간이 소요됩니다.
+작업 1은 1부터 7까지 6시간이 소요됩니다.
+작업 2는 7부터 12까지 5시간이 소요됩니다.
+작업 3은 12부터 17까지 5시간이 소요됩니다.
+가장 오랜 시간이 소요된 작업은 작업 1입니다. 이를 수행한 직원은 3이므로, 3을 반환합니다.
+
+예제 3:
+
+입력: n = 2, logs = [[0,10],[1,20]]
+출력: 0
+설명:
+작업 0은 0부터 10까지 10시간이 소요됩니다.
+작업 1은 10부터 20까지 10시간이 소요됩니다.
+가장 오랜 시간이 소요된 작업은 작업 0과 작업 1입니다. 이를 수행한 직원은 각각 0과 1이며, 이 중에서 가장 작은 ID는 0입니다. 따라서 0을 반환합니다.
+*/
