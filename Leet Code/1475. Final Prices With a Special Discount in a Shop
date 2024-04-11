@@ -1,0 +1,42 @@
+class Solution {
+public:
+    vector<int> finalPrices(const vector<int>& prices) 
+    {
+        const int n = prices.size();
+        vector<int> answer(n, 0);
+
+        for (int i = 0; i < n; ++i) {
+            int discount = 0;
+            for (int j = i + 1; j < n; ++j) {
+                if (prices[j] <= prices[i]) {
+                    discount = prices[j];
+                    break;
+                }
+            }
+            answer[i] = prices[i] - discount;
+        }
+
+        return answer;
+    }
+};
+
+// https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
+
+/*
+
+이 문제는 가게에서 판매되는 물품의 가격이 주어질 때, 특별 할인이 적용된 최종 가격을 계산하는 문제입니다.
+
+각 물품의 가격에 대해, 해당 물품을 살 경우 특별 할인이 적용됩니다. 이 특별 할인은 현재 물품보다 가격이 낮은 다음 물품의 가격에 해당합니다. 만약 그러한 다음 물품이 없거나 가격이 현재 물품보다 높다면 할인을 받지 못합니다.
+
+주어진 가격 배열에 대해, 각 물품의 최종 가격을 계산하여 반환하는 것이 목표입니다.
+
+예를 들어, prices = [8,4,6,2,3]인 경우:
+
+물품 0의 가격은 8이고, 다음 물품의 가격은 4이므로 할인 받아 최종 가격은 8 - 4 = 4가 됩니다.
+물품 1의 가격은 4이고, 다음 물품의 가격은 2이므로 할인 받아 최종 가격은 4 - 2 = 2가 됩니다.
+물품 2의 가격은 6이고, 다음 물품의 가격은 2이므로 할인 받아 최종 가격은 6 - 2 = 4가 됩니다.
+물품 3과 4는 할인을 받지 못하므로 가격이 그대로 유지됩니다.
+따라서 최종 결과는 [4,2,4,2,3]이 됩니다.
+
+이 문제를 풀기 위해서는 각 물품의 가격을 순회하면서 다음 물품의 가격을 찾고, 할인을 받을 수 있는 경우 해당 할인을 적용한 최종 가격을 계산하면 됩니다.
+*/
