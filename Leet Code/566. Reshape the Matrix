@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(const vector<vector<int>>& mat, const int r, const int c) 
+    {
+        if (r * c != mat.size() * mat[0].size())  {
+            return mat;
+        }
+
+        vector<vector<int>> result(r, vector<int>(c, 0));
+        vector<int> array;
+
+        for (const auto nums : mat) {
+            for (const auto elem : nums) {
+                array.push_back(elem);
+            }
+        }
+
+        int idx = 0;
+        for (auto& row : result) {
+            for (auto& elem : row) {
+                elem = array[idx++];
+            }
+        }
+
+        return result;
+    }
+};
+
+// https://leetcode.com/problems/reshape-the-matrix/
