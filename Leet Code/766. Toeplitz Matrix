@@ -1,0 +1,32 @@
+class Solution 
+{
+public:
+    bool isToeplitzMatrix(const vector<vector<int>>& matrix) 
+    {
+        const size_t row = matrix.size();
+        const size_t col = matrix[0].size();
+
+        for (size_t i = 0; i < row; ++i)
+        {
+            for (size_t j = 0; j < col; ++j)
+            {
+                size_t k = i;
+                size_t l = j;
+                const int prev = matrix[i][j];
+                while (k < row && l < col)
+                {
+                    if (matrix[k][l] != prev)
+                    {
+                        return false;
+                    }
+                    ++k;
+                    ++l;
+                }
+            }
+        }
+
+        return true;
+    }
+};
+
+// https://leetcode.com/problems/toeplitz-matrix/description/
