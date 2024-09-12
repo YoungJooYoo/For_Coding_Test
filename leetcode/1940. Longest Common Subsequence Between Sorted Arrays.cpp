@@ -1,18 +1,16 @@
 class Solution 
 {
 public:
-    vector<int> longestCommonSubsequence(vector<vector<int>>& arrays) 
+    vector<int> longestCommonSubsequence(const vector<vector<int>>& arrays) 
     {
         vector<int> result;
         unordered_map<int ,int> freq;
-        int max_freq_count = numeric_limits<int>::min();
 
         for (const auto& array : arrays)
         {
             for (const auto num : array)
             {
                 ++freq[num];
-                max_freq_count= max(max_freq_count, freq[num]);
             }
         }
 
@@ -29,7 +27,7 @@ public:
     }
 };
 
-// https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays/description/
+// https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays/
 
 /*
 번역: 1940. 정렬된 배열들 간의 가장 긴 공통 부분 수열 난이도: 중간 주제 힌트 정수 배열들의 배열 arrays가 주어집니다. 각 arrays[i]는 엄격하게 증가하는 순서로 정렬되어 있습니다. 모든 배열 간의 가장 긴 공통 부분 수열을 나타내는 정수 배열을 반환하세요.
@@ -79,5 +77,3 @@ arrays[i]는 엄격하게 증가하는 순서로 정렬되어 있습니다.
 
 
 */
-
-// https://leetcode.com/problems/longest-common-subsequence-between-sorted-arrays/
