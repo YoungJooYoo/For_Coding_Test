@@ -1,0 +1,41 @@
+class Solution 
+{
+public:
+    vector<int> sortJumbled(const vector<int>& mapping, const vector<int>& nums) 
+    {
+        map<int, vector<int>> mappedGroups;
+        vector<int> result;
+
+        groupByMappedValues(nums, mapping, mappedGroups); // 숫자들을 매핑 값으로 그룹화
+
+        for (const auto& [mappedValue, originalNums] : mappedGroups) 
+        {
+            for (const auto& originalNum : originalNums) 
+            {
+                result.push_back(originalNum);
+            }
+        }
+
+        return result;
+    }
+
+private:
+    void groupByMappedValues(const vector<int>& nums, const vector<int>& mapping, map<int, vector<int>>& mappedGroups) const     // 숫자들을 매핑 값으로 변환하여 그룹화
+    {
+        for (const auto& num : nums) 
+        {
+            const string numStr = to_string(num);
+            int mappedValue = 0;
+            
+            for (const char digitChar : numStr) // 각 자릿수를 매핑 값으로 변환
+            {
+                const int digit = digitChar - '0';
+                mappedValue = (mappedValue * 10) + mapping[digit];
+            }
+
+            mappedGroups[mappedValue].push_back(num); // 매핑 값과 원래 숫자를 그룹화
+        }
+    }
+};
+
+// https://leetcode.com/problems/sort-the-jumbled-numbers/description/
