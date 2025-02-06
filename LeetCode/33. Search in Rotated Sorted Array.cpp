@@ -6,15 +6,15 @@ public:
         assert (MIN_LENGTH <= nums.size() && nums.size() <= MAX_LENGTH);
         const int pivotIndex = findPivot(nums);
         const int foundIndexLeftSide = binarySearch(nums, target, 0, pivotIndex - 1);
-        const int foundIndexLeftRight = binarySearch(nums, target, pivotIndex, nums.size() - 1);
+        const int foundIndexRightSide = binarySearch(nums, target, pivotIndex, nums.size() - 1);
 
         if (foundIndexLeftSide != FAIL)
         {
             return foundIndexLeftSide;
         }
-        else if (foundIndexLeftRight != FAIL)
+        else if (foundIndexRightSide != FAIL)
         {
-            return foundIndexLeftRight;
+            return foundIndexRightSide;
         }  
     
         return FAIL;
@@ -80,8 +80,6 @@ private:
         MAX_VALUE = 10000,
     };
 };
-
-// https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 
 /*
 33. 회전된 정렬 배열에서 검색
