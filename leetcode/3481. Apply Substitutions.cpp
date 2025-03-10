@@ -10,7 +10,7 @@ public:
         {
             const string& key = replacement[0];
             const string& value = replacement[1];
-            substitutionMap[key] = value; 
+            substitutionMap[key] = value;
             assert(value.size() <= MAX_VALUE_LENGTH);
         }
         assert(substitutionMap.size() == replacements.size());
@@ -38,15 +38,8 @@ private:
                 placeholderKey.push_back(text[index + 1]);
                 
                 const auto& it = substitutionMap.find(placeholderKey); // substitutionMap에서 치환 값 검색
-                if (it != substitutionMap.end())
-                {
-                    result += it->second;
-                }
-                else
-                {
-                    result.append(text, index, 3); // 매핑에 없는 경우 원래 패턴 그대로 복사
-                }
-                
+                assert(it != substitutionMap.end()); // 문제 가정상 반드시 해시맵 내에 존재해야함
+                result += it->second;
                 index += 3; // 플레이스홀더 3문자 건너뛰기
             }
             else
@@ -83,9 +76,6 @@ private:
         MAX_VALUE_LENGTH = 8,
     };
 };
-
-
-// https://leetcode.com/problems/apply-substitutions/description/
 
 
 /*
