@@ -1,0 +1,67 @@
+class Solution 
+{
+public:
+    vector<string> removeSubfolders(vector<string>& folder) const
+    {
+        sort(folder.begin(), folder.end());
+        vector<string> filtered;
+
+        for (const auto& path : folder)
+        { 
+            if (filtered.empty() == true)
+            {
+                filtered.push_back(path);
+            }
+            else if (path.rfind(filtered.back() + "/", 0) == string::npos)
+            {
+                filtered.push_back(path);
+            }
+        }
+
+        return filtered;
+    }
+};
+
+// https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/description/
+
+/*
+### 1233. 파일시스템에서 하위 폴더 제거
+**중간 난이도**
+
+**주제**
+**회사**
+**힌트**
+
+폴더 목록 `folder`가 주어졌을 때, 해당 폴더들에서 모든 하위 폴더를 제거한 후 폴더 목록을 반환하세요. 답은 어떤 순서로든 반환할 수 있습니다.
+
+만약 `folder[i]`가 다른 `folder[j]` 안에 위치한다면, 이는 `folder[j]`의 하위 폴더라고 합니다. `folder[j]`의 하위 폴더는 `folder[j]`로 시작한 뒤 "/"가 따라와야 합니다. 예를 들어, "/a/b"는 "/a"의 하위 폴더이지만, "/b"는 "/a/b/c"의 하위 폴더가 아닙니다.
+
+경로의 형식은 다음과 같습니다: '/'로 시작하며, 그 뒤에 하나 이상의 소문자 영어 알파벳이 연결된 문자열이 하나 이상 이어집니다.
+
+예를 들어, "/leetcode"와 "/leetcode/problems"는 유효한 경로이지만, 빈 문자열이나 "/"는 유효하지 않습니다.
+
+**예제 1:**
+
+입력: `folder = ["/a","/a/b","/c/d","/c/d/e","/c/f"]`  
+출력: `["/a","/c/d","/c/f"]`  
+설명: "/a/b"는 "/a"의 하위 폴더이고, "/c/d/e"는 파일시스템에서 "/c/d" 안에 있는 폴더입니다.
+
+**예제 2:**
+
+입력: `folder = ["/a","/a/b/c","/a/b/d"]`  
+출력: `["/a"]`  
+설명: "/a/b/c"와 "/a/b/d"는 "/a"의 하위 폴더이므로 제거됩니다.
+
+**예제 3:**
+
+입력: `folder = ["/a/b/c","/a/b/ca","/a/b/d"]`  
+출력: `["/a/b/c","/a/b/ca","/a/b/d"]`
+
+**제약 조건:**
+
+- `1 <= folder.length <= 4 * 10^4`
+- `2 <= folder[i].length <= 100`
+- `folder[i]`는 소문자 영어 알파벳과 '/'만 포함합니다.
+- `folder[i]`는 항상 '/' 문자로 시작합니다.
+- 각 폴더 이름은 고유합니다.
+*/
